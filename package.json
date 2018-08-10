@@ -1,0 +1,23 @@
+{
+  "name": "ron-hub",
+  "version": "1.0.0",
+  "description": "Hub for Remnants of Naezith game's leaderboard and user data, React & Node.js website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "remnants",
+    "of",
+    "naezith",
+    "ron",
+    "hub",
+    "react",
+    "node"
+  ],
+  "author": "Tolga Ay",
+  "license": "MIT",
+  "dependencies": {
+    "react": "^16.4.2"
+  }
+}
