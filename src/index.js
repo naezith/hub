@@ -1,14 +1,8 @@
 import React from 'react';
-import { render } from 'react-dom';
-import '../styles.scss';
+import ReactDOM from 'react-dom';
+import './index.css';
+import App from './App';
+import registerServiceWorker from './registerServiceWorker';
 
-const App = () => {
-  return (
-    <div>
-      <h3>Perkele helvetti saatana</h3>
-      <p>пиздец иди нахуй сука блять</p>
-    </div>
-  );
-}
-
-render(<App />, document.getElementById('app'));
+ReactDOM.render(<App />, document.getElementById('root'));
+registerServiceWorker();
