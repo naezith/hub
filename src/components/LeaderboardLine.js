@@ -18,7 +18,6 @@ let rank_images = '/img/ranks/';
 class LeaderboardLine extends Component {
     getRankImage = (name) => ( <img src={rank_images + name + '.png'} alt={name} /> )
     
-
     render() {
         let { badge, eq_rank, global_score, username } = this.props; // id, rank
 
