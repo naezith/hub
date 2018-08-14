@@ -3,7 +3,6 @@ import LeaderboardLine from "./LeaderboardLine.js";
 
 var fetch = require('isomorphic-fetch');
 
-
 var line_count = 10;
 
 class Leaderboard extends Component {
@@ -12,7 +11,8 @@ class Leaderboard extends Component {
         this.state = {
             start_rank: 0,
             lines: [],
-            loading: true
+            loading: true,
+            error_msg: undefined
         };
     }
 
@@ -28,13 +28,24 @@ class Leaderboard extends Component {
                 body: JSON.stringify({ start_rank: req_state_rank })
             });
 
-            const content = await rawResponse.json();
-
-            this.setState({
-                start_rank: req_state_rank,
-                lines: content.lb_data,
-                loading: false
+            var success = true;
+            const content = await rawResponse.json().catch((e) => { 
+                console.log('Fetched data is corrupted, probably server is down', e); 
+                success = false; 
             });
+
+            if(!success || !content || !content.lb_data) 
+                this.setState({ 
+                    loading: false, 
+                    error_msg: 'The game server is down'
+                });
+            else 
+                this.setState({
+                    start_rank: req_state_rank,
+                    lines: content.lb_data || [],
+                    loading: false,
+                    error_msg: undefined
+                });
         })();
     }
 
@@ -70,9 +81,10 @@ class Leaderboard extends Component {
                     </tbody>
                 </table>
 
-                { this.state.start_rank >= line_count ? 
-                    <button onClick={(event) => this.changePage(event, 'previous') } disabled={this.state.loading}>Previous</button> : undefined }
+                {this.state.start_rank >= line_count ? 
+                    <button onClick={(event) => this.changePage(event, 'previous') } disabled={this.state.loading}>Previous</button> : undefined}
                 <button onClick={(event) => this.changePage(event, 'next')} disabled={this.state.loading}>Next</button>  
+                <p>{this.state.error_msg}</p> 
             </div>
         )
     }
