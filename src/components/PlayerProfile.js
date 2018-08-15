@@ -52,37 +52,31 @@ class PlayerProfile extends Component {
         })();
     }
 
-    changePlayer(event, tag){
-        event.preventDefault();
-        this.setState({ loading: true });
-
-        this.fetchPlayerProfile(605 + 400*Math.random());
-    }
-
     render() { 
         return(
             <div>
                 <h1>Player</h1>
-                <table className="Leaderboard">
-                    <thead>
-                        <tr>
-                            <th>Level</th>
-                            <th>Time</th>
-                            <th>Mastery Time</th>
-                            <th>Rank</th>
-                            <th>Dominance</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {
-                            this.state.entries.map((l, i) => 
-                                <EntryLine key={i} {...l} />
-                            )
-                        }
-                    </tbody>
-                </table>
+                {this.state.loading ? 'LOADING...' : 
+                    <table className="Leaderboard">
+                        <thead>
+                            <tr>
+                                <th>Level</th>
+                                <th>Time</th>
+                                <th>Mastery Time</th>
+                                <th>Rank</th>
+                                <th>Dominance</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {
+                                this.state.entries.map((l, i) => 
+                                    <EntryLine key={i} {...l} />
+                                )
+                            }
+                        </tbody>
+                    </table>
+                }
 
-                <button onClick={(event) => this.changePlayer(event)} disabled={this.state.loading}>Next</button>  
                 <p>{this.state.error_msg}</p> 
             </div>
         )
