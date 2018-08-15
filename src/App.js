@@ -23,7 +23,7 @@ class App extends Component {
         <ul>
           <li><Link to="/">Home</Link></li>
           <li><Link to="/global">Global Rankings</Link></li>
-          <li><Link to="/player">Player</Link></li>
+          <li><Link to="/player/1">Player</Link></li>
         </ul>
 
       </div>

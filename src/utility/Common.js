@@ -12,6 +12,7 @@ export const getLevel = (level_id) => levels.find(l => l.id === level_id)
 
 export const getRankImage = (name) => 
     ( <img src={'/img/ranks/' + name + '.png'} alt={name} /> )
+    
 export const formatRank = (rank, player_count) => rank + '/' + player_count
 
 export const sortEntries = (entries) => entries

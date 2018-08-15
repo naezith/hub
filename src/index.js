@@ -13,11 +13,11 @@ ReactDOM.render(
 <Router>
     <div>
         <App />
-        
+
         <center>
         <Route exact path='/' component={Leaderboard}/>
         <Route path='/global' component={Leaderboard}/>
-        <Route path='/player' component={PlayerProfile}/>
+        <Route path='/player/:player_id' component={PlayerProfile}/>
         </center>
     </div>
 </Router>

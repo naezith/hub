@@ -17,7 +17,8 @@ class PlayerProfile extends Component {
     }
 
     componentWillMount() {
-        this.fetchPlayerProfile(this.state.player_id);
+        const { player_id } = this.props.match.params;
+        this.fetchPlayerProfile(player_id);
     }
 
     fetchPlayerProfile(req_player_id) {
@@ -34,7 +35,7 @@ class PlayerProfile extends Component {
                 success = false; 
             });
 
-            if(!success || !content) 
+            if(!success || !content || !content.data) 
                 this.setState({ 
                     loading: false, 
                     error_msg: 'The game server is down'
