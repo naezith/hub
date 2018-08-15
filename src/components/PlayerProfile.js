@@ -100,33 +100,34 @@ class PlayerProfile extends Component {
     render() { 
         return(
             <div>
-                <div className='player-info'>
-                    {getRankImage(ranks[this.state.badge])} <h2 className='same-line'>{this.state.username}</h2>
-                    <p>Rank: {formatRank(this.state.rank, this.state.player_count)}</p>
-                    <p>Dominance: {getDominancePerc(this.state.global_score, 'global')}</p>
-                </div>
-
                 {this.state.loading > 0 ? 'LOADING...' : 
-                    <table className="Leaderboard">
-                        <thead>
-                            <tr>
-                                <th>Level</th>
-                                <th>Time</th>
-                                <th>Mastery Time</th>
-                                <th>Rank</th>
-                                <th>Dominance</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {
-                                this.state.entries.map((l, i) => 
-                                    <EntryLine key={i} {...l} />
-                                )
-                            }
-                        </tbody>
-                    </table>
-                }
+                    <div>
+                        <div className='player-info'>
+                            {getRankImage(ranks[this.state.badge])} <h2 className='same-line'>{this.state.username}</h2>
+                            <p>Rank: {formatRank(this.state.rank, this.state.player_count)}</p>
+                            <p>Dominance: {getDominancePerc(this.state.global_score, 'global')}</p>
+                        </div>
 
+                        <table className="Leaderboard">
+                            <thead>
+                                <tr>
+                                    <th>Level</th>
+                                    <th>Time</th>
+                                    <th>Mastery Time</th>
+                                    <th>Rank</th>
+                                    <th>Dominance</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {
+                                    this.state.entries.map((l, i) => 
+                                        <EntryLine key={i} {...l} />
+                                    )
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                }
                 <p>{this.state.error_msg}</p> 
             </div>
         )
