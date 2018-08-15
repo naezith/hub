@@ -1,0 +1,9 @@
+
+.player-info {  
+    width: 100%;
+    margin: auto;
+}
+
+.same-line {  
+    display: inline-block;
+}

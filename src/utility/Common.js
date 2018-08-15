@@ -11,7 +11,7 @@ export const calcScore = (rank, player_count, type='level') =>
 export const getLevel = (level_id) => levels.find(l => l.id === level_id)
 
 export const getRankImage = (name) => 
-    ( <img src={'/img/ranks/' + name + '.png'} alt={name} /> )
+    ( <img className='rank-icon' src={'/img/ranks/' + name + '.png'} alt={name} /> )
 
 export const formatRank = (rank, player_count) => rank + '/' + player_count
 

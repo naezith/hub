@@ -1,16 +1,23 @@
 import React, { Component } from 'react';
 import EntryLine from './EntryLine';
-import { sortEntries } from '../utility/Common';
+import { sortEntries, getRankImage, formatRank, getDominancePerc } from '../utility/Common';
 import fetch from 'isomorphic-fetch';
+import { ranks } from '../data/naezith';
+import '../css/PlayerProfile.css';
 
 class PlayerProfile extends Component {
     constructor() {
         super();
         this.state = {
             player_id: 1,
+            username: '',
+            badge: undefined,
+            rank: undefined,
+            global_score: undefined,
+            player_count: undefined,
             entries: [],
-            secrets: [],
-            loading: true,
+
+            loading: 0,
             error_msg: undefined
         };
     }
@@ -21,8 +28,49 @@ class PlayerProfile extends Component {
     }
 
     fetchPlayerProfile(req_player_id) {
-        // Fetch Player Profile
-        ( async () => {
+        // Fetch Player Info
+        (async () => {
+            this.setState({ loading: this.state.loading + 1 });
+
+            const rawResponse = await fetch('/getGlobalRank', {
+                method: 'POST', headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ player_id: req_player_id })
+            });
+
+            var success = true;
+            var content = await rawResponse.json().catch((e) => { 
+                console.log('Fetched data is corrupted, probably server is down', e); 
+                success = false; 
+            });
+
+            content = content.lb_data[0];
+
+            if(!success || !content) 
+                this.setState({ 
+                    loading: this.state.loading - 1, 
+                    error_msg: 'The game server is down'
+                });
+            else {
+                this.setState({
+                    player_id: req_player_id,
+                    username: content.username,
+                    badge: content.badge,
+                    rank: content.eq_rank,
+                    global_score: content.global_score,
+                    player_count: content.player_count,
+                    loading: this.state.loading - 1,
+                    error_msg: undefined
+                });
+            }
+            console.log(content);
+        })();
+
+
+
+        // Fetch Player Levels
+        (async () => {
+            this.setState({ loading: this.state.loading + 1 });
+            
             const rawResponse = await fetch('/fetchFinishedLevels', {
                 method: 'POST', headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ player_id: req_player_id })
@@ -36,26 +84,29 @@ class PlayerProfile extends Component {
 
             if(!success || !content || !content.data) 
                 this.setState({ 
-                    loading: false, 
+                    loading: this.state.loading - 1, 
                     error_msg: 'The game server is down'
                 });
             else 
                 this.setState({
                     player_id: req_player_id,
                     entries: sortEntries(content.data) || [],
-                    secrets: content.secrets || [],
-                    loading: false,
+                    loading: this.state.loading - 1,
                     error_msg: undefined
                 });
-            console.log(content);
         })();
     }
 
     render() { 
         return(
             <div>
-                <h1>Player</h1>
-                {this.state.loading ? 'LOADING...' : 
+                <div className='player-info'>
+                    {getRankImage(ranks[this.state.badge])} <h2 className='same-line'>{this.state.username}</h2>
+                    <p>Rank: {formatRank(this.state.rank, this.state.player_count)}</p>
+                    <p>Dominance: {getDominancePerc(this.state.global_score, 'global')}</p>
+                </div>
+
+                {this.state.loading > 0 ? 'LOADING...' : 
                     <table className="Leaderboard">
                         <thead>
                             <tr>
