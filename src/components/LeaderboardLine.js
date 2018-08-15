@@ -1,32 +1,17 @@
-import React, { Component } from 'react';
-
-let max_score = 10000;
-let ranks = [
-    'Novice',
-    'Apprentice',
-    'Adept',
-    'Veteran',
-    'Expert',
-    'Master',
-    'Grandmaster',
-    'Inhuman',
-    'Descendant'
-];
-
-let rank_images = '/img/ranks/';
+import React, { Component } from '../../../../../Library/Caches/typescript/2.9/node_modules/@types/react';
+import { getDominancePerc, getRankImage } from '../utility/Common.js';
+import { max_scores } from '../data/levels'
 
 class LeaderboardLine extends Component {
-    getRankImage = (name) => ( <img src={rank_images + name + '.png'} alt={name} /> )
-    
     render() {
         let { badge, eq_rank, global_score, username } = this.props; // id, rank
 
         return (
             <tr>
                 <td>{ eq_rank }</td>
-                <td>{ this.getRankImage(ranks[badge]) }</td>
+                <td>{ getRankImage(ranks[badge]) }</td>
                 <td>{ username }</td>
-                <td>{ parseFloat(100*global_score/max_score).toFixed(3) }%</td>
+                <td>{ getDominancePerc(global_score/max_scores['global']) }</td>
             </tr>
         )
     }

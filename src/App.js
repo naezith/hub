@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import Leaderboard from './components/Leaderboard.js';
 import './App.css';
+
+//import Leaderboard from './components/Leaderboard.js';
+import PlayerProfile from './components/PlayerProfile';
 
 class App extends Component {
   constructor() {
@@ -14,14 +16,14 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <h1 className="App-title">Remnants of Naezith HUB</h1>
+          <h1 className="App-title">Remnants of Naezith Portal</h1>
         </header>
 
         <p className="App-intro">
           - This website is under construction -
         </p>
 
-        <Leaderboard />
+        <PlayerProfile />
       </div>
     );
   }
