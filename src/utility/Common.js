@@ -1,5 +1,5 @@
 import React from 'react'
-import levels, { max_scores } from '../data/levels.js'
+import { levels, max_scores } from '../data/naezith.js'
 
 export const getDominancePerc = (score, type='level', digits=2) => 
     parseFloat(100*score/max_scores[type]).toFixed(3) + '%'
@@ -12,7 +12,7 @@ export const getLevel = (level_id) => levels.find(l => l.id === level_id)
 
 export const getRankImage = (name) => 
     ( <img src={'/img/ranks/' + name + '.png'} alt={name} /> )
-    
+
 export const formatRank = (rank, player_count) => rank + '/' + player_count
 
 export const sortEntries = (entries) => entries

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { getDominancePerc, getRankImage } from '../utility/Common.js';
-import { ranks } from '../data/levels'
+import { ranks } from '../data/naezith.js'
 import { Link } from 'react-router-dom'
 
 class LeaderboardLine extends Component {

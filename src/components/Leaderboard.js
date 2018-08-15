@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import LeaderboardLine from "./LeaderboardLine.js";
-
-var fetch = require('isomorphic-fetch');
+import { fetch } from 'isomorphic-fetch';
 
 var line_count = 10;
 

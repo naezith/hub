@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import EntryLine from './EntryLine';
-import { sortEntries } from '../utility/Common'
-
-var fetch = require('isomorphic-fetch');
+import { sortEntries } from '../utility/Common';
+import { fetch } from 'isomorphic-fetch';
 
 class PlayerProfile extends Component {
     constructor() {

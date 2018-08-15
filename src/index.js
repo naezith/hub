@@ -2,9 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './index.css';
-import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 
+import Header from './components/Header';
 import Leaderboard from './components/Leaderboard';
 import PlayerProfile from './components/PlayerProfile';
 
@@ -12,7 +12,7 @@ ReactDOM.render(
 
 <Router>
     <div>
-        <App />
+        <Header />
 
         <center>
         <Route exact path='/' component={Leaderboard}/>

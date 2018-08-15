@@ -17,7 +17,7 @@ export const ranks = [
     'Descendant'
 ];
 
-let levels = [
+export const levels = [
 	{
 		id: 647,
 		name: 'Ruins',
@@ -635,5 +635,3 @@ let levels = [
 		has_secret: 0
 	}
 ];
-
-export default levels;
