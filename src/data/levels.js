@@ -5,6 +5,18 @@ export const max_scores = {
 	'global': 10000
 }
 
+export const ranks = [
+    'Novice',
+    'Apprentice',
+    'Adept',
+    'Veteran',
+    'Expert',
+    'Master',
+    'Grandmaster',
+    'Inhuman',
+    'Descendant'
+];
+
 let levels = [
 	{
 		id: 647,

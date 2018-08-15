@@ -14,5 +14,9 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
-  "proxy": "http://localhost"
+  "proxy": "http://localhost",
+  "devDependencies": {
+    "react-router": "^4.3.1",
+    "react-router-dom": "^4.3.1"
+  }
 }

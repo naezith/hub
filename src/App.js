@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-
-//import Leaderboard from './components/Leaderboard.js';
-import PlayerProfile from './components/PlayerProfile';
-
+import { Link } from 'react-router-dom'
 class App extends Component {
   constructor() {
     super();
@@ -23,7 +20,12 @@ class App extends Component {
           - This website is under construction -
         </p>
 
-        <PlayerProfile />
+        <ul>
+          <li><Link to="/">Home</Link></li>
+          <li><Link to="/global">Global Rankings</Link></li>
+          <li><Link to="/player">Player</Link></li>
+        </ul>
+
       </div>
     );
   }

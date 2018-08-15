@@ -1,6 +1,6 @@
-import React, { Component } from '../../../../../Library/Caches/typescript/2.9/node_modules/@types/react';
+import React, { Component } from 'react';
 import { getDominancePerc, getRankImage } from '../utility/Common.js';
-import { max_scores } from '../data/levels'
+import { ranks } from '../data/levels'
 
 class LeaderboardLine extends Component {
     render() {
@@ -11,7 +11,7 @@ class LeaderboardLine extends Component {
                 <td>{ eq_rank }</td>
                 <td>{ getRankImage(ranks[badge]) }</td>
                 <td>{ username }</td>
-                <td>{ getDominancePerc(global_score/max_scores['global']) }</td>
+                <td>{ getDominancePerc(global_score, 'global', 3) }</td>
             </tr>
         )
     }
