@@ -4,7 +4,6 @@
 
 .App-header {
   background-color: #222;
-  height: 40px;
   padding: 20px;
   color: white;
 }
@@ -17,6 +16,13 @@
   font-size: large;
 }
 
+.header-menu {
+}
+
+.header-menu-link {
+  padding-left: 20px;
+}
+
 img {
   height: 2.5em;
 }
@@ -24,4 +30,9 @@ img {
 td {
   padding-top: 0px;
   padding-left: 10px;
+}
+
+a {
+  color: blue;
+  text-decoration: none; /* no underline */
 }

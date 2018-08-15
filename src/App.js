@@ -14,17 +14,17 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <h1 className="App-title">Remnants of Naezith Portal</h1>
+          <div className='header-menu'>
+            <Link className='header-menu-link' to="/global-rankings">Global Rankings</Link>
+            <Link className='header-menu-link' to="/recent-wr">Recent World Records</Link> 
+            <Link className='header-menu-link' to="/levels">Levels</Link> 
+            <Link className='header-menu-link' to="/players">Search Players</Link> 
+          </div>
         </header>
 
         <p className="App-intro">
           - This website is under construction -
         </p>
-
-        <ul>
-          <li><Link to="/">Home</Link></li>
-          <li><Link to="/global">Global Rankings</Link></li>
-          <li><Link to="/player/1">Player</Link></li>
-        </ul>
 
       </div>
     );

@@ -16,7 +16,7 @@ ReactDOM.render(
 
         <center>
         <Route exact path='/' component={Leaderboard}/>
-        <Route path='/global' component={Leaderboard}/>
+        <Route path='/global-rankings' component={Leaderboard}/>
         <Route path='/player/:player_id' component={PlayerProfile}/>
         </center>
     </div>
