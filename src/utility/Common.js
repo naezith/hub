@@ -1,5 +1,11 @@
 import React from 'react'
+import fetch from 'isomorphic-fetch';
 import { levels, max_scores } from '../data/naezith.js'
+
+export const renameKey = (obj, oldkey, newkey) => {
+    obj[newkey] = obj[oldkey];
+    delete obj[oldkey];
+}
 
 export const getDominancePerc = (score, type='level', digits=2) => 
     parseFloat(100*score/max_scores[type]).toFixed(3) + '%'
@@ -33,3 +39,19 @@ export const formatTime = (ms) => {
 
     return minutes + ':' + seconds + '.' + milli;
 }
+
+export const fetchData = (query, data) => 
+    async () => {
+        const rawResponse = await fetch(query, {
+            method: 'POST', headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+        });
+
+        const content = await rawResponse.json().catch((e) => { 
+            return { error_msg: 'The game server is down' }
+        });
+
+        return { ...content, error_msg: undefined };
+    };
+
+export const startLoading = (comp) => comp.setState({ loading: comp.state.loading + 1 }) 
