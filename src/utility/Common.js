@@ -55,3 +55,7 @@ export const fetchData = (query, data) =>
     };
 
 export const startLoading = (comp, count = 1) => comp.setState({ loading: comp.state.loading + count }) 
+
+export const steamProfile = (id) => 'https://steamcommunity.com/profiles/' + id
+
+export const formatDate = (date) => date.substr(0, 10)

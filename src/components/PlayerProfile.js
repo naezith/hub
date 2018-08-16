@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import EntryLine from './EntryLine';
 import { sortEntries, getRankImage, formatRank, getDominancePerc, 
-    fetchData, startLoading, renameKey } from '../utility/Common';
+    fetchData, startLoading, renameKey, steamProfile, formatDate } from '../utility/Common';
 import { ranks } from '../data/naezith';
 import '../css/PlayerProfile.css';
 
@@ -10,6 +10,8 @@ class PlayerProfile extends Component {
         super();
         this.state = {
             player_id: 1,
+            steam_id: undefined,
+            register_date: undefined,
             username: '',
             badge: undefined,
             rank: undefined,
@@ -65,6 +67,8 @@ class PlayerProfile extends Component {
                     <div>
                         <div className='player-info'>
                             {getRankImage(ranks[this.state.badge])} <h2 className='same-line'>{this.state.username}</h2>
+                            <p>Playing since: {formatDate(this.state.register_date)}</p>
+                            <a href={steamProfile(this.state.steam_id)}>Steam Profile</a>
                             <p>Rank: {formatRank(this.state.rank, this.state.player_count)}</p>
                             <p>Dominance: {getDominancePerc(this.state.global_score, 'global')}</p>
                         </div>
