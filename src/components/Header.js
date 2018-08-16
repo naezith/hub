@@ -13,7 +13,7 @@ class Header extends Component {
     return (
       <div className="header-div">
         <header className="header">
-          <h1 className="header-title">Remnants of Naezith Portal</h1>
+          <h1 className="header-title">Remnants of Naezith Hub</h1>
           <div className='header-menu'>
             <Link className='header-menu-link' to="/global-rankings">Global Rankings</Link>
             <Link className='header-menu-link' to="/recent-wr">Recent World Records</Link> 
