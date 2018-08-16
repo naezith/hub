@@ -7,8 +7,8 @@ export const renameKey = (obj, oldkey, newkey) => {
     delete obj[oldkey];
 }
 
-export const getDominancePerc = (score, type='level', digits=2) => 
-    parseFloat(100*score/max_scores[type]).toFixed(3) + '%'
+export const getDominancePerc = (score, type='level', digits=3) => 
+    parseFloat(100*score/max_scores[type]).toFixed(digits) + '%'
 
 export const calcScore = (rank, player_count, type='level') => 
     max_scores[type]*

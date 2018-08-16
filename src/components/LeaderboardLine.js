@@ -12,7 +12,7 @@ class LeaderboardLine extends Component {
                 <td>{ eq_rank }</td>
                 <td>{ getRankImage(ranks[badge]) }</td>
                 <td><Link to={'/player/' + id}>{ username }</Link></td>
-                <td>{ getDominancePerc(global_score, 'global', 3) }</td>
+                <td>{ getDominancePerc(global_score, 'global') }</td>
             </tr>
         )
     }
