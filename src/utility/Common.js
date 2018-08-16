@@ -54,4 +54,4 @@ export const fetchData = (query, data) =>
         return { ...content, error_msg: undefined };
     };
 
-export const startLoading = (comp) => comp.setState({ loading: comp.state.loading + 1 }) 
+export const startLoading = (comp, count = 1) => comp.setState({ loading: comp.state.loading + count }) 

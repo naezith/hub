@@ -28,8 +28,9 @@ class PlayerProfile extends Component {
     }
 
     fetchPlayerProfile(req_player_id) {
+        startLoading(this, 2);
+        
         // Fetch Player Info
-        startLoading(this);
         fetchData('/getGlobalRank', { player_id: req_player_id })().then((content) => {
             // Set objects accordingly
             if(content.lb_data) {
@@ -37,13 +38,12 @@ class PlayerProfile extends Component {
                 renameKey(content, 'eq_rank', 'rank');
                 content.player_id = req_player_id;
             }
-            
+
             content.loading = this.state.loading - 1;
             this.setState(content);
         });
 
         // Fetch Player Entries
-        startLoading(this);
         fetchData('/fetchFinishedLevels', { player_id: req_player_id })().then((content) => {
             // Set objects accordingly
             if(content.data) {
@@ -60,7 +60,8 @@ class PlayerProfile extends Component {
     render() { 
         return(
             <div>
-                {this.state.loading > 0 ? 'LOADING...' : 
+                <h1>Player Profile</h1>
+                {this.state.loading > 0 ? <h1>Loading...</h1> : 
                     <div>
                         <div className='player-info'>
                             {getRankImage(ranks[this.state.badge])} <h2 className='same-line'>{this.state.username}</h2>
