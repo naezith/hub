@@ -7,6 +7,7 @@ import registerServiceWorker from './registerServiceWorker';
 import Header from './components/Header';
 import Leaderboard from './components/Leaderboard';
 import PlayerProfile from './components/PlayerProfile';
+import Players from './components/Players';
 
 ReactDOM.render(
 
@@ -17,6 +18,7 @@ ReactDOM.render(
         <center>
         <Route exact path='/' component={Leaderboard}/>
         <Route path='/global-rankings' component={Leaderboard}/>
+        <Route path='/players' component={Players}/>
         <Route path='/player/:player_id' component={PlayerProfile}/>
         </center>
     </div>
