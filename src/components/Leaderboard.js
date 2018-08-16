@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import LeaderboardLine from "./LeaderboardLine.js";
-import fetch from 'isomorphic-fetch';
+import { fetchData, renameKey, startLoading } from '../utility/Common.js';
 
 var line_count = 10;
 
@@ -20,32 +20,17 @@ class Leaderboard extends Component {
     }
 
     fetchGlobalRankings(req_state_rank) {
-        // Fetch Global Rankings
-        ( async () => {
-            const rawResponse = await fetch('/fetchGlobalRankings', {
-                method: 'POST', headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ start_rank: req_state_rank })
-            });
-
-            var success = true;
-            const content = await rawResponse.json().catch((e) => { 
-                console.log('Fetched data is corrupted, probably server is down', e); 
-                success = false; 
-            });
-
-            if(!success || !content || !content.lb_data) 
-                this.setState({ 
-                    loading: false, 
-                    error_msg: 'The game server is down'
-                });
-            else 
-                this.setState({
-                    start_rank: req_state_rank,
-                    lines: content.lb_data || [],
-                    loading: false,
-                    error_msg: undefined
-                });
-        })();
+        startLoading(this);
+        fetchData('/fetchGlobalRankings', { start_rank: req_state_rank })().then((content) => {
+            // Set objects accordingly
+            if(content.lb_data) {
+                renameKey(content, 'lb_data', 'lines');
+                content.start_rank = req_state_rank;
+                content.loading = false;
+            }
+            
+            this.setState(content);
+        });
     }
 
     changePage(event, tag){
