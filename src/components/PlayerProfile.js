@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import EntryLine from './EntryLine';
-import { sortEntries, getRankImage, formatRank, getDominancePerc } from '../utility/Common';
-import fetch from 'isomorphic-fetch';
+import { sortEntries, getRankImage, formatRank, getDominancePerc, 
+    fetchData, startLoading, renameKey } from '../utility/Common';
 import { ranks } from '../data/naezith';
 import '../css/PlayerProfile.css';
 
@@ -29,72 +29,32 @@ class PlayerProfile extends Component {
 
     fetchPlayerProfile(req_player_id) {
         // Fetch Player Info
-        (async () => {
-            this.setState({ loading: this.state.loading + 1 });
-
-            const rawResponse = await fetch('/getGlobalRank', {
-                method: 'POST', headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ player_id: req_player_id })
-            });
-
-            var success = true;
-            var content = await rawResponse.json().catch((e) => { 
-                console.log('Fetched data is corrupted, probably server is down', e); 
-                success = false; 
-            });
-
-            content = content.lb_data[0];
-
-            if(!success || !content) 
-                this.setState({ 
-                    loading: this.state.loading - 1, 
-                    error_msg: 'The game server is down'
-                });
-            else {
-                this.setState({
-                    player_id: req_player_id,
-                    username: content.username,
-                    badge: content.badge,
-                    rank: content.eq_rank,
-                    global_score: content.global_score,
-                    player_count: content.player_count,
-                    loading: this.state.loading - 1,
-                    error_msg: undefined
-                });
+        startLoading(this);
+        fetchData('/getGlobalRank', { player_id: req_player_id })().then((content) => {
+            // Set objects accordingly
+            if(content.lb_data) {
+                content = content.lb_data[0];
+                renameKey(content, 'eq_rank', 'rank');
+                content.player_id = req_player_id;
             }
-            console.log(content);
-        })();
-
-
-
-        // Fetch Player Levels
-        (async () => {
-            this.setState({ loading: this.state.loading + 1 });
             
-            const rawResponse = await fetch('/fetchFinishedLevels', {
-                method: 'POST', headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ player_id: req_player_id })
-            });
+            content.loading = this.state.loading - 1;
+            this.setState(content);
+        });
 
-            var success = true;
-            const content = await rawResponse.json().catch((e) => { 
-                console.log('Fetched data is corrupted, probably server is down', e); 
-                success = false; 
-            });
-
-            if(!success || !content || !content.data) 
-                this.setState({ 
-                    loading: this.state.loading - 1, 
-                    error_msg: 'The game server is down'
-                });
-            else 
-                this.setState({
-                    player_id: req_player_id,
-                    entries: sortEntries(content.data) || [],
-                    loading: this.state.loading - 1,
-                    error_msg: undefined
-                });
-        })();
+        // Fetch Player Entries
+        startLoading(this);
+        fetchData('/fetchFinishedLevels', { player_id: req_player_id })().then((content) => {
+            // Set objects accordingly
+            if(content.data) {
+                renameKey(content, 'data', 'entries');
+                content.entries = sortEntries(content.entries);
+                content.player_id = req_player_id;
+            }
+            
+            content.loading = this.state.loading - 1;
+            this.setState(content);
+        });
     }
 
     render() { 
