@@ -11,7 +11,7 @@ class EntryLine extends Component {
                 <td>{ formatTime(time) }</td>
                 <td>{ formatTime(official_time) }</td>
                 <td>{ formatRank(eq_rank, lb_size) }</td>
-                <td>{ getDominancePerc(calcScore(eq_rank, lb_size), 'level') }</td>
+                <td>{ getDominancePerc(calcScore(eq_rank, lb_size), 'level', 2) }</td>
             </tr>
         )
     }
