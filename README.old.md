@@ -1,1 +1,0 @@
-This is a hub website for Remnants of Naezith, made with React and Node.js. It displays Levels, Leaderboards, Players, and Global Rankings.
