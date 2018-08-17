@@ -19,7 +19,16 @@ export const fetchData = (query, data) =>
         return { ...content, error_msg: undefined }
     }
 
-export const startLoading = (comp, count = 1) => comp.setState({ loading: comp.state.loading + count }) 
+export const startLoading = (component, count = 1) => component.setState({ loading: component.state.loading + count }) 
 //export const stopLoading = (comp, count = 1) => comp.setState({ loading: comp.state.loading + count }) 
+
+export const mutateState = (component, promise) => {
+    startLoading(component)
+    promise.catch(content => content).then((content) => { 
+        content.loading = component.state.loading - 1
+        component.setState(content)
+    })
+}
+
 
 export const steamProfile = (id) => 'https://steamcommunity.com/profiles/' + id

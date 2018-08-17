@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import { startLoading } from '../utility/common'
+import { mutateState } from '../utility/common'
 import { fetchGlobalRankings } from '../utility/api'
 
 import LeaderboardLine from "./LeaderboardLine"
@@ -17,23 +17,17 @@ class Leaderboard extends Component {
             error_msg: undefined
         }
     }
+    
+    setGlobalRankings = (start_rank) => mutateState(this, fetchGlobalRankings(start_rank))
 
     componentWillMount() {
-        this.getGlobalRankings(this.state.start_rank)
-    }
-    
-    getGlobalRankings(req_state_rank) {
-        startLoading(this)
-        fetchGlobalRankings(req_state_rank).catch(content => content).then((content) => { 
-            content.loading = this.state.loading - 1
-            this.setState(content)
-        })
+        this.setGlobalRankings(this.state.start_rank)
     }
 
     changePage(event, tag){
         event.preventDefault()
 
-        this.getGlobalRankings(this.state.start_rank + 
+        this.setGlobalRankings(this.state.start_rank + 
             (tag === 'previous' ? -line_count : line_count))
     }
 
