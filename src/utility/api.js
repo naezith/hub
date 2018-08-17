@@ -1,5 +1,5 @@
 import { renameKey, fetchData } from '../utility/common'
-import { sortEntries } from '../utility/ron-hub'
+import { sortEntries, sortWRs } from '../utility/ron-hub'
 
 export const fetchGlobalRankings = (start_rank, line_count=10) => {
     return new Promise((resolve, reject) => {
@@ -65,7 +65,7 @@ export const fetchWRs = () => {
     return new Promise((resolve, reject) => {
         fetchData('/fetchWRs', { })().then((content) => {
             if(content.levels) {
-                console.log(content)
+                content.levels = sortWRs(content.levels)
 
                 resolve(content)
             }
