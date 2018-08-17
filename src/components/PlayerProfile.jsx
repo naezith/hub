@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 
-import SteamProfile from './SteamProfile'
-import RankIcon from './RankIcon'
-import EntryLine from './EntryLine'
+import { SteamProfile } from './render/SteamProfile'
+import { RankIcon } from './render/RankIcon'
+import { EntryLine } from './render/EntryLine'
 
 import { formatDominance, formatDate, formatRank } from '../utility/formatters'
 import { calcDominance } from '../utility/calculations'

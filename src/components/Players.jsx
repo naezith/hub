@@ -1,9 +1,8 @@
 import React, { Component } from 'react'
 
-import PlayersLine from './PlayersLine'
+import { PlayersLine } from './render/PlayersLine'
 
 import { startLoading, fetchData } from '../utility/common'
-
 
 class Players extends Component {
   constructor() {

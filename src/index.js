@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import registerServiceWorker from './registerServiceWorker'
 
-import Header from './components/Header'
+import Header from './components/render/Header'
 import Leaderboard from './components/Leaderboard'
 import PlayerProfile from './components/PlayerProfile'
 import Players from './components/Players'

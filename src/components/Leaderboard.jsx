@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 
+import LeaderboardLine from "./render/LeaderboardLine"
+
 import { mutateState } from '../utility/common'
 import { fetchGlobalRankings } from '../utility/api'
-
-import LeaderboardLine from "./LeaderboardLine"
 
 var line_count = 10
 

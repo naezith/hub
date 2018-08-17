@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 
-import { formatDominance } from '../utility/formatters'
-import { calcDominance } from '../utility/calculations'
-import { ranks } from '../data/naezith'
+import { RankIcon } from './RankIcon'
 
-import RankIcon from './RankIcon'
+import { formatDominance } from '../../utility/formatters'
+import { calcDominance } from '../../utility/calculations'
+import { ranks } from '../../data/naezith'
 
 class LeaderboardLine extends Component {
     render() {
