@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 
-import { fetchData, renameKey, startLoading } from '../utility/common'
+import { startLoading } from '../utility/common'
+import { fetchGlobalRankings } from '../utility/api'
 
 import LeaderboardLine from "./LeaderboardLine"
 
@@ -18,20 +19,13 @@ class Leaderboard extends Component {
     }
 
     componentWillMount() {
-        this.fetchGlobalRankings(this.state.start_rank)
+        this.getGlobalRankings(this.state.start_rank)
     }
     
-    fetchGlobalRankings(req_state_rank) {
+    getGlobalRankings(req_state_rank) {
         startLoading(this)
-
-        fetchData('/fetchGlobalRankings', { start_rank: req_state_rank })().then((content) => {
-            // Set objects accordingly
-            if(content.lb_data) {
-                renameKey(content, 'lb_data', 'lines')
-                content.start_rank = req_state_rank
-                content.loading = this.state.loading - 1
-            }
-            
+        fetchGlobalRankings(req_state_rank).catch(content => content).then((content) => { 
+            content.loading = this.state.loading - 1
             this.setState(content)
         })
     }
@@ -39,7 +33,7 @@ class Leaderboard extends Component {
     changePage(event, tag){
         event.preventDefault()
 
-        this.fetchGlobalRankings(this.state.start_rank + 
+        this.getGlobalRankings(this.state.start_rank + 
             (tag === 'previous' ? -line_count : line_count))
     }
 
