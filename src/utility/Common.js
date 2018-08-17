@@ -30,4 +30,4 @@ export const mutateState = (component, ...promises) => {
 }
 
 
-export const steamProfile = (id) => 'https://steamcommunity.com/profiles/' + id
+export const getSteamURL = (id) => 'https://steamcommunity.com/profiles/' + id
