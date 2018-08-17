@@ -24,10 +24,9 @@ export const startLoading = (component, count = 1) => component.setState({ loadi
 export const mutateState = (component, ...promises) => {
     component.setState({ loading: component.state.loading + promises.length }) 
 
-    promises.map(p => p.catch(content => content).then((content) => { 
-        content.loading = component.state.loading - 1
-        component.setState(content)
-    }))
+    promises.map(p => p.catch(content => content).then(content =>  
+        component.setState({...content, loading: component.state.loading - 1})
+    ))
 }
 
 
