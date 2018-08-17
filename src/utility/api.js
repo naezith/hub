@@ -1,9 +1,9 @@
 import { renameKey, fetchData } from '../utility/common'
 import { sortEntries } from '../utility/ron-hub'
 
-export const fetchGlobalRankings = (start_rank) => {
+export const fetchGlobalRankings = (start_rank, line_count=10) => {
     return new Promise((resolve, reject) => {
-        fetchData('/fetchGlobalRankings', { start_rank })().then((content) => {
+        fetchData('/fetchGlobalRankings', { start_rank, line_count })().then((content) => {
             if(content.lb_data) {
                 renameKey(content, 'lb_data', 'lines')
                 content.start_rank = start_rank

@@ -5,7 +5,7 @@ import { Leaderboard } from "./render/main/Leaderboard"
 import { mutateState } from '../utility/common'
 import { fetchGlobalRankings } from '../utility/api'
 
-var line_count = 10
+var line_count = 20
 
 class LeaderboardPage extends Component {
     constructor() {
@@ -18,7 +18,7 @@ class LeaderboardPage extends Component {
         }
     }
     
-    setGlobalRankings = start_rank => mutateState(this, fetchGlobalRankings(start_rank))
+    setGlobalRankings = start_rank => mutateState(this, fetchGlobalRankings(start_rank, line_count))
 
     componentWillMount = () => this.setGlobalRankings(this.state.start_rank)
 
