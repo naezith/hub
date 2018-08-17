@@ -6,8 +6,8 @@ import EntryLine from './EntryLine'
 
 import { formatDominance, formatDate, formatRank } from '../utility/formatters'
 import { calcDominance } from '../utility/calculations'
-import { sortEntries } from '../utility/ron-hub'
-import { renameKey, fetchData, startLoading } from '../utility/common'
+import { fetchFinishedLevels, fetchGlobalRank } from '../utility/api'
+import { mutateState } from '../utility/common'
 import { ranks } from '../data/naezith'
 
 import '../css/PlayerProfile.css'
@@ -31,39 +31,12 @@ class PlayerProfile extends Component {
         }
     }
 
+    setPlayerProfile = (player_id) => mutateState(this, 
+            fetchGlobalRank(player_id), fetchFinishedLevels(player_id))
+
     componentWillMount() {
         const { player_id } = this.props.match.params
-        this.fetchPlayerProfile(player_id)
-    }
-
-    fetchPlayerProfile(req_player_id) {
-        startLoading(this, 2)
-        
-        // Fetch Player Info
-        fetchData('/getGlobalRank', { player_id: req_player_id })().then((content) => {
-            // Set objects accordingly
-            if(content.lb_data) {
-                content = content.lb_data[0]
-                renameKey(content, 'eq_rank', 'rank')
-                content.player_id = req_player_id
-            }
-
-            content.loading = this.state.loading - 1
-            this.setState(content)
-        })
-
-        // Fetch Player Entries
-        fetchData('/fetchFinishedLevels', { player_id: req_player_id })().then((content) => {
-            // Set objects accordingly
-            if(content.data) {
-                renameKey(content, 'data', 'entries')
-                content.entries = sortEntries(content.entries)
-                content.player_id = req_player_id
-            }
-            
-            content.loading = this.state.loading - 1
-            this.setState(content)
-        })
+        this.setPlayerProfile(player_id)
     }
 
     render() { 
