@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 import { fetchData, renameKey, startLoading } from '../utility/common'
 
-import LeaderboardLine from "./LeaderboardLine.js"
+import LeaderboardLine from "./LeaderboardLine"
 
 var line_count = 10
 
