@@ -24,7 +24,7 @@ export const Players = ({ username, steam_id, players, loading, error_msg, searc
                         <table>
                             <thead>
                                 <tr>
-                                    <th>Rank</th>
+                                    <th></th>
                                     <th>Player</th>
                                     <th>Dominance</th>
                                     <th>Register Date</th>

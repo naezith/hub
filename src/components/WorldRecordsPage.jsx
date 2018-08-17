@@ -10,6 +10,7 @@ class WorldRecordsPage extends Component {
         super()
         this.state = {
             levels: [],
+            most_wrs: [], 
             loading: 0,
             error_msg: undefined
         }
@@ -20,6 +21,7 @@ class WorldRecordsPage extends Component {
     componentWillMount= () => this.setWorldRecords()
     
     render = () =><WorldRecords levels={this.state.levels}
+                                most_wrs={this.state.most_wrs}
                                 loading={this.state.loading} 
                                 error_msg={this.state.error_msg} />
 }

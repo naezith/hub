@@ -1,13 +1,21 @@
 import React from 'react'
 
+import { Leaderboard } from "./Leaderboard"
 import { WorldRecordLine } from '../WorldRecordLine'
 
-export const WorldRecords = ({ levels, loading, error_msg }) => 
+export const WorldRecords = ({ levels, most_wrs, loading, error_msg }) => 
     <div>
         <h1>World Records</h1>
         {loading > 0 ? <h1>Loading...</h1> : 
             <div>
-                <table className="Leaderboard">
+                <h1>Most WRs</h1>
+                <Leaderboard    lines={most_wrs} 
+                                loading={loading} 
+                                extra_header={'WR Count'}
+                                extra_prop_name={'count'} />
+
+                <h1>Levels</h1>
+                <table>
                     <thead>
                         <tr>
                             <th>Level</th>
