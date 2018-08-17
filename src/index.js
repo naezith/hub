@@ -4,9 +4,9 @@ import { BrowserRouter as Router, Route } from 'react-router-dom'
 import registerServiceWorker from './registerServiceWorker'
 
 import Header from './components/render/Header'
-import Leaderboard from './components/Leaderboard'
-import PlayerProfile from './components/PlayerProfile'
-import Players from './components/Players'
+import LeaderboardPage from './components/LeaderboardPage'
+import PlayerProfilePage from './components/PlayerProfilePage'
+import PlayersPage from './components/PlayersPage'
 
 import './index.css'
 
@@ -17,10 +17,10 @@ ReactDOM.render(
         <Header />
 
         <center>
-        <Route exact path='/' component={Leaderboard}/>
-        <Route path='/global-rankings' component={Leaderboard}/>
-        <Route path='/players' component={Players}/>
-        <Route path='/player/:player_id' component={PlayerProfile}/>
+        <Route exact path='/' component={LeaderboardPage}/>
+        <Route path='/global-rankings' component={LeaderboardPage}/>
+        <Route path='/players' component={PlayersPage}/>
+        <Route path='/player/:player_id' component={PlayerProfilePage}/>
         </center>
     </div>
 </Router>
