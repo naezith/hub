@@ -29,13 +29,11 @@ class LeaderboardPage extends Component {
             (tag === 'previous' ? -line_count : line_count))
     }
 
-    render = () => <Leaderboard 
-                        start_rank={this.state.start_rank} 
-                        lines={this.state.lines} 
-                        loading={this.state.loading} 
-                        error_msg={this.state.error_msg} 
-                        changePage={this.changePage}
-                    />
+    render = () => <Leaderboard start_rank={this.state.start_rank} 
+                                lines={this.state.lines} 
+                                loading={this.state.loading} 
+                                error_msg={this.state.error_msg} 
+                                changePage={this.changePage} />
 }
 
 export default LeaderboardPage
