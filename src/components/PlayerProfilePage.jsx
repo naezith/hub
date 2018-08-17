@@ -1,18 +1,13 @@
 import React, { Component } from 'react'
 
-import { SteamProfile } from './render/SteamProfile'
-import { RankIcon } from './render/RankIcon'
-import { EntryLine } from './render/EntryLine'
+import { PlayerProfile } from "./render/main/PlayerProfile"
 
-import { formatDominance, formatDate, formatRank } from '../utility/formatters'
-import { calcDominance } from '../utility/calculations'
 import { fetchFinishedLevels, fetchGlobalRank } from '../utility/api'
 import { mutateState } from '../utility/common'
-import { ranks } from '../data/naezith'
 
 import '../css/PlayerProfile.css'
 
-class PlayerProfile extends Component {
+class PlayerProfilePage extends Component {
     constructor() {
         super()
         this.state = {
@@ -38,45 +33,17 @@ class PlayerProfile extends Component {
         const { player_id } = this.props.match.params
         this.setPlayerProfile(player_id)
     }
-
-    render() { 
-        return(
-            <div>
-                <h1>Player Profile</h1>
-                {this.state.loading > 0 ? <h1>Loading...</h1> : 
-                    <div>
-                        <div className='player-info'>
-                            <RankIcon name={ranks[this.state.badge]} /><h2 className='same-line'>{this.state.username}</h2>
-                            <p>Playing since: {formatDate(this.state.register_date)}</p>
-                            <SteamProfile id={this.state.steam_id} inside={'Steam Profile'} />
-                            <p>Rank: {formatRank(this.state.rank, this.state.player_count)}</p>
-                            <p>Dominance: {formatDominance(calcDominance(this.state.global_score, 'global'))}</p>
-                        </div>
-
-                        <table className="Leaderboard">
-                            <thead>
-                                <tr>
-                                    <th>Level</th>
-                                    <th>Time</th>
-                                    <th>Mastery Time</th>
-                                    <th>Rank</th>
-                                    <th>Dominance</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {
-                                    this.state.entries.map((l, i) => 
-                                        <EntryLine key={i} {...l} />
-                                    )
-                                }
-                            </tbody>
-                        </table>
-                    </div>
-                }
-                <p>{this.state.error_msg}</p> 
-            </div>
-        )
-    }
+    
+    render = () => <PlayerProfile   username={this.state.username} 
+                                    entries={this.state.entries} 
+                                    player_count={this.state.player_count} 
+                                    global_score={this.state.global_score} 
+                                    register_date={this.state.register_date} 
+                                    rank={this.state.rank} 
+                                    badge={this.state.badge} 
+                                    steam_id={this.state.steam_id} 
+                                    loading={this.state.loading} 
+                                    error_msg={this.state.error_msg} />
 }
 
-export default PlayerProfile
+export default PlayerProfilePage
