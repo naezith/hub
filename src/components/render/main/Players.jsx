@@ -13,7 +13,7 @@ export const Players = ({ username, steam_id, players, loading, error_msg, searc
                     <p>Enter in-game player name <b>or </b> 
                         SteamID64 (can be found on <a href='https://steamrep.com/' target='_blank' rel='noopener noreferrer'>SteamRep</a>)
                     </p>
-                    <form onSubmit={(e) => { e.preventDefault(); searchButton(in_username.value, in_steam_id.value)}}>
+                    <form onSubmit={(e) => { e.preventDefault(); searchButton(in_username.value, in_steam_id.value) }}>
                         <input id='username' type='text' defaultValue={username} placeholder="In-game player name" ref={ el => in_username = el } />
                         <input id='steam_id' type='text' defaultValue={steam_id} placeholder="SteamID64" ref={ el => in_steam_id = el } />
                         <button>Search</button>
