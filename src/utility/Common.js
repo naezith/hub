@@ -20,14 +20,14 @@ export const fetchData = (query, data) =>
     }
 
 export const startLoading = (component, count = 1) => component.setState({ loading: component.state.loading + count }) 
-//export const stopLoading = (comp, count = 1) => comp.setState({ loading: comp.state.loading + count }) 
 
-export const mutateState = (component, promise) => {
-    startLoading(component)
-    promise.catch(content => content).then((content) => { 
+export const mutateState = (component, ...promises) => {
+    component.setState({ loading: component.state.loading + promises.length }) 
+
+    promises.map(p => p.catch(content => content).then((content) => { 
         content.loading = component.state.loading - 1
         component.setState(content)
-    })
+    }))
 }
 
 

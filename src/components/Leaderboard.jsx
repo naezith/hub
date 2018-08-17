@@ -24,7 +24,7 @@ class Leaderboard extends Component {
         this.setGlobalRankings(this.state.start_rank)
     }
 
-    changePage(event, tag){
+    changePage(event, tag) {
         event.preventDefault()
 
         this.setGlobalRankings(this.state.start_rank + 
