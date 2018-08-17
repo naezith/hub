@@ -29,14 +29,12 @@ class PlayersPage extends Component {
     mutateState(this, fetchPlayers(username, steam_id))
   }
 
-  searchButton = (username, steam_id) => this.setPlayers(username, steam_id)
-
   render = () => (<Players  username={this.state.username} 
                             steam_id={this.state.steam_id}
                             players={this.state.players}
                             loading={this.state.loading} 
                             error_msg={this.state.error_msg}
-                            searchButton={this.searchButton} />)
+                            searchButton={this.setPlayers} />)
 }
 
 export default PlayersPage
