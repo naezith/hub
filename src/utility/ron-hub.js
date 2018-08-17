@@ -13,3 +13,34 @@ export const sortWRs = (levels) => levels
     .sort((a, b) => getLevel(a.level_id).name > getLevel(b.level_id).name) 
     .sort((a, b) => getLevel(a.level_id).chapter > getLevel(b.level_id).chapter)
     .sort((a, b) => getLevel(a.level_id).is_secret > getLevel(b.level_id).is_secret) 
+
+export const getMostWRs = (wrs) => {
+    let players = []
+    
+    wrs.forEach(wr => {
+        // Add if missing
+        if(!players.find((p) => p.username === wr.username)){
+            let player = { 
+                ...wr,
+                count: 0 
+            }
+            
+            delete player.level_id
+            delete player.time
+
+            players.push(player)
+        }
+
+        // Increment count by one
+        players.find((p) => p.username === wr.username).count += 1 
+    })
+
+    // Sort by count
+    players.sort((a, b) => a.count < b.count)
+
+    // Assign ranks
+    let rank = 0
+    players.forEach(p => p.eq_rank = ++rank)
+
+    return players
+}
