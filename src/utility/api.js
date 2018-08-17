@@ -44,3 +44,19 @@ export const fetchFinishedLevels = (player_id) => {
         })
     })
 }
+
+export const fetchPlayers = (username, steam_id) => {
+    return new Promise((resolve, reject) => {
+        fetchData('/fetchPlayers', { username, steam_id })().then((content) => {
+            if(content.data) {
+                content.players = content.data.sort((a, b) => a.global_score < b.global_score)
+                delete content.data
+                content.username = username
+                content.steam_id = steam_id
+
+                resolve(content)
+            }
+            else reject({ error_msg: 'Failed to fetch Players' })
+        })
+    })
+}

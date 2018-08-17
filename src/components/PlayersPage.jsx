@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 
 import { Players } from './render/main/Players'
 
-import { startLoading, fetchData } from '../utility/common'
+import { mutateState } from '../utility/common'
+import { fetchPlayers } from '../utility/api'
 
 class PlayersPage extends Component {
   constructor() {
@@ -17,32 +18,18 @@ class PlayersPage extends Component {
         error_msg: undefined
     } 
   }
-  
-  searchButton = (username, steam_id) => {
-    this.fetchPlayers(username, steam_id)
-  }
-    
-  fetchPlayers(req_username, req_steam_id) {
-    if((!req_username || req_username === '') &&
-        (!req_steam_id || req_steam_id === '')) {
+
+  setPlayers = (username, steam_id) => {
+    if((!username || username === '') &&
+        (!steam_id || steam_id === '')) {
         this.setState({ error_msg: 'Both fields are empty.'})
         return
     }
 
-    startLoading(this)
-    fetchData('/fetchPlayers', { username: req_username, steam_id: req_steam_id })().then((content) => {
-        // Set objects accordingly
-        if(content.data) {
-            content.players = content.data.sort((a, b) => a.global_score < b.global_score)
-            delete content.data
-            content.username = req_username
-            content.steam_id = req_steam_id
-            content.loading = this.state.loading - 1
-        }
-        
-        this.setState(content)
-    })
+    mutateState(this, fetchPlayers(username, steam_id))
   }
+
+  searchButton = (username, steam_id) => this.setPlayers(username, steam_id)
 
   render = () => (<Players  username={this.state.username} 
                             steam_id={this.state.steam_id}
