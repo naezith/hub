@@ -20,10 +20,13 @@ export const Leaderboard = ({ start_rank, lines, loading, error_msg, changePage 
                     { lines.map((l, i) => <LeaderboardLine key={i} {...l} />) }
                 </tbody>
             </table>
-
-            {start_rank >= lines.length ? 
-                <button onClick={(event) => changePage(event, 'previous') } disabled={loading}>Previous</button> : undefined}
-            <button onClick={(event) => changePage(event, 'next')} disabled={loading}>Next</button>  
+            
+            {changePage ? 
+                <div>
+                {start_rank >= lines.length ? 
+                    <button onClick={(event) => changePage(event, 'previous') } disabled={loading}>Previous</button> : undefined}
+                <button onClick={(event) => changePage(event, 'next')} disabled={loading}>Next</button> 
+                </div> : undefined}
         </div>}
 
         <p>{error_msg}</p> 
