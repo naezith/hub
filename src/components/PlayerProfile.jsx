@@ -1,12 +1,13 @@
 import React, { Component } from 'react'
 
+import SteamProfile from './SteamProfile'
 import RankIcon from './RankIcon'
 import EntryLine from './EntryLine'
 
 import { formatDominance, formatDate, formatRank } from '../utility/formatters'
 import { calcDominance } from '../utility/calculations'
 import { sortEntries } from '../utility/ron-hub'
-import { renameKey, fetchData, startLoading, steamProfile } from '../utility/common'
+import { renameKey, fetchData, startLoading } from '../utility/common'
 import { ranks } from '../data/naezith'
 
 import '../css/PlayerProfile.css'
@@ -74,7 +75,7 @@ class PlayerProfile extends Component {
                         <div className='player-info'>
                             <RankIcon name={ranks[this.state.badge]} /><h2 className='same-line'>{this.state.username}</h2>
                             <p>Playing since: {formatDate(this.state.register_date)}</p>
-                            <a href={steamProfile(this.state.steam_id)}>Steam Profile</a>
+                            <SteamProfile id={this.state.steam_id} inside={'Steam Profile'} />
                             <p>Rank: {formatRank(this.state.rank, this.state.player_count)}</p>
                             <p>Dominance: {formatDominance(calcDominance(this.state.global_score, 'global'))}</p>
                         </div>

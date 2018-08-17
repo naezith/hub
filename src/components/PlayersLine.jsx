@@ -5,7 +5,7 @@ import RankIcon from './RankIcon'
 
 import { formatDominance, formatDate } from '../utility/formatters'
 import { calcDominance } from '../utility/calculations'
-import { steamProfile } from '../utility/common'
+import SteamProfile from './SteamProfile'
 import { ranks } from '../data/naezith'
 
 class PlayersLine extends Component {
@@ -18,7 +18,7 @@ class PlayersLine extends Component {
                 <td><Link to={'/player/' + id}>{ username }</Link></td>
                 <td>{ formatDominance(calcDominance(global_score, 'global')) }</td>
                 <td>{ formatDate(register_date) }</td>
-                <td>{ <a href={steamProfile(steam_id)}>Steam Profile</a> }</td>
+                <td><SteamProfile id={steam_id} inside={'Steam Profile'} /></td>
             </tr>
         )
     }
