@@ -3,7 +3,7 @@ export const formatDominance = (dominance, digits=3) => dominance.toFixed(digits
 
 export const formatDate = (date) => date.substr(0, 10)
 
-export const formatRank = (rank, player_count) => rank + '/' + player_count
+export const formatRank = (rank, player_count) => rank + ' / ' + player_count
 
 export const formatTime = (ms) => {
     var secs = Math.floor(ms / 1000)
