@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
 
-import LeaderboardLine from "./render/LeaderboardLine"
+import { Leaderboard } from "./render/main/Leaderboard"
 
 import { mutateState } from '../utility/common'
 import { fetchGlobalRankings } from '../utility/api'
 
 var line_count = 10
 
-class Leaderboard extends Component {
+class LeaderboardPage extends Component {
     constructor() {
         super()
         this.state = {
@@ -18,52 +18,24 @@ class Leaderboard extends Component {
         }
     }
     
-    setGlobalRankings = (start_rank) => mutateState(this, fetchGlobalRankings(start_rank))
+    setGlobalRankings = start_rank => mutateState(this, fetchGlobalRankings(start_rank))
 
-    componentWillMount() {
-        this.setGlobalRankings(this.state.start_rank)
-    }
+    componentWillMount = () => this.setGlobalRankings(this.state.start_rank)
 
-    changePage(event, tag) {
+    changePage = (event, tag) => {
         event.preventDefault()
 
         this.setGlobalRankings(this.state.start_rank + 
             (tag === 'previous' ? -line_count : line_count))
     }
 
-    render() { 
-        return(
-            <div>
-                <h1>Global Rankings</h1>
-                {this.state.loading > 0 ? <h1>Loading...</h1> :
-                <div>
-                    <table className="Leaderboard">
-                        <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>Rank</th>
-                                <th>Player</th>
-                                <th>Dominance</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {
-                                this.state.lines.map((l, i) => 
-                                    <LeaderboardLine key={i} {...l} />
-                                )
-                            }
-                        </tbody>
-                    </table>
-
-                    {this.state.start_rank >= line_count ? 
-                        <button onClick={(event) => this.changePage(event, 'previous') } disabled={this.state.loading}>Previous</button> : undefined}
-                    <button onClick={(event) => this.changePage(event, 'next')} disabled={this.state.loading}>Next</button>  
-                </div>}
-
-                <p>{this.state.error_msg}</p> 
-            </div>
-        )
-    }
+    render = () => <Leaderboard 
+                        start_rank={this.state.start_rank} 
+                        lines={this.state.lines} 
+                        loading={this.state.loading} 
+                        error_msg={this.state.error_msg} 
+                        changePage={this.changePage}
+                    />
 }
 
-export default Leaderboard
+export default LeaderboardPage

@@ -7,7 +7,7 @@ import { formatDominance } from '../../utility/formatters'
 import { calcDominance } from '../../utility/calculations'
 import { ranks } from '../../data/naezith'
 
-class LeaderboardLine extends Component {
+export class LeaderboardLine extends Component {
     render() {
         let { id, badge, eq_rank, global_score, username } = this.props // rank
 
@@ -21,5 +21,3 @@ class LeaderboardLine extends Component {
         )
     }
 }
-
-export default LeaderboardLine
