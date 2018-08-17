@@ -32,9 +32,7 @@ export const Players = ({ username, steam_id, players, loading, error_msg, searc
                                 </tr>
                             </thead>
                             <tbody>
-                                {
-                                    players.map((l, i) => <PlayersLine key={i} {...l} />)
-                                }
+                                { players.map((l, i) => <PlayersLine key={i} {...l} />) }
                             </tbody>
                         </table>
                     }
