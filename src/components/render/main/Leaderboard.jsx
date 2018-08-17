@@ -17,9 +17,7 @@ export const Leaderboard = ({ start_rank, lines, loading, error_msg, changePage 
                     </tr>
                 </thead>
                 <tbody>
-                    {
-                        lines.map((l, i) => <LeaderboardLine key={i} {...l} />)
-                    }
+                    { lines.map((l, i) => <LeaderboardLine key={i} {...l} />) }
                 </tbody>
             </table>
 
