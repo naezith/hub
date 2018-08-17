@@ -60,3 +60,16 @@ export const fetchPlayers = (username, steam_id) => {
         })
     })
 }
+
+export const fetchWRs = () => {
+    return new Promise((resolve, reject) => {
+        fetchData('/fetchWRs', { })().then((content) => {
+            if(content.levels) {
+                console.log(content)
+
+                resolve(content)
+            }
+            else reject({ error_msg: 'Failed to fetch WRs' })
+        })
+    })
+}

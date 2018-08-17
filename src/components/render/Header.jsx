@@ -9,8 +9,7 @@ export const Header = () =>
         <h1 className="header-title">Remnants of Naezith Hub</h1>
         <div className='header-menu'>
           <Link className='header-menu-link' to="/global-rankings">Global Rankings</Link>
-          <Link className='header-menu-link' to="/recent-wr">Recent World Records</Link> 
-          <Link className='header-menu-link' to="/levels">Levels</Link> 
+          <Link className='header-menu-link' to="/world-records">World Records</Link> 
           <Link className='header-menu-link' to="/players">Search Players</Link> 
         </div>
       </header>
