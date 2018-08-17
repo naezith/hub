@@ -1,44 +1,46 @@
-import React, { Component } from 'react';
-import LeaderboardLine from "./LeaderboardLine.js";
-import { fetchData, renameKey, startLoading } from '../utility/Common.js';
+import React, { Component } from 'react'
 
-var line_count = 10;
+import { fetchData, renameKey, startLoading } from '../utility/common'
+
+import LeaderboardLine from "./LeaderboardLine.js"
+
+var line_count = 10
 
 class Leaderboard extends Component {
     constructor() {
-        super();
+        super()
         this.state = {
             start_rank: 0,
             lines: [],
             loading: 0,
             error_msg: undefined
-        };
+        }
     }
 
     componentWillMount() {
-        this.fetchGlobalRankings(this.state.start_rank);
+        this.fetchGlobalRankings(this.state.start_rank)
     }
     
     fetchGlobalRankings(req_state_rank) {
-        startLoading(this);
+        startLoading(this)
 
         fetchData('/fetchGlobalRankings', { start_rank: req_state_rank })().then((content) => {
             // Set objects accordingly
             if(content.lb_data) {
-                renameKey(content, 'lb_data', 'lines');
-                content.start_rank = req_state_rank;
-                content.loading = this.state.loading - 1;
+                renameKey(content, 'lb_data', 'lines')
+                content.start_rank = req_state_rank
+                content.loading = this.state.loading - 1
             }
             
-            this.setState(content);
-        });
+            this.setState(content)
+        })
     }
 
     changePage(event, tag){
-        event.preventDefault();
+        event.preventDefault()
 
         this.fetchGlobalRankings(this.state.start_rank + 
-            (tag === 'previous' ? -line_count : line_count));
+            (tag === 'previous' ? -line_count : line_count))
     }
 
     render() { 
@@ -76,4 +78,4 @@ class Leaderboard extends Component {
     }
 }
 
-export default Leaderboard;
+export default Leaderboard

@@ -15,7 +15,7 @@ export const ranks = [
     'Grandmaster',
     'Inhuman',
     'Descendant'
-];
+]
 
 export const levels = [
 	{
@@ -634,4 +634,4 @@ export const levels = [
 		is_secret: 1,
 		has_secret: 0
 	}
-];
+]

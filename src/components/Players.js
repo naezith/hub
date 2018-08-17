@@ -1,10 +1,13 @@
-import React, { Component } from 'react';
-import { startLoading, fetchData } from '../utility/Common'
-import PlayersLine from './PlayersLine';
+import React, { Component } from 'react'
+
+import PlayersLine from './PlayersLine'
+
+import { startLoading, fetchData } from '../utility/common'
+
 
 class Players extends Component {
   constructor() {
-    super();
+    super()
     
     this.state = {
         username: undefined,
@@ -13,36 +16,36 @@ class Players extends Component {
 
         loading: 0,
         error_msg: undefined
-    }; 
+    } 
 
-    this.searchButton = this.searchButton.bind(this);
+    this.searchButton = this.searchButton.bind(this)
   }
   
   searchButton(e) {
-    e.preventDefault();
-    this.fetchPlayers(this.refs.username.value, this.refs.steam_id.value);
+    e.preventDefault()
+    this.fetchPlayers(this.refs.username.value, this.refs.steam_id.value)
   }
     
   fetchPlayers(req_username, req_steam_id) {
     if((!req_username || req_username === '') &&
         (!req_steam_id || req_steam_id === '')) {
-        this.setState({ error_msg: 'Both fields are empty.'});
-        return;
+        this.setState({ error_msg: 'Both fields are empty.'})
+        return
     }
 
-    startLoading(this);
+    startLoading(this)
     fetchData('/fetchPlayers', { username: req_username, steam_id: req_steam_id })().then((content) => {
         // Set objects accordingly
         if(content.data) {
-            content.players = content.data.sort((a, b) => a.global_score < b.global_score);
-            delete content.data;
-            content.username = req_username;
-            content.steam_id = req_steam_id;
-            content.loading = this.state.loading - 1;
+            content.players = content.data.sort((a, b) => a.global_score < b.global_score)
+            delete content.data
+            content.username = req_username
+            content.steam_id = req_steam_id
+            content.loading = this.state.loading - 1
         }
         
-        this.setState(content);
-    });
+        this.setState(content)
+    })
   }
 
   render() {
@@ -85,8 +88,8 @@ class Players extends Component {
         }
         <p>{this.state.error_msg}</p> 
       </div>
-    );
+    )
   }
 }
 
-export default Players;
+export default Players

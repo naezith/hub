@@ -1,13 +1,14 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
-import './index.css';
-import registerServiceWorker from './registerServiceWorker';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
+import registerServiceWorker from './registerServiceWorker'
 
-import Header from './components/Header';
-import Leaderboard from './components/Leaderboard';
-import PlayerProfile from './components/PlayerProfile';
-import Players from './components/Players';
+import Header from './components/Header'
+import Leaderboard from './components/Leaderboard'
+import PlayerProfile from './components/PlayerProfile'
+import Players from './components/Players'
+
+import './index.css'
 
 ReactDOM.render(
 
@@ -24,5 +25,5 @@ ReactDOM.render(
     </div>
 </Router>
 
-, document.getElementById('root'));
-registerServiceWorker();
+, document.getElementById('root'))
+registerServiceWorker()

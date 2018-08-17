@@ -1,6 +1,7 @@
-import React, { Component } from 'react';
-import '../css/Header.css';
+import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+
+import '../css/Header.css'
 
 class Header extends Component {
   render() {
@@ -16,8 +17,8 @@ class Header extends Component {
           </div>
         </header>
       </div>
-    );
+    )
   }
 }
 
-export default Header;
+export default Header

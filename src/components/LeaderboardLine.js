@@ -1,21 +1,25 @@
-import React, { Component } from 'react';
-import { getDominancePerc, getRankImage } from '../utility/Common.js';
-import { ranks } from '../data/naezith.js'
+import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+
+import { formatDominance } from '../utility/formatters'
+import { calcDominance } from '../utility/calculations'
+import { ranks } from '../data/naezith'
+
+import RankIcon from './RankIcon'
 
 class LeaderboardLine extends Component {
     render() {
-        let { id, badge, eq_rank, global_score, username } = this.props; // rank
+        let { id, badge, eq_rank, global_score, username } = this.props // rank
 
         return (
             <tr>
                 <td>{ eq_rank }</td>
-                <td>{ getRankImage(ranks[badge]) }</td>
+                <td><RankIcon name={ranks[badge]} /></td>
                 <td><Link to={'/player/' + id}>{ username }</Link></td>
-                <td>{ getDominancePerc(global_score, 'global') }</td>
+                <td>{ formatDominance(calcDominance(global_score, 'global')) }</td>
             </tr>
         )
     }
 }
 
-export default LeaderboardLine;
+export default LeaderboardLine
