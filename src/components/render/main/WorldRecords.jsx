@@ -1,7 +1,6 @@
 import React from 'react'
 
 import { Leaderboard } from "./Leaderboard"
-import { WorldRecordLine } from '../WorldRecordLine'
 
 export const WorldRecords = ({ levels, most_wrs, loading, error_msg }) => 
     <div>
@@ -17,21 +16,8 @@ export const WorldRecords = ({ levels, most_wrs, loading, error_msg }) =>
                                     (obj.secrets_count ? (' (+' + obj.secrets_count + ')') : '')} />
 
                 <h1>Levels</h1>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Level</th>
-                            <th>Time</th>
-                            <th></th>
-                            <th>Player</th>
-                            <th>Dominance</th>
-                            <th>Date</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        { levels.map((l, i) => <WorldRecordLine key={i} {...l} />) }
-                    </tbody>
-                </table>
+                <Leaderboard    lines={levels} 
+                                loading={loading} />
             </div>
         }
         <p>{error_msg}</p> 

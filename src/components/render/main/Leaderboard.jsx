@@ -8,6 +8,7 @@ export const Leaderboard = ({ start_rank, lines, loading, changePage, extra_head
             <thead>
                 <tr>
                     { lines[0].rank ? <th>#</th> : undefined }
+                    { lines[0].level_id ? <th>Level</th> : undefined }
                     <th></th>
                     <th>Player</th>
                     { lines[0].time ? <th>Time</th> : undefined }
