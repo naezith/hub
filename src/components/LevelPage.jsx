@@ -43,19 +43,21 @@ class GlobalRankingsPage extends Component {
 
     render = () => (
         <div>
-        { this.state.loading > 0 ? <h1>Loading...</h1> :
-        
+            {this.state.level ? 
             <div>
                 <h1>{this.state.level.name}</h1>
                 <h3>{getChapterName(this.state.level.chapter)}</h3>
                 <h4>{this.state.level.is_secret ? '(Secret)': undefined}</h4>
                 <h2>Players: {this.state.lb_size}</h2>
+            </div> : undefined}
+        { this.state.loading > 0 ? <h1>Loading...</h1> :
+        
+            <div>
                 <Leaderboard    start_rank={this.state.start_rank} 
                                 lines={this.state.lines} 
                                 loading={this.state.loading} 
                                 changePage={this.changePage} />
-            </div>
-        }
+            </div>}
 
         <p>{this.state.error_msg}</p> 
         </div>
