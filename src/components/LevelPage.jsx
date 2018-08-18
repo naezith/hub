@@ -7,7 +7,7 @@ import { fetchLeaderboard } from '../utility/api'
 
 var line_count = 10
 
-class LevelPage extends Component {
+export default class LevelPage extends Component {
     constructor() {
         super()
         this.state = {
@@ -48,5 +48,3 @@ class LevelPage extends Component {
                             error_msg={this.state.error_msg}
                             changePage={this.changePage} />)
 }
-
-export default LevelPage

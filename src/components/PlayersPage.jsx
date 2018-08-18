@@ -5,7 +5,7 @@ import { Players } from './render/pages/Players'
 import { mutateState } from '../utility/common'
 import { fetchPlayers } from '../utility/api'
 
-class PlayersPage extends Component {
+export default class PlayersPage extends Component {
   constructor() {
     super()
     
@@ -34,5 +34,3 @@ class PlayersPage extends Component {
                             error_msg={this.state.error_msg}
                             searchButton={this.setPlayers} />)
 }
-
-export default PlayersPage

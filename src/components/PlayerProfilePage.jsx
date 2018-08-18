@@ -7,7 +7,7 @@ import { mutateState } from '../utility/common'
 
 import '../css/PlayerProfile.css'
 
-class PlayerProfilePage extends Component {
+export default class PlayerProfilePage extends Component {
     constructor() {
         super()
         this.state = {
@@ -48,5 +48,3 @@ class PlayerProfilePage extends Component {
                                     loading={this.state.loading} 
                                     error_msg={this.state.error_msg} />
 }
-
-export default PlayerProfilePage

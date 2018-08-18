@@ -5,7 +5,7 @@ import { WorldRecords } from "./render/pages/WorldRecords"
 import { fetchWRs } from '../utility/api'
 import { mutateState } from '../utility/common'
 
-class WorldRecordsPage extends Component {
+export default class WorldRecordsPage extends Component {
     constructor() {
         super()
         this.state = {
@@ -25,5 +25,3 @@ class WorldRecordsPage extends Component {
                                 loading={this.state.loading} 
                                 error_msg={this.state.error_msg} />
 }
-
-export default WorldRecordsPage

@@ -7,7 +7,7 @@ import { fetchGlobalRankings, fetchGameInfo } from '../utility/api'
 
 var line_count = 10
 
-class GlobalRankingsPage extends Component {
+export default class GlobalRankingsPage extends Component {
     constructor() {
         super()
         this.state = {
@@ -40,5 +40,3 @@ class GlobalRankingsPage extends Component {
                                     error_msg={this.state.error_msg}
                                     changePage={this.changePage} />)
 }
-
-export default GlobalRankingsPage
