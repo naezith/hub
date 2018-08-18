@@ -1,7 +1,7 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 
 import { RankIcon } from './RankIcon'
+import { PlayerLink } from './PlayerLink';
 
 import { getLevel } from '../../utility/ron-hub'
 import { calcDominance } from '../../utility/calculations'
@@ -13,7 +13,7 @@ export const WorldRecordLine = ({ level_id, player_id, badge, username, global_s
         <td>{ getLevel(level_id).name }</td>
         <td>{ formatTime(time) }</td>
         <td><RankIcon name={ranks[badge]} /></td>
-        <td><Link to={'/player/' + player_id}>{ username }</Link></td>
+        <td><PlayerLink id={player_id} username={username}/></td>
         <td>{ formatDominance(calcDominance(global_score, 'global')) }</td>
     </tr>
 
