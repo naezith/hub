@@ -70,6 +70,7 @@ export const fetchPlayers = (username, steam_id) => {
                 content.username = username
                 content.steam_id = steam_id
                 renameProps(content.players, 'register_date', 'update_date')
+                renameProps(content.players, 'id', 'player_id')
 
                 resolve(content)
             }
