@@ -2,7 +2,7 @@ import { daysSince } from "./common";
 
 export const formatDominance = (dominance, digits=3) => dominance.toFixed(digits) + '%'
 
-export const prettifyDate = date => new Date(date).toUTCString()
+export const prettifyDate = date => new Date(date).toString()
 
 export const formatDate = date => {
     let str, days = daysSince(date) 
