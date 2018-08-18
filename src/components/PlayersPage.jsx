@@ -23,10 +23,8 @@ class PlayersPage extends Component {
     if((!username || username === '') &&
         (!steam_id || steam_id === '')) {
         this.setState({ error_msg: 'Both fields are empty.'})
-        return
     }
-
-    mutateState(this, fetchPlayers(username, steam_id))
+    else mutateState(this, fetchPlayers(username, steam_id))
   }
 
   render = () => (<Players  username={this.state.username} 
