@@ -25,6 +25,7 @@ export const WorldRecords = ({ levels, most_wrs, loading, error_msg }) =>
                             <th></th>
                             <th>Player</th>
                             <th>Dominance</th>
+                            <th>Date</th>
                         </tr>
                     </thead>
                     <tbody>

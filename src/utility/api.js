@@ -83,7 +83,7 @@ export const fetchWRs = () => {
             if(content.levels) {
                 sortWRs(content.levels)
                 content.most_wrs = getMostWRs(content.levels)
-                
+
                 resolve(content)
             }
             else reject({ error_msg: 'Failed to fetch WRs' })

@@ -30,6 +30,7 @@ export const PlayerProfile = ({ username, badge, rank, player_count, global_scor
                             <th>Mastery Time</th>
                             <th>Rank</th>
                             <th>Dominance</th>
+                            <th>Date</th>
                         </tr>
                     </thead>
                     <tbody>
