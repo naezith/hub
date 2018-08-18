@@ -4,6 +4,7 @@ import { Leaderboard } from "./render/main/Leaderboard"
 
 import { mutateState } from '../utility/common'
 import { fetchLeaderboard } from '../utility/api'
+import { getChapterName } from '../utility/ron-hub';
 
 var line_count = 20
 
@@ -46,7 +47,8 @@ class GlobalRankingsPage extends Component {
         
             <div>
                 <h1>{this.state.level.name}</h1>
-                <h3>{this.state.level.is_secret ? '(Secret)': undefined}</h3>
+                <h3>{getChapterName(this.state.level.chapter)}</h3>
+                <h4>{this.state.level.is_secret ? '(Secret)': undefined}</h4>
                 <h2>Players: {this.state.lb_size}</h2>
                 <Leaderboard    start_rank={this.state.start_rank} 
                                 lines={this.state.lines} 

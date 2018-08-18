@@ -5,6 +5,10 @@ export const max_scores = {
 	'global': 10000
 }
 
+export const chapters = ['',
+	'Jade', 'Sand', 'Metal', 'Crystal', 'All Chapters'
+]
+
 export const ranks = [
     'Novice',
     'Apprentice',

@@ -1,8 +1,9 @@
-import { levels } from '../data/naezith'
+import { levels, chapters } from '../data/naezith'
 import { calcScore } from '../utility/calculations'
 import { compareAsc, compareDesc, combineCompares, renameKey } from '../utility/common'
 
 export const getLevel = level_id => levels.find(l => l.id === level_id)
+export const getChapterName = chapter => chapters[chapter]
 
 export const renameProps = (arr, old, now) => arr.map(l => renameKey(l, old, now))
 
