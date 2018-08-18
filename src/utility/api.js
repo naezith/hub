@@ -65,7 +65,7 @@ export const fetchWRs = () => {
     return new Promise((resolve, reject) => {
         fetchData('/fetchWRs', { })().then((content) => {
             if(content.levels) {
-                content.levels = sortWRs(content.levels)
+                sortWRs(content.levels)
                 content.most_wrs = getMostWRs(content.levels)
 
                 resolve(content)
