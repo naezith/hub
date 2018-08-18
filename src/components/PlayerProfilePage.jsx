@@ -17,7 +17,7 @@ class PlayerProfilePage extends Component {
             username: '',
             badge: undefined,
             rank: undefined,
-            global_score: undefined,
+            score: undefined,
             player_count: undefined,
             entries: [],
 
@@ -40,7 +40,7 @@ class PlayerProfilePage extends Component {
     render = () => <PlayerProfile   username={this.state.username} 
                                     entries={this.state.entries} 
                                     player_count={this.state.player_count} 
-                                    global_score={this.state.global_score} 
+                                    score={this.state.score} 
                                     register_date={this.state.register_date} 
                                     rank={this.state.rank} 
                                     badge={this.state.badge} 

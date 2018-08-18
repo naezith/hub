@@ -9,7 +9,7 @@ import { formatDominance, formatRank } from '../../../utility/formatters'
 import { calcDominance } from '../../../utility/calculations'
 import { ranks } from '../../../data/naezith'
 
-export const PlayerProfile = ({ username, badge, rank, player_count, global_score, 
+export const PlayerProfile = ({ username, badge, rank, player_count, score, 
                     steam_id, register_date, entries, loading, error_msg }) => 
     <div>
         <h1>Player Profile</h1>
@@ -20,7 +20,7 @@ export const PlayerProfile = ({ username, badge, rank, player_count, global_scor
                     <p>Started playing {<DateText date={register_date}/>}</p>
                     <SteamProfile id={steam_id} inside={'Steam Profile'} />
                     <p>Rank: {formatRank(rank, player_count)}</p>
-                    <p>Dominance: {formatDominance(calcDominance(global_score, 'global'))}</p>
+                    <p>Dominance: {formatDominance(calcDominance(score, 'global'))}</p>
                 </div>
 
                 <table className="Leaderboard">
