@@ -1,8 +1,8 @@
 import React from 'react'
 
+import { Leaderboard } from './Leaderboard'
 import { SteamProfile } from '../SteamProfile'
 import { RankIcon } from '../RankIcon'
-import { EntryLine } from '../EntryLine'
 import { DateText } from '../DateText';
 
 import { formatDominance, formatRank } from '../../../utility/formatters'
@@ -23,21 +23,10 @@ export const PlayerProfile = ({ username, badge, rank, player_count, score,
                     <p>Dominance: {formatDominance(calcDominance(score, 'global'))}</p>
                 </div>
 
-                <table className="Leaderboard">
-                    <thead>
-                        <tr>
-                            <th>Level</th>
-                            <th>Time</th>
-                            <th>Mastery Time</th>
-                            <th>Rank</th>
-                            <th>Dominance</th>
-                            <th>Date</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        { entries.map((l, i) => <EntryLine key={i} {...l} />) }
-                    </tbody>
-                </table>
+                <Leaderboard lines={entries} 
+                             loading={loading} 
+                             dominance_scale='level'
+                             dominance_precision={2} />
             </div>
         }
         <p>{error_msg}</p> 
