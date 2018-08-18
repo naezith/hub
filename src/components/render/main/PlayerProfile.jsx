@@ -16,7 +16,7 @@ export const PlayerProfile = ({ username, badge, rank, player_count, global_scor
             <div>
                 <div className='player-info'>
                     <RankIcon name={ranks[badge]} /><h2 className='same-line'>{username}</h2>
-                    <p>Playing since: {formatDate(register_date)}</p>
+                    <p>Started playing {formatDate(register_date)}</p>
                     <SteamProfile id={steam_id} inside={'Steam Profile'} />
                     <p>Rank: {formatRank(rank, player_count)}</p>
                     <p>Dominance: {formatDominance(calcDominance(global_score, 'global'))}</p>

@@ -1,7 +1,12 @@
+import { daysSince } from "./common";
 
 export const formatDominance = (dominance, digits=3) => dominance.toFixed(digits) + '%'
 
-export const formatDate = (date) => date.substr(0, 10)
+export const formatDate = (date) => {
+    let days = daysSince(date.substr(0, 10)) 
+    
+    return (days < 90 ? (days + ' days') : (Math.floor(days/30) + ' months')) + ' ago'
+}
 
 export const formatRank = (rank, player_count) => rank + ' / ' + player_count
 
