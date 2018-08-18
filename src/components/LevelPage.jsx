@@ -8,7 +8,7 @@ import { getChapterName } from '../utility/ron-hub';
 
 var line_count = 20
 
-class GlobalRankingsPage extends Component {
+class LevelPage extends Component {
     constructor() {
         super()
         this.state = {
@@ -64,4 +64,4 @@ class GlobalRankingsPage extends Component {
     )
 }
 
-export default GlobalRankingsPage
+export default LevelPage
