@@ -37,6 +37,7 @@ export const getMostWRs = wrs => {
             
             delete player.level_id
             delete player.time
+            delete player.update_date
             
             players.push(player)
         }
