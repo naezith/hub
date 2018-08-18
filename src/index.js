@@ -10,7 +10,7 @@ import PlayersPage from './components/PlayersPage'
 import LevelPage from './components/LevelPage'
 import WorldRecordsPage from './components/WorldRecordsPage'
 
-import './index.css'
+import './css/index.css'
 
 ReactDOM.render(
 
