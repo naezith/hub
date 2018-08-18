@@ -8,28 +8,28 @@ export const Leaderboard = ({ start_rank, lines, loading, changePage,
         <table className="Leaderboard">
             <thead>
                 <tr>
-                    { lines[0].rank !== undefined ? 
-                        <th>#</th> : undefined }
-                    { lines[0].level_id !== undefined ? 
-                        <th>Level</th> : undefined }
-                    { lines[0].badge !== undefined ? 
-                        <th></th> : undefined }
-                    { lines[0].player_id !== undefined ? 
-                        <th>Player</th> : undefined }
-                    { lines[0].score !== undefined ? 
-                        <th>Dominance</th> : undefined }
-                    { lines[0].time !== undefined ? 
-                        <th>Time</th> : undefined }
-                    { lines[0].official_time !== undefined ? 
-                        <th>Mastery Time</th> : undefined }
-                    { lines[0].lb_rank !== undefined ? 
-                        <th>Rank</th> : undefined }
-                    { lines[0].update_date !== undefined ? 
-                        <th>Date</th> : undefined }
-                    { extra_header !== undefined ? 
-                        <th>{extra_header}</th> : undefined }
-                    { lines[0].steam_id !== undefined ? 
-                        <th></th> : undefined }
+                    { lines[0].rank === undefined ? undefined : 
+                        <th>#</th> }
+                    { lines[0].level_id === undefined ? undefined : 
+                        <th>Level</th> }
+                    { lines[0].badge === undefined ? undefined : 
+                        <th></th> }
+                    { lines[0].player_id === undefined ? undefined : 
+                        <th>Player</th> }
+                    { lines[0].score === undefined ? undefined : 
+                        <th>Dominance</th> }
+                    { lines[0].time === undefined ? undefined : 
+                        <th>Time</th> }
+                    { lines[0].official_time === undefined ? undefined : 
+                        <th>Mastery Time</th> }
+                    { lines[0].lb_rank === undefined ? undefined : 
+                        <th>Rank</th> }
+                    { lines[0].update_date === undefined ? undefined : 
+                        <th>Date</th> }
+                    { extra_header === undefined ? undefined : 
+                        <th>{extra_header}</th> }
+                    { lines[0].steam_id === undefined ? undefined : 
+                        <th></th> }
                 </tr>
             </thead>
             <tbody>
