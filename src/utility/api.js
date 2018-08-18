@@ -35,7 +35,7 @@ export const fetchFinishedLevels = (player_id) => {
         fetchData('/fetchFinishedLevels', { player_id })().then((content) => {
             if(content.data) {
                 renameKey(content, 'data', 'entries')
-                content.entries = sortEntries(content.entries)
+                sortEntries(content.entries)
                 content.player_id = player_id
 
                 resolve(content)
