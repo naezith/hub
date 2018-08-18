@@ -1,4 +1,4 @@
-import { renameKey, fetchData } from '../utility/common'
+import { renameKey, fetchData, compareDesc } from '../utility/common'
 import { sortEntries, sortWRs, getMostWRs } from '../utility/ron-hub'
 
 export const fetchGlobalRankings = (start_rank, line_count=10) => {
@@ -49,7 +49,7 @@ export const fetchPlayers = (username, steam_id) => {
     return new Promise((resolve, reject) => {
         fetchData('/fetchPlayers', { username, steam_id })().then((content) => {
             if(content.data) {
-                content.players = content.data.sort((a, b) => a.global_score < b.global_score)
+                content.players = content.data.sort((a, b) => compareDesc(a.global_score, b.global_score))
                 delete content.data
                 content.username = username
                 content.steam_id = steam_id

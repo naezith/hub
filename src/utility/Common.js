@@ -5,6 +5,9 @@ export const renameKey = (obj, oldkey, newkey) => {
     delete obj[oldkey]
 }
 
+export const compareAsc = (a, b) => a > b ? 1 : a < b ? -1 : 0
+export const compareDesc = (a, b) => a < b ? 1 : a > b ? -1 : 0
+
 export const fetchData = (query, data) => 
     async () => {
         const rawResponse = await fetch(query, {
