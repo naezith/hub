@@ -7,7 +7,7 @@ export const fetchGameInfo = () => {
         fetchData('/fetchGameInfo', { })().then((content) => {
             if(content.data) {
                 content = content.data[0]
-                console.log(content)
+                
                 resolve(content)
             }
             else reject({ error_msg: 'Failed to fetch Game Info' })
