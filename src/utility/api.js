@@ -1,5 +1,5 @@
 import { renameKey, fetchData, compareDesc } from '../utility/common'
-import { sortEntries, sortWRs, getMostWRs, fixRankProp } from '../utility/ron-hub'
+import { sortEntries, sortWRs, getMostWRs, renameProps } from '../utility/ron-hub'
 
 
 export const fetchGlobalRank = (player_id) => {
@@ -23,7 +23,7 @@ export const fetchGlobalRankings = (start_rank, line_count=10) => {
             if(content.lb_data) {
                 renameKey(content, 'lb_data', 'lines')
                 content.start_rank = start_rank
-                fixRankProp(content.lines)
+                renameProps(content.lines, 'id', 'player_id')
 
                 resolve(content)
             }
@@ -39,7 +39,7 @@ export const fetchFinishedLevels = (player_id) => {
                 renameKey(content, 'data', 'entries')
                 sortEntries(content.entries)
                 content.player_id = player_id
-                fixRankProp(content.entries)
+                renameProps(content.entries, 'eq_rank', 'rank')
 
                 resolve(content)
             }
@@ -71,7 +71,7 @@ export const fetchWRs = () => {
             if(content.levels) {
                 sortWRs(content.levels)
                 content.most_wrs = getMostWRs(content.levels)
-
+                console.log(content.most_wrs)
                 resolve(content)
             }
             else reject({ error_msg: 'Failed to fetch WRs' })

@@ -4,7 +4,7 @@ import { compareAsc, compareDesc, combineCompares, renameKey } from '../utility/
 
 export const getLevel = (level_id) => levels.find(l => l.id === level_id)
 
-export const fixRankProp = (lines) => lines.map(l => renameKey(l, 'eq_rank', 'rank'))
+export const renameProps = (arr, old, now) => arr.map(l => renameKey(l, old, now))
 
 export const sortEntries = (entries) => entries
     .sort((a, b) => combineCompares(
@@ -36,7 +36,7 @@ export const getMostWRs = (wrs) => {
             
             delete player.level_id
             delete player.time
-
+            
             players.push(player)
         }
 

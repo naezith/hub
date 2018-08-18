@@ -18,7 +18,7 @@ class WorldRecordsPage extends Component {
 
     setWorldRecords = () => mutateState(this, fetchWRs())
 
-    componentWillMount= () => this.setWorldRecords()
+    componentWillMount = () => this.setWorldRecords()
     
     render = () =><WorldRecords levels={this.state.levels}
                                 most_wrs={this.state.most_wrs}
