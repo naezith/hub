@@ -5,7 +5,7 @@ import { Leaderboard } from "./render/Leaderboard"
 import { mutateState } from '../utility/common'
 import { fetchGlobalRankings, fetchGameInfo } from '../utility/api'
 
-var line_count = 20
+var line_count = 10
 
 class GlobalRankingsPage extends Component {
     constructor() {

@@ -6,7 +6,7 @@ import { mutateState } from '../utility/common'
 import { fetchLeaderboard } from '../utility/api'
 import { getChapterName } from '../utility/ron-hub';
 
-var line_count = 20
+var line_count = 10
 
 class LevelPage extends Component {
     constructor() {
