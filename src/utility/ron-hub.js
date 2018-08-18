@@ -6,9 +6,10 @@ export const getLevel = (level_id) => levels.find(l => l.id === level_id)
 
 export const sortEntries = (entries) => entries
     .sort((a, b) => combineCompares(
-                        compareDesc(calcScore(a.eq_rank, a.lb_size), calcScore(b.eq_rank, b.lb_size)),
+                        compareAsc(getLevel(a.id).is_secret, getLevel(b.id).is_secret),
                         compareAsc(getLevel(a.id).chapter, getLevel(b.id).chapter),
-                        compareAsc(getLevel(a.id).is_secret, getLevel(b.id).is_secret)
+                        compareDesc(calcScore(a.eq_rank, a.lb_size), calcScore(b.eq_rank, b.lb_size)),
+                        compareAsc(getLevel(a.id).name, getLevel(b.id).name),
                     ))
 
 
@@ -44,7 +45,8 @@ export const getMostWRs = (wrs) => {
 
     // Sort by count
     players.sort((a, b) => combineCompares(compareDesc(a.count, b.count),
-                                           compareDesc(a.secrets_count, b.secrets_count)))
+                                           compareDesc(a.secrets_count, b.secrets_count)
+                                           ))
 
     // Assign ranks
     let rank = 0
