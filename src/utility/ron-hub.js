@@ -22,7 +22,8 @@ export const getMostWRs = (wrs) => {
         if(!players.find((p) => p.username === wr.username)){
             let player = { 
                 ...wr,
-                count: 0 
+                count: 0,
+                secrets_count: 0
             }
             
             delete player.level_id
@@ -32,11 +33,14 @@ export const getMostWRs = (wrs) => {
         }
 
         // Increment count by one
-        players.find((p) => p.username === wr.username).count += 1 
+        var player = players.find(p => p.username === wr.username)
+        player[getLevel(wr.level_id).is_secret ? 'secrets_count' : 'count'] += 1
     })
 
     // Sort by count
-    players.sort((a, b) => a.count < b.count)
+    players.sort((a, b) => 
+        a.count === b.count ?   a.secrets_count < b.secrets_count :    
+                                a.count < b.count)
 
     // Assign ranks
     let rank = 0

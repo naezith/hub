@@ -2,7 +2,7 @@ import React from 'react'
 
 import { LeaderboardLine } from '../LeaderboardLine'
 
-export const Leaderboard = ({ start_rank, lines, loading, changePage, extra_header, extra_prop_name }) => 
+export const Leaderboard = ({ start_rank, lines, loading, changePage, extra_header, extra_value_func }) => 
     <div>
         <table className="Leaderboard">
             <thead>
@@ -11,12 +11,13 @@ export const Leaderboard = ({ start_rank, lines, loading, changePage, extra_head
                     <th></th>
                     <th>Player</th>
                     <th>Dominance</th>
-                    {extra_header ? <th>{extra_header}</th> : undefined}
+                    { extra_header ? <th>{extra_header}</th> : undefined }
                 </tr>
             </thead>
             <tbody>
                 { lines.map((l, i) => <LeaderboardLine key={i} {...l} 
-                                        extra_value={l[extra_prop_name]} />) }
+                                        obj={l} 
+                                        extra_value_func={extra_value_func} />) }
             </tbody>
         </table>
 
