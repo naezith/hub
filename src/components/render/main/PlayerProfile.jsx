@@ -13,7 +13,7 @@ export const PlayerProfile = ({ username, badge, rank, player_count, score,
                     steam_id, register_date, entries, loading, error_msg }) => 
     <div>
         <h1>Player Profile</h1>
-        {loading > 0 ? <h1>Loading...</h1> : 
+        {loading > 0 ? <div><h1>Loading...</h1><h2>It takes a while, please wait</h2></div>  : 
             <div>
                 <div className='player-info'>
                     <RankIcon name={ranks[badge]} /><h2 className='same-line'>{username}</h2>
