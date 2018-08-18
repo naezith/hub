@@ -69,6 +69,7 @@ export const fetchPlayers = (username, steam_id) => {
                 delete content.data
                 content.username = username
                 content.steam_id = steam_id
+                renameProps(content.players, 'register_date', 'update_date')
 
                 resolve(content)
             }

@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { PlayersLine } from '../PlayersLine'
+import { Leaderboard } from './Leaderboard'
 
 export const Players = ({ username, steam_id, players, loading, error_msg, searchButton }) => {
     let in_username, in_steam_id
@@ -21,20 +21,8 @@ export const Players = ({ username, steam_id, players, loading, error_msg, searc
 
                     {!username && !steam_id ? undefined : 
                         players.length === 0 ? <h1>There is no such player</h1> :
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th></th>
-                                    <th>Player</th>
-                                    <th>Dominance</th>
-                                    <th>Register Date</th>
-                                    <th></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                { players.map((l, i) => <PlayersLine key={i} {...l} />) }
-                            </tbody>
-                        </table>
+                        <Leaderboard    lines={players} 
+                                        loading={loading} />
                     }
                 </div>
             }

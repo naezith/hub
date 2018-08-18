@@ -7,12 +7,13 @@ export const Leaderboard = ({ start_rank, lines, loading, changePage, extra_head
         <table className="Leaderboard">
             <thead>
                 <tr>
-                    <th>#</th>
+                    { lines[0].rank ? <th>#</th> : undefined }
                     <th></th>
                     <th>Player</th>
                     { lines[0].time ? <th>Time</th> : undefined }
                     { lines[0].global_score ? <th>Dominance</th> : undefined }
                     { lines[0].update_date ? <th>Date</th> : undefined }
+                    { lines[0].steam_id ? <th></th> : undefined }
                     { extra_header ? <th>{extra_header}</th> : undefined }
                 </tr>
             </thead>
