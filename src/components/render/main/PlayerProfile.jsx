@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Leaderboard } from './Leaderboard'
+import { Leaderboard } from '../Leaderboard'
 import { SteamProfile } from '../SteamProfile'
 import { RankIcon } from '../RankIcon'
 import { DateText } from '../DateText';

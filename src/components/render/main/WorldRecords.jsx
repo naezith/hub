@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Leaderboard } from "./Leaderboard"
+import { Leaderboard } from '../Leaderboard'
 
 export const WorldRecords = ({ levels, most_wrs, loading, error_msg }) => 
     <div>

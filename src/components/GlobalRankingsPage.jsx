@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import { Leaderboard } from "./render/main/Leaderboard"
+import { Leaderboard } from "./render/Leaderboard"
 
 import { mutateState } from '../utility/common'
 import { fetchGlobalRankings, fetchGameInfo } from '../utility/api'

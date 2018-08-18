@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Leaderboard } from './Leaderboard'
+import { Leaderboard } from '../Leaderboard'
 
 export const Players = ({ username, steam_id, players, loading, error_msg, searchButton }) => {
     let in_username, in_steam_id
