@@ -100,8 +100,6 @@ export const fetchLeaderboard = (level_id, start_rank, line_count=10) => {
                 content.level = getLevel(level_id)
                 content.level_id = level_id
                 content.start_rank = start_rank
-
-                console.log(content.lines)
                 
                 resolve(content)
             }

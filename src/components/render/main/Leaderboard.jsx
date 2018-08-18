@@ -10,7 +10,9 @@ export const Leaderboard = ({ start_rank, lines, loading, changePage, extra_head
                     <th>#</th>
                     <th></th>
                     <th>Player</th>
-                    <th>Dominance</th>
+                    { lines[0].time ? <th>Time</th> : undefined }
+                    { lines[0].global_score ? <th>Dominance</th> : undefined }
+                    { lines[0].update_date ? <th>Date</th> : undefined }
                     { extra_header ? <th>{extra_header}</th> : undefined }
                 </tr>
             </thead>
