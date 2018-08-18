@@ -1,11 +1,12 @@
 import React from 'react'
 
+import { PlayerLink } from './PlayerLink';
 import { RankIcon } from './RankIcon'
+import { DateText } from './DateText';
 
-import { formatDominance, formatDate, formatTime } from '../../utility/formatters'
+import { formatDominance, formatTime } from '../../utility/formatters'
 import { calcDominance } from '../../utility/calculations'
 import { ranks } from '../../data/naezith'
-import { PlayerLink } from './PlayerLink';
 
 export const LeaderboardLine = ({ player_id, badge, rank, global_score, 
                 username, update_date, time, extra_value_func, obj }) => 
@@ -13,8 +14,8 @@ export const LeaderboardLine = ({ player_id, badge, rank, global_score,
         <td>{ rank }</td>
         <td><RankIcon name={ranks[badge]} /></td>
         <td><PlayerLink id={player_id} username={username}/></td>
-        { time ? <th>{formatTime(time)}</th> : undefined }
-        { global_score ? <th>{formatDominance(calcDominance(global_score, 'global'))}</th> : undefined }
-        { update_date ? <th>{formatDate(update_date)}</th> : undefined }
+        { time ? <td>{formatTime(time)}</td> : undefined }
+        { global_score ? <td>{formatDominance(calcDominance(global_score, 'global'))}</td> : undefined }
+        { update_date ? <td>{<DateText date={update_date}/>}</td> : undefined }
         { extra_value_func ? <td>{ extra_value_func(obj) }</td> : undefined }
     </tr>

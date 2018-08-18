@@ -2,8 +2,10 @@ import { daysSince } from "./common";
 
 export const formatDominance = (dominance, digits=3) => dominance.toFixed(digits) + '%'
 
-export const formatDate = (date) => {
-    let str, days = daysSince(date.substr(0, 10)) 
+export const prettifyDate = date => new Date(date).toUTCString()
+
+export const formatDate = date => {
+    let str, days = daysSince(date) 
 
     if(days >= 365) {
         var years = Math.floor(days/365)
@@ -21,7 +23,7 @@ export const formatDate = (date) => {
 
 export const formatRank = (rank, player_count) => rank + ' / ' + player_count
 
-export const formatTime = (ms) => {
+export const formatTime = ms => {
     var secs = Math.floor(ms / 1000)
     var minutes = Math.floor(secs / 60)
     var seconds = secs % 60
