@@ -7,6 +7,17 @@ export const renameKey = (obj, oldkey, newkey) => {
 
 export const compareAsc = (a, b) => a > b ? 1 : a < b ? -1 : 0
 export const compareDesc = (a, b) => a < b ? 1 : a > b ? -1 : 0
+export const combineCompares = (...compares) => {
+    var result
+
+    for(var i = 0; i < compares.length; ++i) {
+        result = compares[i]
+
+        if(result !== 0) return result    
+    }
+    
+    return result
+}
 
 export const fetchData = (query, data) => 
     async () => {
