@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import { Leaderboard } from "./render/Leaderboard"
+import { GlobalRankings } from './render/pages/GlobalRankings'
 
 import { mutateState } from '../utility/common'
 import { fetchGlobalRankings, fetchGameInfo } from '../utility/api'
@@ -32,24 +32,13 @@ class GlobalRankingsPage extends Component {
         this.setGlobalRankings(this.state.start_rank + 
             (tag === 'previous' ? -line_count : line_count))
     }
-
-    render = () => (
-        <div>
-        <h1>Global Rankings</h1>
-        { this.state.loading > 0 ? <h1>Loading...</h1> :
-        
-        <div>
-            <h2>Players: {this.state.player_count}</h2>
-            <Leaderboard    start_rank={this.state.start_rank} 
-                            lines={this.state.lines} 
-                            loading={this.state.loading} 
-                            changePage={this.changePage} />
-        </div>
-        }
-
-        <p>{this.state.error_msg}</p> 
-        </div>
-    )
+    
+    render = () => (<GlobalRankings player_count={this.state.player_count} 
+                                    start_rank={this.state.start_rank}
+                                    lines={this.state.lines}
+                                    loading={this.state.loading} 
+                                    error_msg={this.state.error_msg}
+                                    changePage={this.changePage} />)
 }
 
 export default GlobalRankingsPage
