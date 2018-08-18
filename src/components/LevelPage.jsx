@@ -1,10 +1,9 @@
 import React, { Component } from 'react'
 
-import { Leaderboard } from "./render/Leaderboard"
+import { Level } from './render/pages/Level'
 
 import { mutateState } from '../utility/common'
 import { fetchLeaderboard } from '../utility/api'
-import { getChapterName } from '../utility/ron-hub';
 
 var line_count = 10
 
@@ -41,27 +40,13 @@ class LevelPage extends Component {
             (tag === 'previous' ? -line_count : line_count))
     }
 
-    render = () => (
-        <div>
-            {this.state.level ? 
-            <div>
-                <h1>{this.state.level.name}</h1>
-                <h3>{getChapterName(this.state.level.chapter)}</h3>
-                <h4>{this.state.level.is_secret ? '(Secret)': undefined}</h4>
-                <h2>Players: {this.state.lb_size}</h2>
-            </div> : undefined}
-        { this.state.loading > 0 ? <h1>Loading...</h1> :
-        
-            <div>
-                <Leaderboard    start_rank={this.state.start_rank} 
-                                lines={this.state.lines} 
-                                loading={this.state.loading} 
-                                changePage={this.changePage} />
-            </div>}
-
-        <p>{this.state.error_msg}</p> 
-        </div>
-    )
+    render = () =>  (<Level level={this.state.level} 
+                            lb_size={this.state.lb_size}
+                            start_rank={this.state.start_rank}
+                            lines={this.state.lines}
+                            loading={this.state.loading} 
+                            error_msg={this.state.error_msg}
+                            changePage={this.changePage} />)
 }
 
 export default LevelPage
