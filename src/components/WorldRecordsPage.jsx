@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import { WorldRecords } from "./render/main/WorldRecords"
+import { WorldRecords } from "./render/pages/WorldRecords"
 
 import { fetchWRs } from '../utility/api'
 import { mutateState } from '../utility/common'

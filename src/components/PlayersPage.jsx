@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import { Players } from './render/main/Players'
+import { Players } from './render/pages/Players'
 
 import { mutateState } from '../utility/common'
 import { fetchPlayers } from '../utility/api'

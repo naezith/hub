@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import { PlayerProfile } from "./render/main/PlayerProfile"
+import { PlayerProfile } from "./render/pages/PlayerProfile"
 
 import { fetchFinishedLevels, fetchGlobalRank } from '../utility/api'
 import { mutateState } from '../utility/common'
