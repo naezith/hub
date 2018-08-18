@@ -2,11 +2,11 @@ import { levels } from '../data/naezith'
 import { calcScore } from '../utility/calculations'
 import { compareAsc, compareDesc, combineCompares, renameKey } from '../utility/common'
 
-export const getLevel = (level_id) => levels.find(l => l.id === level_id)
+export const getLevel = level_id => levels.find(l => l.id === level_id)
 
 export const renameProps = (arr, old, now) => arr.map(l => renameKey(l, old, now))
 
-export const sortEntries = (entries) => entries
+export const sortEntries = entries => entries
     .sort((a, b) => combineCompares(
                         compareAsc(getLevel(a.id).is_secret, getLevel(b.id).is_secret),
                         compareAsc(getLevel(a.id).chapter, getLevel(b.id).chapter),
@@ -15,14 +15,14 @@ export const sortEntries = (entries) => entries
                     ))
 
 
-export const sortWRs = (levels) => levels
+export const sortWRs = levels => levels
     .sort((a, b) => combineCompares(
                         compareAsc(getLevel(a.level_id).is_secret, getLevel(b.level_id).is_secret),
                         compareAsc(getLevel(a.level_id).chapter, getLevel(b.level_id).chapter),
                         compareAsc(getLevel(a.level_id).name, getLevel(b.level_id).name)
                     ))
 
-export const getMostWRs = (wrs) => {
+export const getMostWRs = wrs => {
     let players = []
     
     wrs.forEach(wr => {

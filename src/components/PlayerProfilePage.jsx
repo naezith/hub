@@ -30,7 +30,10 @@ class PlayerProfilePage extends Component {
             fetchGlobalRank(player_id), fetchFinishedLevels(player_id))
 
     componentWillMount() {
-        const { player_id } = this.props.match.params
+        let { player_id } = this.props.match.params
+
+        player_id = parseFloat(player_id)
+
         this.setPlayerProfile(player_id)
     }
     

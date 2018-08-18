@@ -1,6 +1,5 @@
 import { renameKey, fetchData, compareDesc } from '../utility/common'
-import { sortEntries, sortWRs, getMostWRs, renameProps } from '../utility/ron-hub'
-
+import { sortEntries, sortWRs, getMostWRs, renameProps, getLevel } from '../utility/ron-hub'
 
 export const fetchGameInfo = () => {
     return new Promise((resolve, reject) => {
@@ -88,6 +87,25 @@ export const fetchWRs = () => {
                 resolve(content)
             }
             else reject({ error_msg: 'Failed to fetch WRs' })
+        })
+    })
+}
+
+export const fetchLeaderboard = (level_id, start_rank, line_count=10) => {
+    return new Promise((resolve, reject) => {
+        fetchData('/fetchLeaderboard', { level_id, start_rank, line_count })().then((content) => {
+            if(content.lb_data) {
+                renameKey(content, 'lb_data', 'lines')
+                renameProps(content.lines, 'eq_rank', 'rank')
+                content.level = getLevel(level_id)
+                content.level_id = level_id
+                content.start_rank = start_rank
+
+                console.log(content.lines)
+                
+                resolve(content)
+            }
+            else reject({ error_msg: 'Failed to fetch Level Leaderboard' })
         })
     })
 }
