@@ -27,7 +27,7 @@ class GlobalRankingsPage extends Component {
 
     componentWillMount = () => {
         let { level_id } = this.props.match.params
-        
+
         level_id = parseFloat(level_id)
 
         this.setLevelLeaderboard(level_id, this.state.start_rank)
@@ -46,6 +46,7 @@ class GlobalRankingsPage extends Component {
         
             <div>
                 <h1>{this.state.level.name}</h1>
+                <h3>{this.state.level.is_secret ? '(Secret)': undefined}</h3>
                 <h2>Players: {this.state.lb_size}</h2>
                 <Leaderboard    start_rank={this.state.start_rank} 
                                 lines={this.state.lines} 
