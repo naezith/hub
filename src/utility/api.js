@@ -2,6 +2,19 @@ import { renameKey, fetchData, compareDesc } from '../utility/common'
 import { sortEntries, sortWRs, getMostWRs, renameProps } from '../utility/ron-hub'
 
 
+export const fetchGameInfo = () => {
+    return new Promise((resolve, reject) => {
+        fetchData('/fetchGameInfo', { })().then((content) => {
+            if(content.data) {
+                content = content.data[0]
+                console.log(content)
+                resolve(content)
+            }
+            else reject({ error_msg: 'Failed to fetch Game Info' })
+        })
+    })
+}
+
 export const fetchGlobalRank = (player_id) => {
     return new Promise((resolve, reject) => {
         fetchData('/getGlobalRank', { player_id })().then((content) => {
@@ -71,7 +84,7 @@ export const fetchWRs = () => {
             if(content.levels) {
                 sortWRs(content.levels)
                 content.most_wrs = getMostWRs(content.levels)
-                console.log(content.most_wrs)
+                
                 resolve(content)
             }
             else reject({ error_msg: 'Failed to fetch WRs' })
