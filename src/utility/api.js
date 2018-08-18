@@ -1,19 +1,6 @@
 import { renameKey, fetchData, compareDesc } from '../utility/common'
-import { sortEntries, sortWRs, getMostWRs } from '../utility/ron-hub'
+import { sortEntries, sortWRs, getMostWRs, fixRankProp } from '../utility/ron-hub'
 
-export const fetchGlobalRankings = (start_rank, line_count=10) => {
-    return new Promise((resolve, reject) => {
-        fetchData('/fetchGlobalRankings', { start_rank, line_count })().then((content) => {
-            if(content.lb_data) {
-                renameKey(content, 'lb_data', 'lines')
-                content.start_rank = start_rank
-
-                resolve(content)
-            }
-            else reject({ error_msg: 'Failed to fetch Global Rankings' })
-        })
-    })
-}
 
 export const fetchGlobalRank = (player_id) => {
     return new Promise((resolve, reject) => {
@@ -30,6 +17,21 @@ export const fetchGlobalRank = (player_id) => {
     })
 }
 
+export const fetchGlobalRankings = (start_rank, line_count=10) => {
+    return new Promise((resolve, reject) => {
+        fetchData('/fetchGlobalRankings', { start_rank, line_count })().then((content) => {
+            if(content.lb_data) {
+                renameKey(content, 'lb_data', 'lines')
+                content.start_rank = start_rank
+                fixRankProp(content.lines)
+
+                resolve(content)
+            }
+            else reject({ error_msg: 'Failed to fetch Global Rankings' })
+        })
+    })
+}
+
 export const fetchFinishedLevels = (player_id) => {
     return new Promise((resolve, reject) => {
         fetchData('/fetchFinishedLevels', { player_id })().then((content) => {
@@ -37,6 +39,7 @@ export const fetchFinishedLevels = (player_id) => {
                 renameKey(content, 'data', 'entries')
                 sortEntries(content.entries)
                 content.player_id = player_id
+                fixRankProp(content.entries)
 
                 resolve(content)
             }
