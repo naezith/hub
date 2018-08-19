@@ -35,14 +35,5 @@ export default class PlayerProfilePage extends Component {
         this.setPlayerProfile(player_id)
     }
     
-    render = () => <PlayerProfile   username={this.state.username} 
-                                    entries={this.state.entries} 
-                                    player_count={this.state.player_count} 
-                                    score={this.state.score} 
-                                    register_date={this.state.register_date} 
-                                    rank={this.state.rank} 
-                                    badge={this.state.badge} 
-                                    steam_id={this.state.steam_id} 
-                                    loading={this.state.loading} 
-                                    error_msg={this.state.error_msg} />
+    render = () => <PlayerProfile {...this.state} />
 }

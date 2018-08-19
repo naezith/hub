@@ -20,8 +20,5 @@ export default class WorldRecordsPage extends Component {
 
     componentWillMount = () => this.setWorldRecords()
     
-    render = () =><WorldRecords levels={this.state.levels}
-                                most_wrs={this.state.most_wrs}
-                                loading={this.state.loading} 
-                                error_msg={this.state.error_msg} />
+    render = () => <WorldRecords {...this.state} />
 }

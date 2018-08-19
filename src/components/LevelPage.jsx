@@ -40,11 +40,5 @@ export default class LevelPage extends Component {
             (tag === 'previous' ? -line_count : line_count))
     }
 
-    render = () =>  (<Level level={this.state.level} 
-                            lb_size={this.state.lb_size}
-                            start_rank={this.state.start_rank}
-                            lines={this.state.lines}
-                            loading={this.state.loading} 
-                            error_msg={this.state.error_msg}
-                            changePage={this.changePage} />)
+    render = () =>  (<Level {...this.state} changePage={this.changePage} />)
 }

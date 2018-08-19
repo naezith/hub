@@ -31,10 +31,5 @@ export default class GlobalRankingsPage extends Component {
             line_count)))
     }
     
-    render = () => (<GlobalRankings player_count={this.state.player_count} 
-                                    start_rank={this.state.start_rank}
-                                    lines={this.state.lines}
-                                    loading={this.state.loading} 
-                                    error_msg={this.state.error_msg}
-                                    changePage={this.changePage} />)
+    render = () => (<GlobalRankings {...this.state} changePage={this.changePage} />)
 }

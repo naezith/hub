@@ -27,10 +27,5 @@ export default class PlayersPage extends Component {
     else mutateState(this, fetchPlayers(username, steam_id))
   }
 
-  render = () => (<Players  username={this.state.username} 
-                            steam_id={this.state.steam_id}
-                            players={this.state.players}
-                            loading={this.state.loading} 
-                            error_msg={this.state.error_msg}
-                            searchButton={this.setPlayers} />)
+  render = () => (<Players {...this.state} searchButton={this.setPlayers} />)
 }
