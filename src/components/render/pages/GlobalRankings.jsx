@@ -5,8 +5,8 @@ import { Leaderboard } from '../Leaderboard'
 export const GlobalRankings = ({ player_count, start_rank, lines, changePage, loading, error_msg }) => 
     <div>
         <h1>Global Rankings</h1>
-            {player_count ? 
-                 <h2>Players: {player_count}</h2> : undefined}
+        
+        {player_count ? <h2>Players: {player_count}</h2> : undefined}
 
         <Leaderboard    start_rank={start_rank} 
                         lines={lines} 
