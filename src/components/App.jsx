@@ -15,14 +15,18 @@ import '../css/App.css'
 export default class App extends Component {
   constructor() {
     super()
-    
-    this.state = { user: undefined } 
+
+    var cachedUser = JSON.parse(localStorage.getItem('user'))
+    this.state = { user: cachedUser === null ? undefined : cachedUser } 
 
     this.setUser = this.setUser.bind(this)
   }
 
-  setUser = user => this.setState({user})
-
+  setUser = user => {
+    this.setState({user})
+    localStorage.setItem('user', JSON.stringify(user));
+  }
+  
   render = () => (
     <Router>
         <div>

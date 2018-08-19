@@ -24,11 +24,12 @@ export default class SteamLoginHandler extends Component {
         }
         else {
             this.props.setUser(this.state.user)
-            //window.location = '/'
+            window.location = '/'
         }
     }
     
     render = () => (
-        <h1>{this.state.uri === 'redirecting' ? 'Redirecting to Steam' : 'Logging in'}</h1>
+        <h1>{this.state.uri === 'redirecting' ? 'Redirecting to Steam...' : 
+                this.state.user ? 'Logging in...' : 'Failed to login'}</h1>
     )
 }
