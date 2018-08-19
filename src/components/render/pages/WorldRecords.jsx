@@ -9,7 +9,7 @@ export const WorldRecords = ({ levels, most_wrs, loading }) =>
             <h1>Most WRs</h1>
             <Leaderboard    lines={most_wrs} 
                             loading={loading} 
-                            extra_header={'WR Count (+Secrets)'}
+                            extra_header={'WRs (+Secrets)'}
                             extra_value_func={(obj) => 
                                 obj.count + 
                                 (obj.secrets_count ? (' (+' + obj.secrets_count + ')') : '')} />
