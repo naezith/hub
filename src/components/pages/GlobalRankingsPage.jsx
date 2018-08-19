@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
 import { GlobalRankings } from '../render/pages/GlobalRankings'
-import { PageLayout } from '../PageLayout';
+import { PageLayout } from '../render/PageLayout';
 
 import { mutateState } from '../../utility/common'
 import { fetchGlobalRankings, fetchGameInfo } from '../../utility/api'

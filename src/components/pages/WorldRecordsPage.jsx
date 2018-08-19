@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
 import { WorldRecords } from '../render/pages/WorldRecords'
-import { PageLayout } from '../PageLayout';
+import { PageLayout } from '../render/PageLayout';
 
 import { fetchWRs } from '../../utility/api'
 import { mutateState } from '../../utility/common'

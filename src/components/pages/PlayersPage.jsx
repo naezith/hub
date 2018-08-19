@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
 import { Players } from '../render/pages/Players'
-import { PageLayout } from '../PageLayout';
+import { PageLayout } from '../render/PageLayout';
 
 import { mutateState } from '../../utility/common'
 import { fetchPlayers } from '../../utility/api'
