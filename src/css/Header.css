@@ -1,12 +1,17 @@
-.header {
-  display: table;
-  overflow: hidden;
+.header-div {
   background-color: #333;
+  left: 0;
   top: 0; /* Position the navbar at the top of the page */
-  width: 800px; /* Full width */
+  width: 100%; /* Full width */
   color: white;
   height: 40px;
   position: fixed;
+  text-align: -webkit-center;
+}
+
+.header {
+  display: table;
+  width: 800px; /* Full width */
 }
 
 .header-title {

@@ -6,6 +6,7 @@ import { SteamLogin } from './SteamLogin'
 import '../../css/Header.css'
 
 export const Header = ({ user }) => 
+  <div className='header-div'>
     <header className="header">
       <h2 className="header-title">hub.naezith</h2>
       <ul className='header-menu'>
@@ -15,3 +16,4 @@ export const Header = ({ user }) =>
       </ul>
       <SteamLogin user={user}/>
     </header>
+  </div>
