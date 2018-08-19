@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 
 import { GlobalRankings } from './render/pages/GlobalRankings'
+import { PageLayout } from './PageLayout';
 
 import { mutateState } from '../utility/common'
 import { fetchGlobalRankings, fetchGameInfo } from '../utility/api'
@@ -31,5 +32,7 @@ export default class GlobalRankingsPage extends Component {
             line_count)))
     }
     
-    render = () => (<GlobalRankings {...this.state} changePage={this.changePage} />)
+    render = () =>  <PageLayout title='Global Rankings' error_msg={this.state.error_msg}>
+                        <GlobalRankings {...this.state} changePage={this.changePage} />
+                    </PageLayout>
 }

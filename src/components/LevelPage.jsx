@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 
 import { Level } from './render/pages/Level'
+import { PageLayout } from './PageLayout';
 
 import { mutateState } from '../utility/common'
 import { fetchLeaderboard } from '../utility/api'
@@ -40,5 +41,7 @@ export default class LevelPage extends Component {
             (tag === 'previous' ? -line_count : line_count))
     }
 
-    render = () =>  (<Level {...this.state} changePage={this.changePage} />)
+    render = () =>  <PageLayout title={this.state.level ? this.state.level.name : undefined} error_msg={this.state.error_msg}>
+                        <Level {...this.state} changePage={this.changePage} />
+                    </PageLayout>
 }

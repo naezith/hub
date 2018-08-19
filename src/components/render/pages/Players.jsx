@@ -2,12 +2,11 @@ import React from 'react'
 
 import { Leaderboard } from '../Leaderboard'
 
-export const Players = ({ username, steam_id, players, loading, error_msg, searchButton }) => {
+export const Players = ({ username, steam_id, players, loading, searchButton }) => {
     let in_username, in_steam_id
 
     return (
         <div>
-            <h1>Search Players</h1>
             <p>Enter in-game player name <b>or </b> 
                 SteamID64 (can be found on <a href='https://steamrep.com/' target='_blank' rel='noopener noreferrer'>SteamRep</a>)
             </p>
@@ -26,7 +25,6 @@ export const Players = ({ username, steam_id, players, loading, error_msg, searc
                     }
                 </div>
             }
-            <p>{error_msg}</p> 
         </div>
     )
 }

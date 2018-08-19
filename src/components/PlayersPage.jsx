@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 
 import { Players } from './render/pages/Players'
+import { PageLayout } from './PageLayout';
 
 import { mutateState } from '../utility/common'
 import { fetchPlayers } from '../utility/api'
@@ -27,5 +28,7 @@ export default class PlayersPage extends Component {
     else mutateState(this, fetchPlayers(username, steam_id))
   }
 
-  render = () => (<Players {...this.state} searchButton={this.setPlayers} />)
+  render = () =>  <PageLayout title='Search Players' error_msg={this.state.error_msg}>
+                    <Players {...this.state} searchButton={this.setPlayers} />
+                  </PageLayout>
 }
