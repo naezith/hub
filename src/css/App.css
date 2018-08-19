@@ -1,7 +1,8 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
   background: #141414;
   color: rgb(255, 253, 248);
 }
@@ -12,4 +13,12 @@ a {
 
 a:hover {
   color: rgb(255, 253, 234);
+}
+
+h1 {
+  font-size: 26px;
+}
+
+h2 {
+  font-size: 18px;
 }
