@@ -3,19 +3,17 @@ import { Link } from 'react-router-dom'
 
 import { PlayerLink } from './render/PlayerLink';
 
+import '../css/SteamLogin.css'
+
 export const SteamLogin = ({user}) =>
 ( user === undefined ?  
         <Link to={'/steam'}>Login with Steam</Link> :
         <div>
-            <table>
-                <tbody>
-                    <tr>
-                        <td><img src={user.avatarfull} alt={user.personaname}/></td> 
-                        <td><h4>{<PlayerLink id={user.steamid} username={user.personaname}/>}</h4></td>
-                        <td><h4>{<Link to={'/steam/logout'}>Logout</Link>}</h4></td>
-                    </tr>
-                </tbody>
-            </table>
+            <ul>
+                <li><img src={user.avatarfull} alt={user.personaname}/></li> 
+                <li>{<PlayerLink id={user.steamid} username={user.personaname}/>}</li>
+                <li>{<Link to={'/steam/logout'}>Logout</Link>}</li>
+            </ul>
         </div>
 )
 

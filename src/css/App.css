@@ -2,4 +2,14 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  background: #141414;
+  color: rgb(255, 253, 248);
+}
+
+a {
+  color: rgb(255, 244, 95);
+}
+
+a:hover {
+  color: rgb(255, 253, 234);
 }

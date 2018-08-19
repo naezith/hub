@@ -1,6 +1,9 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
-import { getLevel } from '../../utility/ron-hub'
+import { getLevel, getChapterName } from '../../utility/ron-hub'
 
-export const LevelLink = ({id}) => 
-    ( <Link to={'/level/' + id}>{ getLevel(id).name }</Link> )
+import '../../css/LevelLink.css'
+
+export const LevelLink = ({id}) => {
+    let level = getLevel(id)
+    return ( <a className={getChapterName(level.chapter)} href={'/level/' + id}>{ level.name }</a> )
+}
