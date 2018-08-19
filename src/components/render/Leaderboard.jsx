@@ -6,6 +6,9 @@ import '../../css/Leaderboard.css'
 
 export const Leaderboard = ({ start_rank, lines, loading, changePage, 
             dominance_scale='global', dominance_precision=3, extra_header, extra_value_func }) => 
+    
+    loading > 0 && lines.length === 0 ? <h1>Loading...</h1> :
+    
     <div>
         <table className="Leaderboard">
             <thead>

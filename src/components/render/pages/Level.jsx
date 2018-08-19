@@ -13,14 +13,11 @@ export const Level = ({ level, lb_size, start_rank, lines, changePage, loading, 
             <h4>{level.is_secret ? '(Secret)': undefined}</h4>
             <h2>Players: {lb_size}</h2>
         </div> : undefined}
-    { loading > 0 ? <h1>Loading...</h1> :
-    
-        <div>
-            <Leaderboard    start_rank={start_rank} 
-                            lines={lines} 
-                            loading={loading} 
-                            changePage={changePage} />
-        </div>}
+        
+        <Leaderboard    start_rank={start_rank} 
+                        lines={lines} 
+                        loading={loading} 
+                        changePage={changePage} />
 
     <p>{error_msg}</p> 
     </div>
