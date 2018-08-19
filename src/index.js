@@ -9,6 +9,7 @@ import PlayerProfilePage from './components/PlayerProfilePage'
 import PlayersPage from './components/PlayersPage'
 import LevelPage from './components/LevelPage'
 import WorldRecordsPage from './components/WorldRecordsPage'
+import SteamLoginHandler from './components/SteamLoginHandler'
 
 import './css/index.css'
 
@@ -19,12 +20,17 @@ ReactDOM.render(
         <Header />
 
         <center>
+        
         <Route exact path='/' component={GlobalRankingsPage}/>
         <Route path='/global-rankings' component={GlobalRankingsPage}/>
         <Route path='/world-records' component={WorldRecordsPage}/>
         <Route path='/players' component={PlayersPage}/>
         <Route path='/level/:level_id' component={LevelPage}/>
         <Route path='/player/:player_id' component={PlayerProfilePage}/>
+        
+        <Route exact path='/steam' component={SteamLoginHandler}/>
+        <Route path='/steam/:user' component={SteamLoginHandler}/>
+        
         </center>
     </div>
 </Router>
