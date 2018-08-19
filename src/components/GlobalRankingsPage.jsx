@@ -26,8 +26,9 @@ export default class GlobalRankingsPage extends Component {
 
     changePage = (event, tag) => {
         event.preventDefault()
-        mutateState(this, fetchGlobalRankings(this.state.start_rank, 
-                (tag === 'previous' ? -line_count : line_count)))
+        mutateState(this, fetchGlobalRankings(
+            this.state.start_rank + (tag === 'previous' ? -line_count : line_count, 
+            line_count)))
     }
     
     render = () => (<GlobalRankings player_count={this.state.player_count} 
