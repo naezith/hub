@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 
-import { GlobalRankings } from './render/pages/GlobalRankings'
-import { PageLayout } from './PageLayout';
+import { GlobalRankings } from '../render/pages/GlobalRankings'
+import { PageLayout } from '../PageLayout';
 
-import { mutateState } from '../utility/common'
-import { fetchGlobalRankings, fetchGameInfo } from '../utility/api'
+import { mutateState } from '../../utility/common'
+import { fetchGlobalRankings, fetchGameInfo } from '../../utility/api'
 
 var line_count = 10
 

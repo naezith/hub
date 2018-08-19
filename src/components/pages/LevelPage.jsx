@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 
-import { Level } from './render/pages/Level'
-import { PageLayout } from './PageLayout';
+import { Level } from '../render/pages/Level'
+import { PageLayout } from '../PageLayout';
 
-import { mutateState } from '../utility/common'
-import { fetchLeaderboard } from '../utility/api'
+import { mutateState } from '../../utility/common'
+import { fetchLeaderboard } from '../../utility/api'
 
 var line_count = 10
 

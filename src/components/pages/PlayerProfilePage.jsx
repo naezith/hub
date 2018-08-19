@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
 
-import { PlayerProfile } from './render/pages/PlayerProfile'
-import { PageLayout } from './PageLayout';
+import { PlayerProfile } from '../render/pages/PlayerProfile'
+import { PageLayout } from '../PageLayout';
 
-import { fetchFinishedLevels, fetchGlobalRank } from '../utility/api'
-import { mutateState } from '../utility/common'
+import { fetchFinishedLevels, fetchGlobalRank } from '../../utility/api'
+import { mutateState } from '../../utility/common'
 
-import '../css/PlayerProfile.css'
+import '../../css/PlayerProfile.css'
 
 export default class PlayerProfilePage extends Component {
     constructor() {

@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 
-import { WorldRecords } from './render/pages/WorldRecords'
-import { PageLayout } from './PageLayout';
+import { WorldRecords } from '../render/pages/WorldRecords'
+import { PageLayout } from '../PageLayout';
 
-import { fetchWRs } from '../utility/api'
-import { mutateState } from '../utility/common'
+import { fetchWRs } from '../../utility/api'
+import { mutateState } from '../../utility/common'
 
 export default class WorldRecordsPage extends Component {
     constructor() {

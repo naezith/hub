@@ -1,9 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-import { PlayerLink } from './render/PlayerLink';
+import { PlayerLink } from './PlayerLink';
 
-import '../css/SteamLogin.css'
+import '../../css/SteamLogin.css'
 
 export const SteamLogin = ({user}) =>
 ( user === undefined ?  

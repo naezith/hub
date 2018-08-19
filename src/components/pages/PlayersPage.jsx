@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 
-import { Players } from './render/pages/Players'
-import { PageLayout } from './PageLayout';
+import { Players } from '../render/pages/Players'
+import { PageLayout } from '../PageLayout';
 
-import { mutateState } from '../utility/common'
-import { fetchPlayers } from '../utility/api'
+import { mutateState } from '../../utility/common'
+import { fetchPlayers } from '../../utility/api'
 
 export default class PlayersPage extends Component {
   constructor() {
