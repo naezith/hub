@@ -21,16 +21,13 @@ export default class GlobalRankingsPage extends Component {
         }
     }
     
-    setGlobalRankings = start_rank => mutateState(this, 
-                    fetchGlobalRankings(start_rank, line_count), fetchGameInfo())
-
-    componentWillMount = () => this.setGlobalRankings(this.state.start_rank)
+    componentWillMount = () => mutateState(this, 
+        fetchGlobalRankings(this.state.start_rank, line_count), fetchGameInfo())
 
     changePage = (event, tag) => {
         event.preventDefault()
-
-        this.setGlobalRankings(this.state.start_rank + 
-            (tag === 'previous' ? -line_count : line_count))
+        mutateState(this, fetchGlobalRankings(this.state.start_rank, 
+                (tag === 'previous' ? -line_count : line_count)))
     }
     
     render = () => (<GlobalRankings player_count={this.state.player_count} 
