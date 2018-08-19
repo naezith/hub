@@ -1,33 +1,44 @@
-.header-div {
-  text-align: center;
-}
-
 .header {
-  background-color: #222;
-  padding: 20px;
+  display: table;
+  overflow: hidden;
+  background-color: #333;
+  top: 0; /* Position the navbar at the top of the page */
+  width: 800px; /* Full width */
   color: white;
+  height: 40px;
+  position: fixed;
 }
 
 .header-title {
+  display: table-cell; vertical-align: middle;
+  padding: 0 20px;
 }
 
 .header-menu {
+  display: table-cell; vertical-align: middle;
+  text-align: center;
+  padding: 0;
 }
 
-.header-menu-link {
-  padding-left: 20px;
+.steam-login {
+  display: table-cell; vertical-align: middle;
+  padding: 0;
 }
 
-img {
-  height: 2.5em;
+ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  text-align: center;
 }
 
-td {
-  padding-top: 0px;
-  padding-left: 10px;
+li {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 .5em;
 }
 
-a {
-  color: blue;
-  text-decoration: none; /* no underline */
+.content {
+  text-align: -webkit-center;
+  margin-top: 70px;
 }

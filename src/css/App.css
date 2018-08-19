@@ -1,5 +1,6 @@
 body {
-  margin: 0;
+  width: 800px;
+  margin: auto;
   padding: 0;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 14px;
@@ -9,6 +10,7 @@ body {
 
 a {
   color: rgb(255, 244, 95);
+  text-decoration: none; 
 }
 
 a:hover {
@@ -21,4 +23,16 @@ h1 {
 
 h2 {
   font-size: 18px;
+} 
+
+table {
+  text-align: center;
+}
+
+tr:nth-child(even) {
+  background: rgba(255, 255, 255, .05)
+}
+
+tr:hover {
+  background: rgba(255, 255, 255, .1)
 }

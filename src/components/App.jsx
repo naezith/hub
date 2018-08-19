@@ -32,20 +32,18 @@ export default class App extends Component {
         <div>
             <Header user={this.state.user}/>
 
-            <center>
-            
-            <Route exact path='/' component={GlobalRankingsPage}/>
-            <Route path='/global-rankings' component={GlobalRankingsPage}/>
-            <Route path='/world-records' component={WorldRecordsPage}/>
-            <Route path='/players' component={PlayersPage}/>
-            <Route path='/level/:level_id' component={LevelPage}/>
-            <Route path='/player/:player_id' component={PlayerProfilePage}/>
-            
-            <Route exact path='/steam' component={SteamLoginHandler}/>
-            <Route path='/steam/:user' render={(routeProps) => (
-                    <SteamLoginHandler {...routeProps} setUser={this.setUser} />)} />
-            
-            </center>
+            <div className='content'>
+              <Route exact path='/' component={GlobalRankingsPage}/>
+              <Route path='/global-rankings' component={GlobalRankingsPage}/>
+              <Route path='/world-records' component={WorldRecordsPage}/>
+              <Route path='/players' component={PlayersPage}/>
+              <Route path='/level/:level_id' component={LevelPage}/>
+              <Route path='/player/:player_id' component={PlayerProfilePage}/>
+              
+              <Route exact path='/steam' component={SteamLoginHandler}/>
+              <Route path='/steam/:user' render={(routeProps) => (
+                      <SteamLoginHandler {...routeProps} setUser={this.setUser} />)} />
+            </div>
         </div>
     </Router>
   )

@@ -6,16 +6,15 @@ import { PlayerLink } from './PlayerLink';
 import '../../css/SteamLogin.css'
 
 export const SteamLogin = ({user}) =>
-( user === undefined ?  
+(   <div className='steam-login'> 
+    {user === undefined ?  
         <Link to={'/steam'}>Login with Steam</Link> :
-        <div>
-            <ul>
-                <li><img src={user.avatarfull} alt={user.personaname}/></li> 
-                <li>{<PlayerLink id={user.steamid} username={user.personaname}/>}</li>
-                <li>{<Link to={'/steam/logout'}>Logout</Link>}</li>
-            </ul>
-        </div>
-)
+        <ul className='steam-ul'>
+            <li className='steam-li'><img className='steam-avatar' src={user.avatarfull} alt={user.personaname}/></li> 
+            <li className='steam-li'>{<PlayerLink id={user.steamid} username={user.personaname}/>}</li>
+            <li className='steam-li'>{<Link to={'/steam/logout'}>Logout</Link>}</li>
+        </ul>}
+    </div>)
 
 /*
 avatar:"https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/fe/fef49e7fa7e1997310d705b2a6158ff8dc1cdfeb.jpg"

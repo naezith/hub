@@ -6,5 +6,5 @@ export const PageLayout = ({ children, title, error_msg }) =>
 
         {children}
 
-        <p>{error_msg}</p> 
+        {error_msg ? <p>{error_msg}</p> : undefined}
     </div>
