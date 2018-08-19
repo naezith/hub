@@ -15,7 +15,9 @@ export const fetchGameInfo = () => {
     })
 }
 
-export const fetchGlobalRank = (player_id) => {
+
+
+export const fetchGlobalRank = (player_id) => { 
     return new Promise((resolve, reject) => {
         fetchData('/getGlobalRank', { player_id })().then((content) => {
             if(content.lb_data) {

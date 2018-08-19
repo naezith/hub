@@ -31,9 +31,7 @@ export default class PlayerProfilePage extends Component {
 
     componentWillMount() {
         let { player_id } = this.props.match.params
-
-        player_id = parseFloat(player_id)
-
+        
         this.setPlayerProfile(player_id)
     }
     

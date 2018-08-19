@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
-import { steamLogin, steamLoginReturn } from '../utility/steamapi'
 import querystring from 'query-string'
 
 export default class SteamLoginHandler extends Component {
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
+        
         this.state = {
             uri: undefined,
             user: undefined
@@ -13,15 +13,19 @@ export default class SteamLoginHandler extends Component {
 
     componentWillMount() {
         let { user } = this.props.match.params
-        console.log('Login handler: ', user)
 
         let uri = user === undefined ? 'redirecting' : 'return'
         this.setState({ uri, user: querystring.parse(user) })
     }
 
     componentDidMount() {
-        if(this.state.uri === 'redirecting') steamLogin(this.props.history) 
-        else steamLoginReturn(this.state.user)
+        if(this.state.uri === 'redirecting') {
+            window.location = 'http://localhost/auth/steam'
+        }
+        else {
+            this.props.setUser(this.state.user)
+            //window.location = '/'
+        }
     }
     
     render = () => (

@@ -16,14 +16,17 @@ export default class App extends Component {
   constructor() {
     super()
     
-    this.state = {
-    } 
+    this.state = { user: undefined } 
+
+    this.setUser = this.setUser.bind(this)
   }
+
+  setUser = user => this.setState({user})
 
   render = () => (
     <Router>
         <div>
-            <Header />
+            <Header user={this.state.user}/>
 
             <center>
             
@@ -35,7 +38,8 @@ export default class App extends Component {
             <Route path='/player/:player_id' component={PlayerProfilePage}/>
             
             <Route exact path='/steam' component={SteamLoginHandler}/>
-            <Route path='/steam/:user' component={SteamLoginHandler}/>
+            <Route path='/steam/:user' render={(routeProps) => (
+                    <SteamLoginHandler {...routeProps} setUser={this.setUser} />)} />
             
             </center>
         </div>
