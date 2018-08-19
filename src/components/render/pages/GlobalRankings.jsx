@@ -8,7 +8,7 @@ export const GlobalRankings = ({ player_count, start_rank, lines, changePage, lo
             {player_count ? 
                  <h2>Players: {player_count}</h2> : undefined}
 
-        { loading > 0 ? <h1>Loading...</h1> :
+        { loading > 0 && lines.length === 0 ? <h1>Loading...</h1> :
 
             <Leaderboard    start_rank={start_rank} 
                             lines={lines} 
