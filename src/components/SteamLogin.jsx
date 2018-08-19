@@ -12,6 +12,7 @@ export const SteamLogin = ({user}) =>
                     <tr>
                         <td><img src={user.avatarfull} alt={user.personaname}/></td> 
                         <td><h4>{<PlayerLink id={user.steamid} username={user.personaname}/>}</h4></td>
+                        <td><h4>{<Link to={'/steam/logout'}>Logout</Link>}</h4></td>
                     </tr>
                 </tbody>
             </table>
