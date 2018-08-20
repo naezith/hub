@@ -128,7 +128,7 @@ tr {
 	transition: background .1s ease;
 }
 
-tr:nth-child(odd) {
+tbody tr:nth-child(odd) {
 	background: rgba(255, 255, 255, .05)
 }
 
