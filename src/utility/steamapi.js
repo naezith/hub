@@ -30,8 +30,8 @@ export const appendSteamInfo = (lines) => {
         
         getSteamInfo(steam_ids).then(steam_info => {
             if(!steam_info.error_msg)
-                steam_info.response.players.forEach(p => 
-                    lines.find(l => l.steam_id === p.steamid).steam_info = p)
+                lines.forEach(l => 
+                    l.steam_info = steam_info.response.players.find(p => p.steamid === l.steam_id))
 
             resolve()
         })

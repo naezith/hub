@@ -28,7 +28,9 @@ export const fetchGlobalRank = (player_id) => {
                 renameKey(content, 'global_score', 'score')
                 renameKey(content, 'register_date', 'update_date')
                 content.player_id = player_id
+                
 
+                // NEEDS STEAM INFO
                 resolve(content)
             }
             else reject({ error_msg: 'Failed to fetch Global Rank' })
@@ -45,11 +47,7 @@ export const fetchGlobalRankings = (start_rank, line_count=10) => {
                 renameProps(content.lines, 'id', 'player_id')
                 renameProps(content.lines, 'global_score', 'score')
                 
-                appendSteamInfo(content.lines).then(() => {
-                    console.log(content)
-                    resolve(content)
-                })
-
+                appendSteamInfo(content.lines).then(() => { resolve(content) })
             }
             else reject({ error_msg: 'Failed to fetch Global Rankings' })
         })
@@ -92,7 +90,7 @@ export const fetchPlayers = (username, steam_id) => {
                 content.username = username
                 content.steam_id = steam_id
 
-                resolve(content)
+                appendSteamInfo(content.players).then(() => { resolve(content) })
             }
             else reject({ error_msg: 'Failed to fetch Players' })
         })
@@ -105,9 +103,12 @@ export const fetchWRs = () => {
             if(content.levels) {
                 sortWRs(content.levels)
                 renameProps(content.levels, 'global_score', 'score')
-                content.most_wrs = getMostWRs(content.levels)
 
-                resolve(content)
+                appendSteamInfo(content.levels).then(() => { 
+                    content.most_wrs = getMostWRs(content.levels)
+
+                    resolve(content) 
+                })
             }
             else reject({ error_msg: 'Failed to fetch WRs' })
         })
