@@ -6,10 +6,10 @@ export const WorldRecords = ({ levels, most_wrs, loading }) =>
         loading > 0 ? <h1>Loading...</h1> : 
         
         <div>
-            <h1>Most WRs</h1>
+            <h1>Record Holders</h1>
             <Leaderboard    lines={most_wrs} 
                             loading={loading} 
-                            extra_header={'WRs (+Secrets)'}
+                            extra_header={'WR +Secrets'}
                             extra_value_func={(obj) => 
                                 obj.count + 
                                 (obj.secrets_count ? (' (+' + obj.secrets_count + ')') : '')} />

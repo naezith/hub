@@ -7,8 +7,6 @@ import { fetchFinishedLevels, fetchGlobalRank } from '../../utility/api'
 import { mutateState } from '../../utility/common'
 import { appendScores } from '../../utility/ron-hub'
 
-import '../../css/PlayerProfile.css'
-
 export default class PlayerProfilePage extends Component {
     constructor() {
         super()

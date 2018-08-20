@@ -8,8 +8,6 @@ import { LevelLink } from './LevelLink'
 import { formatDominance, formatTime, formatRank } from '../../utility/formatters'
 import { calcDominance } from '../../utility/calculations'
 
-import '../../css/LeaderboardLine.css'
-
 export const LeaderboardLine = ({ level_id, steam_id, steam_info, player_id, badge, rank, score, 
                 username, update_date, time, 
                 official_time, lb_rank, lb_size, dominance_scale='global', dominance_precision=3, // Player profile stuff

@@ -4,8 +4,6 @@ import { Leaderboard } from '../Leaderboard'
 
 import { getChapterName } from '../../../utility/ron-hub'
 
-import '../../../css/Chapter.css'
-
 export const Level = ({ level, lb_size, start_rank, lines, changePage, loading }) => {
     var chapter_name = level ? getChapterName(level.chapter) : undefined
     return (

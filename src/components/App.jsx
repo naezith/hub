@@ -33,7 +33,7 @@ export default class App extends Component {
         <div className='router-div'>
             <Header user={this.state.user}/>
 
-            <div className='content'>
+            <main>
               <Route exact path='/' component={GlobalRankingsPage}/>
               <Route path='/global-rankings' component={GlobalRankingsPage}/>
               <Route path='/world-records' component={WorldRecordsPage}/>
@@ -44,7 +44,7 @@ export default class App extends Component {
               <Route exact path='/steam' component={SteamLoginHandler}/>
               <Route path='/steam/:user' render={(routeProps) => (
                       <SteamLoginHandler {...routeProps} setUser={this.setUser} />)} />
-            </div>
+            </main>
 
             <Footer />
         </div>
