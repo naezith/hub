@@ -13,7 +13,7 @@ export const SteamLogin = ({user}) =>
         </ul>    
             :
         <ul className='steam-ul'>
-            <li className='steam-li'><img className='steam-avatar' src={user.avatarfull} alt={user.personaname}/></li> 
+            <li className='steam-li'><img className='steam-avatar' src={user.avatarfull} title={user.personaname} alt={user.personaname}/></li> 
             <li className='steam-li'>{<PlayerLink id={user.steamid} username={user.personaname}/>}</li>
             <li className='steam-li'>{<Link to={'/steam/logout'}>Logout</Link>}</li>
         </ul>}

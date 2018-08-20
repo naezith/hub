@@ -15,6 +15,11 @@
   width: 800px; /* Full width */
 }
 
+.header-icon {
+  display: table-cell; vertical-align: middle;
+  padding: 0;
+}
+
 .header-title {
   display: table-cell; vertical-align: middle;
   padding: 0;
