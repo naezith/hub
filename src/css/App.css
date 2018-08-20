@@ -149,9 +149,12 @@ td {
 	text-align: left;
 }
 
+.th-steam-icon {
+	width: 3em;
+}
+
 .td-steam-icon {
-	padding: 0 0.1em;
-	width: 0;
+	padding: 0;
 }
 
 .Jade {

@@ -36,7 +36,7 @@ export const Leaderboard = ({ start_rank, lines, loading, changePage,
                     { extra_header === undefined ? undefined : 
                         <th>{extra_header}</th> }
                     { lines[0].steam_id === undefined ? undefined : 
-                        <th></th> }
+                        <th className='th-steam-icon'></th> }
                 </tr>
             </thead>
             <tbody>
