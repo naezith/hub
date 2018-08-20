@@ -30,7 +30,21 @@ export const fetchData = (query, data) =>
         })
 
         const content = await rawResponse.json().catch((e) => { 
-            return { error_msg: 'The game server is down' }
+            console.log(e)
+            return { error_msg: 'The server is down' }
+        })
+
+        return { ...content, error_msg: undefined }
+    }
+
+
+    export const fetchDataGET = (query) => 
+    async () => {
+        const rawResponse = await fetch(query)
+
+        const content = await rawResponse.json().catch((e) => { 
+            console.log(e)
+            return { error_msg: 'The server is down' }
         })
 
         return { ...content, error_msg: undefined }
