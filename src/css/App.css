@@ -67,6 +67,21 @@ tr {
 }
 
 
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  text-align: left;
+}
+
+li {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 .5em;
+}
+
+
 tbody tr:nth-child(even) {
   background: rgba(255, 255, 255, .05)
 }
