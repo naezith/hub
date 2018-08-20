@@ -294,7 +294,6 @@ footer {
 .tooltip {
     position: relative;
     display: inline-block;
-    border-bottom: 1px dotted black; /* dots under the hoverable text */
 }
 
 /* Tooltip text */
@@ -309,7 +308,7 @@ footer {
     position: absolute;
 	z-index: 1;
 	
-    /* Position the tooltip text - see examples below! */
+    /* Position */
     top: -5px;
     left: 105%; 
 }
