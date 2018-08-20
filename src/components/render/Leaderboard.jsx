@@ -10,8 +10,7 @@ export const Leaderboard = ({ start_rank, lines, loading, changePage,
     <div className="Leaderboard">
         {changePage ? 
             <div>
-            {start_rank >= lines.length ? 
-                <button onClick={(event) => changePage(event, 'previous') } disabled={loading}>Previous</button> : undefined}
+            <button onClick={(event) => changePage(event, 'previous') } disabled={start_rank < lines.length || loading}>Previous</button>
             <button onClick={(event) => changePage(event, 'next')} disabled={loading}>Next</button> 
             </div> : undefined}
         <table>
