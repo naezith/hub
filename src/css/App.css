@@ -319,3 +319,44 @@ footer {
 .tooltip:hover .tooltip-text {
     visibility: visible;
 }
+
+
+
+button {
+    display: inline-block;
+	border: none;
+	width: 6em;
+	margin: 0 0.2em;
+    padding: 0.25em 1em;
+    text-decoration: none;
+    background: rgb(92, 92, 92);
+    color: #ffffff;
+    font-family: sans-serif;
+    font-size: 1em;
+    cursor: pointer;
+    text-align: center;
+    transition: background 60ms ease-in-out, 
+                transform 32ms ease;
+    -webkit-appearance: none;
+	-moz-appearance: none;
+	
+	border-radius: 4px;
+}
+
+button:hover, button:focus {
+    background: rgb(73, 73, 73);
+}
+
+button:disabled {
+	background: rgb(59, 59, 59);
+	color: #8a8a8a;
+}
+
+button:focus {
+    outline: 1px solid #fff;
+    outline-offset: -4px;
+}
+
+button:active {
+    transform: scale(0.99);
+}
