@@ -28,8 +28,8 @@ export default class GlobalRankingsPage extends Component {
     changePage = (event, tag) => {
         event.preventDefault()
         mutateState(this, fetchGlobalRankings(
-            this.state.start_rank + (tag === 'previous' ? -line_count : line_count, 
-            line_count)))
+            this.state.start_rank + (tag === 'previous' ? -line_count : line_count), 
+            line_count))
     }
     
     render = () =>  <PageLayout title='Global Rankings' error_msg={this.state.error_msg}>
