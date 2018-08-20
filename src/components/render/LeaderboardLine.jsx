@@ -10,6 +10,7 @@ import { CountryIcon } from './CountryIcon';
 import { formatDominance, formatTime, formatRank } from '../../utility/formatters'
 import { calcDominance } from '../../utility/calculations'
 import { ranks } from '../../data/naezith'
+import { SteamAvatar } from './SteamAvatar';
 
 export const LeaderboardLine = ({ level_id, steam_id, steam_info, player_id, badge, rank, score, 
                 username, update_date, time, 
@@ -23,7 +24,10 @@ export const LeaderboardLine = ({ level_id, steam_id, steam_info, player_id, bad
         { badge === undefined ? undefined : 
             <td><RankIcon name={ranks[badge]} /></td> }
         { player_id === undefined ? undefined : 
-            <td><PlayerLink id={player_id} username={username}/> 
+            <td>
+                {steam_info === undefined ? undefined :
+                    <SteamAvatar name={username} url={steam_info.avatar} />}
+                <PlayerLink id={player_id} username={username}/> 
                 {steam_info === undefined || steam_info.country_icon === undefined ? undefined :
                     <CountryIcon name={steam_info.loccountrycode} url={steam_info.country_icon} />}</td> }
         { score === undefined ? undefined : 
