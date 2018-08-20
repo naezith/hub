@@ -67,10 +67,10 @@ tr {
 }
 
 
-tr:nth-child(even) {
+tbody tr:nth-child(even) {
   background: rgba(255, 255, 255, .05)
 }
 
-tr:hover {
+tbody tr:hover {
   background: rgba(255, 255, 255, .1)
 }
