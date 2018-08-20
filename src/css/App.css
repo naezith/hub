@@ -287,3 +287,33 @@ footer {
     vertical-align: middle;
     text-align: right;
 }
+
+
+
+/* Tooltip container */
+.tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black; /* dots under the hoverable text */
+}
+
+/* Tooltip text */
+.tooltip .tooltip-text {
+    visibility: hidden;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+ 
+    position: absolute;
+	z-index: 1;
+	
+    /* Position the tooltip text - see examples below! */
+    top: -5px;
+    left: 105%; 
+}
+
+.tooltip:hover .tooltip-text {
+    visibility: visible;
+}
