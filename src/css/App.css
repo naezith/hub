@@ -24,7 +24,6 @@ a:hover {
 }
 
 header {
-	padding: 0 20%;
 	background-color: #333;
 	position: fixed;
 	left: 0;
@@ -32,8 +31,21 @@ header {
 	top: 0;
 	color: white;
 	font-size: .8em;
-	text-align: left;
+
 	height: 35px;
+	text-align: center;
+	text-align: -o-center;
+	text-align: -moz-center;
+	text-align: -webkit-center;
+}
+
+.header-div {
+	width: 800px;
+	text-align: left;
+}
+
+.avatar a {
+    padding: 0;
 }
 
 header img {
@@ -78,11 +90,11 @@ main {
     min-height: -o-calc(100% - 50px - 20px);
     min-height: -webkit-calc(100% - 50px - 20px);
     padding: 50px 0 20px 0; 
-	width: 40%;
 	margin: 0 auto -32px auto;
 	border-left: 1px solid rgba(0, 0, 0, .4);
 	border-right: 1px solid rgba(0, 0, 0, .4);
 	background: rgba(20, 20, 20, .8);
+	width: 800px;
 }
 
 main:after {
