@@ -16,10 +16,10 @@ export const Players = ({ username, steam_id, players, loading, searchButton }) 
                 <button>Search</button>
             </form>
 
-            {loading > 0 ? <h1>Loading...</h1> : 
+            {loading > 0 ? <h2>Loading...</h2> : 
                 <div>
                     {!username && !steam_id ? undefined : 
-                        players.length === 0 ? <h1>There is no such player</h1> :
+                        players.length === 0 ? <h2>There is no such player</h2> :
                         <Leaderboard    lines={players} 
                                         loading={loading}
                                         date_header='Register Date' />

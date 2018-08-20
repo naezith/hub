@@ -6,7 +6,7 @@ export const PlayerProfile = ({ player_id, username, badge, rank, player_count, 
                     steam_id, steam_info, update_date, entries, loading }) => 
 
     loading > 0 ? 
-        <div><h1>Loading...</h1><h2>It takes a while, please wait</h2></div>  : 
+        <div><h2>Loading...</h2><h3>It takes a while, please wait</h3></div>  : 
         
         <div>
             <Leaderboard lines={ [{ player_id, username, badge, 

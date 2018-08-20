@@ -3,10 +3,10 @@ import React from 'react'
 import { Leaderboard } from '../Leaderboard'
 
 export const WorldRecords = ({ levels, most_wrs, loading }) => 
-        loading > 0 ? <h1>Loading...</h1> : 
+        loading > 0 ? <h2>Loading...</h2> : 
         
         <div>
-            <h1>Record Holders</h1>
+            <h2>Record Holders</h2>
             <Leaderboard    lines={most_wrs} 
                             loading={loading} 
                             extra_header={'WR +Secrets'}
@@ -14,7 +14,7 @@ export const WorldRecords = ({ levels, most_wrs, loading }) =>
                                 obj.count + 
                                 (obj.secrets_count ? (' (+' + obj.secrets_count + ')') : '')} />
 
-            <h1>Levels</h1>
+            <h2>Levels</h2>
             <Leaderboard    lines={levels} 
                             loading={loading} />
         </div>
