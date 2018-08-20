@@ -8,7 +8,7 @@ export const Leaderboard = ({ start_rank, lines, loading, changePage,
     
     loading > 0 && lines.length === 0 ? <h1>Loading...</h1> :
     
-    <div className="Leaderboard">
+    <div className='Leaderboard'>
         {changePage ? 
             <div>
             <button onClick={(event) => changePage(event, 'previous') } disabled={start_rank < lines.length || loading}>Previous</button>
