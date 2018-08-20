@@ -12,6 +12,8 @@ import { calcDominance } from '../../utility/calculations'
 import { ranks } from '../../data/naezith'
 import { SteamAvatar } from './SteamAvatar';
 
+import '../../css/LeaderboardLine.css'
+
 export const LeaderboardLine = ({ level_id, steam_id, steam_info, player_id, badge, rank, score, 
                 username, update_date, time, 
                 official_time, lb_rank, lb_size, dominance_scale='global', dominance_precision=3, // Player profile stuff
@@ -24,12 +26,15 @@ export const LeaderboardLine = ({ level_id, steam_id, steam_info, player_id, bad
         { badge === undefined ? undefined : 
             <td><RankIcon name={ranks[badge]} /></td> }
         { player_id === undefined ? undefined : 
-            <td>
+            <td className='player-column'>
+                <ul>
                 {steam_info === undefined ? undefined :
-                    <SteamAvatar name={username} url={steam_info.avatar} />}
-                <PlayerLink id={player_id} username={username}/> 
+                    <li><SteamAvatar name={username} url={steam_info.avatar} /></li>}
+                <li><PlayerLink id={player_id} username={username}/></li> 
                 {steam_info === undefined || steam_info.country_icon === undefined ? undefined :
-                    <CountryIcon name={steam_info.loccountrycode} url={steam_info.country_icon} />}</td> }
+                    <li><CountryIcon name={steam_info.loccountrycode} url={steam_info.country_icon} /></li>}
+                </ul>
+            </td>}
         { score === undefined ? undefined : 
             <td>{formatDominance(calcDominance(score, dominance_scale), dominance_precision)}</td> }
         { time === undefined ? undefined : 
