@@ -68,19 +68,19 @@ header h2 {
 	text-align: left;
 }
 
-header ul, header li {
+header ul, header li, footer ul, footer li {
 	display: inline-block;
 	margin: 0;
 	padding: 0;
 }
 
-header li a {
+header li a, footer li a {
 	display: block;
-	padding: .82em .5em;
+	padding: .82em 1em;
 	height: 100%;
 }
 
-header li a:hover, .nav-selected {
+header li a:hover, .nav-selected, footer li a:hover{
 	background: #272727;
 }
 
