@@ -1,7 +1,7 @@
 import { calcScore } from '../utility/calculations'
 import { renameKey, fetchData, compareDesc } from '../utility/common'
 import { sortEntries, sortWRs, getMostWRs, renameProps, getLevel } from '../utility/ron-hub'
-import { getSteamInfo } from './steamapi'
+import { getSteamInfo, appendSteamInfo } from './steamapi'
 
 
 export const fetchGameInfo = () => {
@@ -44,20 +44,11 @@ export const fetchGlobalRankings = (start_rank, line_count=10) => {
                 renameProps(content.lines, 'id', 'player_id')
                 renameProps(content.lines, 'global_score', 'score')
                 
-                var steam_ids = []
-                content.lines.forEach((l) => {
-                    steam_ids.push(l.steam_id)
-                })
-                
-                getSteamInfo(steam_ids).then((steam_info) => {
-                    if(!steam_info.error_msg) {
-                        var players = steam_info.response.players
-                        for(var i = 0; i < players.length; ++i) 
-                            content.lines[i].steam_info = players[i]
-                    }
-
+                appendSteamInfo(content.lines).then(() => {
+                    console.log(content)
                     resolve(content)
                 })
+
             }
             else reject({ error_msg: 'Failed to fetch Global Rankings' })
         })
