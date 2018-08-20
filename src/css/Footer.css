@@ -1,0 +1,51 @@
+html, body, div#root, .router-div {
+    height: 100%;
+    width: 100%;
+}
+
+.content {
+    min-height: -webkit-calc(100% - 50px);
+    padding-top: 50px;
+	margin-bottom: -40px; 
+}
+
+.footer-div, .content:after {
+	height: 40px; 
+}
+
+.content:after {
+    content: "";
+    display: block;
+}
+
+
+
+
+.footer-div {
+    background-color: #333;
+    left: 0;
+    width: 100%;
+    text-align: -webkit-center;
+}
+
+.footer {
+    display: table;
+    height: 100%;
+    width: 800px;
+}
+
+.footer-copyright {
+    display: table-cell;
+    margin: 0;
+    padding: 0;
+    vertical-align: middle;
+    text-align: left;
+}
+
+.footer-links {
+    display: table-cell;
+    padding: 0;
+    margin: 0;
+    vertical-align: middle;
+    text-align: right;
+}

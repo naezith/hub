@@ -3,6 +3,7 @@ import React, {Component} from 'react'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 
 import { Header } from './render/Header'
+import { Footer } from './render/Footer'
 import GlobalRankingsPage from './pages/GlobalRankingsPage'
 import PlayerProfilePage from './pages/PlayerProfilePage'
 import PlayersPage from './pages/PlayersPage'
@@ -29,7 +30,7 @@ export default class App extends Component {
   
   render = () => (
     <Router>
-        <div>
+        <div className='router-div'>
             <Header user={this.state.user}/>
 
             <div className='content'>
@@ -44,6 +45,8 @@ export default class App extends Component {
               <Route path='/steam/:user' render={(routeProps) => (
                       <SteamLoginHandler {...routeProps} setUser={this.setUser} />)} />
             </div>
+
+            <Footer />
         </div>
     </Router>
   )

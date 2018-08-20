@@ -16,7 +16,7 @@
 
 .header-title {
   display: table-cell; vertical-align: middle;
-  padding: 0 20px;
+  padding: 0;
 }
 
 .header-menu {
@@ -45,5 +45,4 @@ li {
 
 .content {
   text-align: -webkit-center;
-  margin-top: 70px;
 }
