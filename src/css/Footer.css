@@ -3,11 +3,11 @@
     min-height: -webkit-calc(100% - 50px - 20px);
     padding-top: 50px;
     padding-bottom: 20px;
-	margin-bottom: -40px; 
+	margin-bottom: -32px; 
 }
 
 .footer-div, .content:after {
-	height: 40px; 
+	height: 32px; 
 }
 
 .content:after {

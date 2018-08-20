@@ -4,13 +4,13 @@
   top: 0; /* Position the navbar at the top of the page */
   width: 100%; /* Full width */
   color: white;
-  height: 40px;
+  height: 32px;
   position: fixed;
   text-align: -webkit-center;
 }
 
 .header {
-  height: 40px;
+  height: 32px;
   display: table;
   width: 800px; /* Full width */
 }
@@ -42,11 +42,11 @@
 }
 
 .login-with-steam {
-  max-height: 40px;
+  max-height: 32px;
 }
 
 .steam-avatar {
-  height: 40px;
+  height: 32px;
 }
 
 ul {
