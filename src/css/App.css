@@ -7,7 +7,7 @@ body {
 	margin: 0;
 	padding: 0;
 	font-family: Arial, Helvetica, sans-serif;
-	font-size: .95em;
+	font-size: 0.875em;
 	color: rgb(255, 253, 248);
     text-align: center;
     text-align: -o-center;
@@ -33,7 +33,7 @@ header {
 	right: 0;
 	top: 0;
 	color: white;
-	font-size: .8em;
+	font-size: 0.9em;
 
 	height: 35px;
 	text-align: center;
@@ -254,7 +254,7 @@ footer, .content:after {
 
 footer {
 	color: white;
-	font-size: .8em;
+	font-size: .9em;
     background-color: #333;
     left: 0;
     width: 100%;
