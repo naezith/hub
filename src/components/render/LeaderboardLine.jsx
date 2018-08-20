@@ -16,7 +16,7 @@ export const LeaderboardLine = ({ level_id, steam_id, steam_info, player_id, bad
         { rank === undefined ? undefined : 
             <td>{rank}</td> }
         { level_id === undefined ? undefined : 
-            <td>{<LevelLink id={level_id}/>}</td> }
+            <td className='td-level-name'>{<LevelLink id={level_id}/>}</td> }
         { player_id === undefined ? undefined : 
             <td><PlayerLink id={player_id} username={username} badge={badge} steam_info={steam_info} /></td>}
         { score === undefined ? undefined : 
@@ -33,5 +33,5 @@ export const LeaderboardLine = ({ level_id, steam_id, steam_info, player_id, bad
         { extra_value_func === undefined ? undefined : 
             <td>{ extra_value_func(obj) }</td> }
         { steam_id === undefined ? undefined : 
-            <td><SteamProfile id={steam_id} /></td> }
+            <td className='td-steam-icon'><SteamProfile id={steam_id} /></td> }
     </tr>

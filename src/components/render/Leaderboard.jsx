@@ -14,7 +14,7 @@ export const Leaderboard = ({ start_rank, lines, loading, changePage,
             <button onClick={(event) => changePage(event, 'previous') } disabled={start_rank < lines.length || loading}>Previous</button>
             <button onClick={(event) => changePage(event, 'next')} disabled={loading}>Next</button> 
             </div> : undefined}
-        <table className={lines[0].steam_id === undefined ? 'levels' : 'players'}>
+        <table>
             <thead>
                 <tr>
                     { lines[0].rank === undefined ? undefined : 

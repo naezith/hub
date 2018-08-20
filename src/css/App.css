@@ -128,11 +128,11 @@ td {
 	white-space: nowrap;
 }
 
-td:first-child {
+.td-level-name {
 	text-align: left;
 }
 
-.players td:last-child {
+.td-steam-icon {
 	padding: 0 0.1em;
 	width: 0;
 }
