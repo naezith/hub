@@ -36,5 +36,5 @@ export const LeaderboardLine = ({ level_id, steam_id, player_id, badge, rank, sc
         { extra_value_func === undefined ? undefined : 
             <td>{ extra_value_func(obj) }</td> }
         { steam_id === undefined ? undefined : 
-            <td><SteamProfile id={steam_id} inside={'Steam Profile'} /></td> }
+            <td><SteamProfile id={steam_id} inside={'Steam'} /></td> }
     </tr>

@@ -4,8 +4,9 @@ html, body, div#root, .router-div {
 }
 
 .content {
-    min-height: -webkit-calc(100% - 50px);
+    min-height: -webkit-calc(100% - 50px - 20px);
     padding-top: 50px;
+    padding-bottom: 20px;
 	margin-bottom: -40px; 
 }
 

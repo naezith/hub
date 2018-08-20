@@ -26,7 +26,21 @@ h2 {
 
 table {
   text-align: center;
+  margin: 20px 0px
 }
+
+button, input {
+  margin: 0px 20px
+}
+
+td {
+  padding: 0px 12px
+}
+
+tr {
+  height: 2.5em;
+}
+
 
 tr:nth-child(even) {
   background: rgba(255, 255, 255, .05)
