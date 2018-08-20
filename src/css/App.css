@@ -237,10 +237,6 @@ main li {
   margin: 0 .5em;
 }
 
-button, input {
-  margin: 0px 20px
-}
-
 
 
 
@@ -326,7 +322,7 @@ button {
     display: inline-block;
 	border: none;
 	width: 6em;
-	margin: 0 0.2em;
+	margin-right: 0.4em;
     padding: 0.25em 1em;
     text-decoration: none;
     background: rgb(92, 92, 92);
@@ -359,4 +355,16 @@ button:focus {
 
 button:active {
     transform: scale(0.99);
+}
+
+
+
+input {
+	border:1px solid #d1c7ac;
+	width: 12em;
+	height: 1.35em;
+	font-size: 0.95em;
+	color:#333333;
+	margin-right:0.4em;
+	font-family:tahoma, arial, sans-serif;
 }
