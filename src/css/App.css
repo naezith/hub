@@ -1,11 +1,31 @@
+html { 
+  background: url(../img/bg.png) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+
 body {
   margin: auto;
   padding: 0;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 14px;
-  background: #141414;
   color: rgb(255, 253, 248);
+  text-align: -webkit-center;
 }
+
+html, body, div#root, .router-div {
+  height: 100%;
+  width: 100%;
+}
+
+.content {
+  width: 800px;
+}
+
+
 
 a {
   color: rgb(255, 244, 95);
@@ -25,8 +45,13 @@ h2 {
 } 
 
 table {
+  background: rgba(20, 20, 20, 0.8);
   text-align: center;
   margin: 20px 0px
+}
+
+.content {
+  background: rgba(20, 20, 20, 0.8);
 }
 
 button, input {

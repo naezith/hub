@@ -1,9 +1,5 @@
-html, body, div#root, .router-div {
-    height: 100%;
-    width: 100%;
-}
 
-.content {
+.content {    
     min-height: -webkit-calc(100% - 50px - 20px);
     padding-top: 50px;
     padding-bottom: 20px;
