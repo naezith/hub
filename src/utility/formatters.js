@@ -1,4 +1,4 @@
-import { daysSince } from './common';
+import { daysSince } from './common'
 
 export const formatDominance = (dominance, digits=3) => dominance.toFixed(digits) + '%'
 

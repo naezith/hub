@@ -8,7 +8,7 @@ const getCountryIconURL = code =>
 const getSteamInfo = steam_ids => { 
     return new Promise((resolve, reject) => {
         let id_list = ''
-        steam_ids.forEach(id => id_list += id + ',');
+        steam_ids.forEach(id => id_list += id + ',')
         id_list = id_list.substr(0, id_list.length - 1)
 
         fetchDataGET('http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=' +

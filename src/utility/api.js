@@ -1,4 +1,3 @@
-import { calcScore } from '../utility/calculations'
 import { renameKey, fetchData, compareDesc } from '../utility/common'
 import { sortEntries, sortWRs, getMostWRs, renameProps, getLevel } from '../utility/ron-hub'
 import { appendSteamInfo } from './steamapi'
@@ -124,10 +123,7 @@ export const fetchFinishedLevels = (player_id) => {
                 renameProps(content.entries, 'eq_rank', 'lb_rank')
                 renameProps(content.entries, 'id', 'level_id')
                 
-                content.entries.forEach(e => {
-                    delete e.rank
-                    e.score = calcScore(e.lb_rank, e.lb_size)
-                });
+                content.entries.forEach(e => delete e.rank)
 
                 resolve(content)
             }

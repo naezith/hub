@@ -52,12 +52,21 @@ export const fetchData = (query, data) =>
 
 export const startLoading = (component, count = 1) => component.setState({ loading: component.state.loading + count }) 
 
-export const mutateState = (component, ...promises) => {
+export const mutateState = (component, callback, ...promises) => {
     component.setState({ loading: component.state.loading + promises.length }) 
 
-    promises.map(p => p.catch(content => content).then(content =>  
-        component.setState({...content, loading: component.state.loading - 1})
-    ))
+    Promise.all(
+        promises.map(p => {
+            return new Promise((resolve, reject) => 
+                    p.catch(content => content).then(content => {
+                        component.setState({...content, loading: component.state.loading - 1})
+                        resolve()
+                })
+            )}
+        )
+    ).catch(e => e).then((e) =>  {
+        if(callback) callback()
+    })
 }
 
 

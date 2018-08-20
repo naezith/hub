@@ -23,7 +23,7 @@ export default class LevelPage extends Component {
         }
     }
     
-    setLevelLeaderboard = (level_id, start_rank) => mutateState(this, 
+    setLevelLeaderboard = (level_id, start_rank) => mutateState(this, undefined,
         fetchLeaderboard(level_id, start_rank, line_count))
 
     componentWillMount = () => {

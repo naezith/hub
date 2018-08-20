@@ -58,3 +58,11 @@ export const getMostWRs = wrs => {
 
     return players
 }
+
+export const appendScores = (entries, player_count) => {
+    var newEntries = []
+    
+    entries.map(e => newEntries.push({...e, score: calcScore(e.lb_rank, player_count)}))
+
+    return newEntries
+}

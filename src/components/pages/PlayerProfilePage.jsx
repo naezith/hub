@@ -5,6 +5,7 @@ import { PageLayout } from '../render/PageLayout'
 
 import { fetchFinishedLevels, fetchGlobalRank } from '../../utility/api'
 import { mutateState } from '../../utility/common'
+import { appendScores } from '../../utility/ron-hub'
 
 import '../../css/PlayerProfile.css'
 
@@ -26,10 +27,19 @@ export default class PlayerProfilePage extends Component {
             loading: 0,
             error_msg: undefined
         }
+
+        this.calculateScores = this.calculateScores.bind(this)
     }
 
-    setPlayerProfile = (player_id) => mutateState(this, 
-            fetchGlobalRank(player_id), fetchFinishedLevels(player_id))
+    calculateScores = () => {
+        console.log(this.state.entries.length, ' - ', this.state.player_count)
+        this.setState({
+             entries: appendScores(this.state.entries, this.state.player_count)
+        })
+    }
+    
+    setPlayerProfile = (player_id) => mutateState(this, this.calculateScores,
+            fetchGlobalRank(player_id), fetchFinishedLevels(player_id, this.state.player_count))
 
     componentWillMount() {
         let { player_id } = this.props.match.params

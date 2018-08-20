@@ -17,7 +17,7 @@ export default class WorldRecordsPage extends Component {
         }
     }
 
-    setWorldRecords = () => mutateState(this, fetchWRs())
+    setWorldRecords = () => mutateState(this, undefined, fetchWRs())
 
     componentWillMount = () => this.setWorldRecords()
     

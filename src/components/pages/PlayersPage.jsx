@@ -25,7 +25,7 @@ export default class PlayersPage extends Component {
         (!steam_id || steam_id === '')) {
         this.setState({ error_msg: 'Both fields are empty.'})
     }
-    else mutateState(this, fetchPlayers(username, steam_id))
+    else mutateState(this, undefined, fetchPlayers(username, steam_id))
   }
 
   render = () =>  <PageLayout title='Search Players' error_msg={this.state.error_msg}>

@@ -22,12 +22,12 @@ export default class GlobalRankingsPage extends Component {
         }
     }
     
-    componentWillMount = () => mutateState(this, 
+    componentWillMount = () => mutateState(this, undefined,
         fetchGlobalRankings(this.state.start_rank, line_count), fetchGameInfo())
 
     changePage = (event, tag) => {
         event.preventDefault()
-        mutateState(this, fetchGlobalRankings(
+        mutateState(this, undefined, fetchGlobalRankings(
             this.state.start_rank + (tag === 'previous' ? -line_count : line_count), 
             line_count))
     }
