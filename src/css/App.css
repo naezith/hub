@@ -84,6 +84,10 @@ header li a:hover {
 	background: #272727;
 }
 
+.nav {
+	margin-left: 8em;
+}
+
 .steam {
 	float: right;
 }
