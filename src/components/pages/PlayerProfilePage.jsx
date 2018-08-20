@@ -14,6 +14,7 @@ export default class PlayerProfilePage extends Component {
         this.state = {
             player_id: 1,
             steam_id: undefined,
+            steam_info: undefined,
             register_date: undefined,
             username: '',
             badge: undefined,

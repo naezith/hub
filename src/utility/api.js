@@ -29,9 +29,11 @@ export const fetchGlobalRank = (player_id) => {
                 renameKey(content, 'register_date', 'update_date')
                 content.player_id = player_id
                 
-
-                // NEEDS STEAM INFO
-                resolve(content)
+                var lines = [{...content}]
+                appendSteamInfo(lines).then(() => {
+                    content.steam_info = lines[0].steam_info
+                    resolve(content)
+                })
             }
             else reject({ error_msg: 'Failed to fetch Global Rank' })
         })
@@ -47,31 +49,9 @@ export const fetchGlobalRankings = (start_rank, line_count=10) => {
                 renameProps(content.lines, 'id', 'player_id')
                 renameProps(content.lines, 'global_score', 'score')
                 
-                appendSteamInfo(content.lines).then(() => { resolve(content) })
+                appendSteamInfo(content.lines).then(() => resolve(content))
             }
             else reject({ error_msg: 'Failed to fetch Global Rankings' })
-        })
-    })
-}
-
-export const fetchFinishedLevels = (player_id) => {
-    return new Promise((resolve, reject) => {
-        fetchData('/fetchFinishedLevels', { player_id })().then((content) => {
-            if(content.data) {
-                renameKey(content, 'data', 'entries')
-                sortEntries(content.entries)
-                content.player_id = player_id
-                renameProps(content.entries, 'eq_rank', 'lb_rank')
-                renameProps(content.entries, 'id', 'level_id')
-                
-                content.entries.forEach(e => {
-                    delete e.rank
-                    e.score = calcScore(e.lb_rank, e.lb_size)
-                });
-
-                resolve(content)
-            }
-            else reject({ error_msg: 'Failed to fetch Finished Levels' })
         })
     })
 }
@@ -90,7 +70,7 @@ export const fetchPlayers = (username, steam_id) => {
                 content.username = username
                 content.steam_id = steam_id
 
-                appendSteamInfo(content.players).then(() => { resolve(content) })
+                appendSteamInfo(content.players).then(() => resolve(content))
             }
             else reject({ error_msg: 'Failed to fetch Players' })
         })
@@ -127,9 +107,31 @@ export const fetchLeaderboard = (level_id, start_rank, line_count=10) => {
                 content.level_id = level_id
                 content.start_rank = start_rank
                 
-                resolve(content)
+                appendSteamInfo(content.lines).then(() => resolve(content))
             }
             else reject({ error_msg: 'Failed to fetch Level Leaderboard' })
+        })
+    })
+}
+
+export const fetchFinishedLevels = (player_id) => {
+    return new Promise((resolve, reject) => {
+        fetchData('/fetchFinishedLevels', { player_id })().then((content) => {
+            if(content.data) {
+                renameKey(content, 'data', 'entries')
+                sortEntries(content.entries)
+                content.player_id = player_id
+                renameProps(content.entries, 'eq_rank', 'lb_rank')
+                renameProps(content.entries, 'id', 'level_id')
+                
+                content.entries.forEach(e => {
+                    delete e.rank
+                    e.score = calcScore(e.lb_rank, e.lb_size)
+                });
+
+                resolve(content)
+            }
+            else reject({ error_msg: 'Failed to fetch Finished Levels' })
         })
     })
 }
