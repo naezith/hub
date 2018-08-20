@@ -1,15 +1,15 @@
 .Jade {
-    color: green;
+    color: rgb(180, 255, 136);
 }
 
 .Sand {
-    color: orange;
+    color: rgb(255, 233, 136);
 }
 
 .Metal {
-    color: rgb(42, 99, 255);
+    color: rgb(169, 224, 255);
 }
 
 .Crystal {
-    color: purple;
+    color: rgb(255, 136, 255);
 }
