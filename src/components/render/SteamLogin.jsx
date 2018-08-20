@@ -9,7 +9,7 @@ export const SteamLogin = ({user}) =>
 (   <div className='steam-login'> 
     {user === undefined ?  
         <ul className='steam-ul'>
-            <li className='steam-li'><Link to={'/steam'}><img src={require('../../img/steam/sits_01.png')} alt='Login with Steam'/></Link></li>
+            <li className='steam-li'><Link to={'/steam'}><img className='login-with-steam' src={require('../../img/steam/sits_01.png')} alt='Login with Steam'/></Link></li>
         </ul>    
             :
         <ul className='steam-ul'>

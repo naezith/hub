@@ -41,6 +41,14 @@
   height: 40px;
 }
 
+.login-with-steam {
+  max-height: 40px;
+}
+
+.steam-avatar {
+  height: 40px;
+}
+
 ul {
   margin: 0;
   padding: 0;
