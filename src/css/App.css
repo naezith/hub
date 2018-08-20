@@ -95,6 +95,7 @@ main {
     min-height: -webkit-calc(100% - 2.75em - 35px);
     padding: 2.75em 0 35px 0; 
 	margin: 0 auto -35px auto;
+	
 	border-left: 1px solid rgba(0, 0, 0, .4);
 	border-right: 1px solid rgba(0, 0, 0, .4);
 	background: rgba(20, 20, 20, .8);
@@ -131,7 +132,7 @@ tr:nth-child(odd) {
 	background: rgba(255, 255, 255, .05)
 }
 
-tr:not(:first-child):hover {
+tbody tr:hover {
 	background: rgba(255, 255, 255, .1)
 }
 
