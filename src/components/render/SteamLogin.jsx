@@ -8,7 +8,10 @@ import '../../css/SteamLogin.css'
 export const SteamLogin = ({user}) =>
 (   <div className='steam-login'> 
     {user === undefined ?  
-        <Link to={'/steam'}>Login with Steam</Link> :
+        <ul className='steam-ul'>
+            <li className='steam-li'><Link to={'/steam'}><img src={require('../../img/steam/sits_01.png')} alt='Login with Steam'/></Link></li>
+        </ul>    
+            :
         <ul className='steam-ul'>
             <li className='steam-li'><img className='steam-avatar' src={user.avatarfull} alt={user.personaname}/></li> 
             <li className='steam-li'>{<PlayerLink id={user.steamid} username={user.personaname}/>}</li>
