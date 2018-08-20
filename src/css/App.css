@@ -299,7 +299,7 @@ footer {
 /* Tooltip text */
 .tooltip .tooltip-text {
     visibility: hidden;
-    background-color: black;
+    background-color: rgba(0, 0, 0, .4);
     color: #fff;
     text-align: center;
     padding: 5px 0;
@@ -308,9 +308,12 @@ footer {
     position: absolute;
 	z-index: 1;
 	
-    /* Position */
-    top: -5px;
-    left: 105%; 
+	/* Position */
+    bottom: 100%;
+    left: 50%; 
+	margin-left: -2.5em;
+	margin-bottom: 0.25em;
+	padding: 0.1em 0.5em;
 }
 
 .tooltip:hover .tooltip-text {
