@@ -26,7 +26,8 @@ export const LeaderboardLine = ({ level_id, steam_id, steam_info, player_id, bad
         { time === undefined ? undefined : 
             <td>{formatTime(time)}</td> }
         { official_time === undefined ? undefined : 
-            <td>{formatTime(official_time)}</td> }
+            <td className={time <= official_time ? 'passed-mastery' : 'no-mastery'}>
+                {formatTime(official_time)}</td> }
         { lb_rank === undefined ? undefined : 
             <td>{formatRank(lb_rank, lb_size)}</td> }
         { update_date === undefined ? undefined : 
