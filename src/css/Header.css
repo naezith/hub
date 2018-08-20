@@ -6,6 +6,9 @@
   color: white;
   height: 32px;
   position: fixed;
+  text-align: center;
+  text-align: -o-center;
+  text-align: -moz-center;
   text-align: -webkit-center;
 }
 

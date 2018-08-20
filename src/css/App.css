@@ -1,9 +1,9 @@
 html { 
   background: url(../img/bg.png) no-repeat center center fixed; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
   background-size: cover;
+  -o-background-size: cover;
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
 }
 
 
@@ -13,6 +13,9 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 14px;
   color: rgb(255, 253, 248);
+  text-align: center;
+  text-align: -o-center;
+  text-align: -moz-center;
   text-align: -webkit-center;
 }
 
