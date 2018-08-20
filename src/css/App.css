@@ -9,7 +9,10 @@ body {
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: .95em;
 	color: rgb(255, 253, 248);
-	text-align: center;
+    text-align: center;
+    text-align: -o-center;
+    text-align: -moz-center;
+    text-align: -webkit-center;
 	background: url('../img/bg.png') no-repeat center center fixed; 
 	background-size: cover;
 }
@@ -86,11 +89,12 @@ header li a:hover {
 }
 
 main {    
-    min-height: calc(100% - 50px - 20px);
-    min-height: -o-calc(100% - 50px - 20px);
-    min-height: -webkit-calc(100% - 50px - 20px);
-    padding: 50px 0 20px 0; 
-	margin: 0 auto -32px auto;
+    min-height: calc(100% - 2.75em - 35px);
+    min-height: -o-calc(100% - 2.75em - 35px);
+    min-height: -moz-calc(100% - 2.75em - 35px);
+    min-height: -webkit-calc(100% - 2.75em - 35px);
+    padding: 2.75em 0 35px 0; 
+	margin: 0 auto -35px auto;
 	border-left: 1px solid rgba(0, 0, 0, .4);
 	border-right: 1px solid rgba(0, 0, 0, .4);
 	background: rgba(20, 20, 20, .8);
@@ -112,7 +116,7 @@ main h2 {
 
 table {
 	background: rgba(20, 20, 20, .8);
-	text-align: center;
+    text-align: center;
 	margin: 20px auto;
 	width: 90%;
 }
@@ -229,20 +233,49 @@ button, input {
   margin: 0px 20px
 }
 
-footer, main:after {
-	height: 2em; 
+
+
+
+
+.footer-div {
+    display: table;
+    height: 100%;
+    width: 800px;
+}
+
+footer, .content:after {
+	height: 35px; 
+}
+
+.content:after {
+    content: '';
+    display: block;
 }
 
 footer {
+	color: white;
+	font-size: .8em;
     background-color: #333;
+    left: 0;
     width: 100%;
     text-align: center;
-    display: table;
-    height: 100%;
+    text-align: -o-center;
+    text-align: -moz-center;
+    text-align: -webkit-center;
 }
 
-footer p {
-    display: inline-block;
+.footer-copyright {
+    display: table-cell;
     margin: 0;
     padding: 0;
+    vertical-align: middle;
+    text-align: left;
+}
+
+.footer-links {
+    display: table-cell;
+    padding: 0;
+    margin: 0;
+    vertical-align: middle;
+    text-align: right;
 }
