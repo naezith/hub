@@ -76,11 +76,11 @@ header ul, header li {
 
 header li a {
 	display: block;
-	padding: .9em .5em;
+	padding: .82em .5em;
 	height: 100%;
 }
 
-header li a:hover {
+header li a:hover, .nav-selected {
 	background: #272727;
 }
 
