@@ -23,11 +23,11 @@ export const LeaderboardLine = ({ level_id, steam_id, steam_info, player_id, bad
             <td>{rank}</td> }
         { level_id === undefined ? undefined : 
             <td>{<LevelLink id={level_id}/>}</td> }
-        { badge === undefined ? undefined : 
-            <td><RankIcon name={ranks[badge]} /></td> }
         { player_id === undefined ? undefined : 
             <td className='player-column'>
                 <ul>
+                { badge === undefined ? undefined : 
+                    <li><RankIcon name={ranks[badge]} /></li> }
                 {steam_info === undefined ? undefined :
                     <li><SteamAvatar name={username} url={steam_info.avatar} /></li>}
                 <li><PlayerLink id={player_id} username={username}/></li> 

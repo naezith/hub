@@ -20,8 +20,6 @@ export const Leaderboard = ({ start_rank, lines, loading, changePage,
                         <th>Rank</th> }
                     { lines[0].level_id === undefined ? undefined : 
                         <th>Level</th> }
-                    { lines[0].badge === undefined ? undefined : 
-                        <th></th> }
                     { lines[0].player_id === undefined ? undefined : 
                         <th>Player</th> }
                     { lines[0].score === undefined ? undefined : 
