@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-import { PlayerLink } from './PlayerLink';
+import { PlayerLink } from './PlayerLink'
 
 import '../../css/SteamLogin.css'
 

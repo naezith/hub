@@ -3,7 +3,8 @@ import React from 'react'
 import { LeaderboardLine } from './LeaderboardLine'
 
 export const Leaderboard = ({ start_rank, lines, loading, changePage, 
-            dominance_scale='global', dominance_precision=3, extra_header, extra_value_func }) => 
+            dominance_scale='global', dominance_precision=3, extra_header, extra_value_func,
+            date_header='Date' }) => 
     
     loading > 0 && lines.length === 0 ? <h1>Loading...</h1> :
     
@@ -31,7 +32,7 @@ export const Leaderboard = ({ start_rank, lines, loading, changePage,
                     { lines[0].lb_rank === undefined ? undefined : 
                         <th>Rank</th> }
                     { lines[0].update_date === undefined ? undefined : 
-                        <th>Date</th> }
+                        <th>{date_header}</th> }
                     { extra_header === undefined ? undefined : 
                         <th>{extra_header}</th> }
                     { lines[0].steam_id === undefined ? undefined : 

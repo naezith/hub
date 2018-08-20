@@ -21,7 +21,8 @@ export const Players = ({ username, steam_id, players, loading, searchButton }) 
                     {!username && !steam_id ? undefined : 
                         players.length === 0 ? <h1>There is no such player</h1> :
                         <Leaderboard    lines={players} 
-                                        loading={loading} />
+                                        loading={loading}
+                                        date_header='Register Date' />
                     }
                 </div>
             }

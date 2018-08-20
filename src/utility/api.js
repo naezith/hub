@@ -1,7 +1,7 @@
 import { calcScore } from '../utility/calculations'
 import { renameKey, fetchData, compareDesc } from '../utility/common'
 import { sortEntries, sortWRs, getMostWRs, renameProps, getLevel } from '../utility/ron-hub'
-import { getSteamInfo, appendSteamInfo } from './steamapi'
+import { appendSteamInfo } from './steamapi'
 
 
 export const fetchGameInfo = () => {
@@ -26,6 +26,7 @@ export const fetchGlobalRank = (player_id) => {
                 content = content.lb_data[0]
                 renameKey(content, 'eq_rank', 'rank')
                 renameKey(content, 'global_score', 'score')
+                renameKey(content, 'register_date', 'update_date')
                 content.player_id = player_id
 
                 resolve(content)

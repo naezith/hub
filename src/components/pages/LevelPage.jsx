@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
 import { Level } from '../render/pages/Level'
-import { PageLayout } from '../render/PageLayout';
+import { PageLayout } from '../render/PageLayout'
 
 import { mutateState } from '../../utility/common'
 import { fetchLeaderboard } from '../../utility/api'

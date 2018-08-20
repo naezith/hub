@@ -2,7 +2,7 @@ import React from 'react'
 
 import { Leaderboard } from '../Leaderboard'
 
-import { getChapterName } from '../../../utility/ron-hub';
+import { getChapterName } from '../../../utility/ron-hub'
 
 import '../../../css/Chapter.css'
 

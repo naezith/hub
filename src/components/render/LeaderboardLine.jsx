@@ -1,16 +1,12 @@
 import React from 'react'
 
-import { PlayerLink } from './PlayerLink';
-import { RankIcon } from './RankIcon'
+import { PlayerLink } from './PlayerLink'
 import { SteamProfile } from './SteamProfile'
-import { DateText } from './DateText';
-import { LevelLink } from './LevelLink';
-import { CountryIcon } from './CountryIcon';
+import { DateText } from './DateText'
+import { LevelLink } from './LevelLink'
 
 import { formatDominance, formatTime, formatRank } from '../../utility/formatters'
 import { calcDominance } from '../../utility/calculations'
-import { ranks } from '../../data/naezith'
-import { SteamAvatar } from './SteamAvatar';
 
 import '../../css/LeaderboardLine.css'
 
@@ -24,17 +20,7 @@ export const LeaderboardLine = ({ level_id, steam_id, steam_info, player_id, bad
         { level_id === undefined ? undefined : 
             <td>{<LevelLink id={level_id}/>}</td> }
         { player_id === undefined ? undefined : 
-            <td className='player-column'>
-                <ul>
-                { badge === undefined ? undefined : 
-                    <li><RankIcon name={ranks[badge]} /></li> }
-                {steam_info === undefined ? undefined :
-                    <li><SteamAvatar name={username} url={steam_info.avatar} /></li>}
-                <li><PlayerLink id={player_id} username={username}/></li> 
-                {steam_info === undefined || steam_info.country_icon === undefined ? undefined :
-                    <li><CountryIcon name={steam_info.loccountrycode} url={steam_info.country_icon} /></li>}
-                </ul>
-            </td>}
+            <td><PlayerLink id={player_id} username={username} badge={badge} steam_info={steam_info} /></td>}
         { score === undefined ? undefined : 
             <td>{formatDominance(calcDominance(score, dominance_scale), dominance_precision)}</td> }
         { time === undefined ? undefined : 
