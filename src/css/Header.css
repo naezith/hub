@@ -32,13 +32,8 @@
 }
 
 .steam-login ul {
-  height: 40px;
   display: table-cell; vertical-align: middle;
   padding: 0;
-}
-
-.steam-login li {
-  height: 40px;
 }
 
 .login-with-steam {
