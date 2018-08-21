@@ -8,12 +8,12 @@ import { navSelectedPage } from '../../utility/common'
 export const SteamLogin = ({user}) => 
     user === undefined ?  
         <ul className='steam'>
-            <li className='avatar'><Link to={'/steam'}><img src='/img/steam/sits_01.png' alt='Login with Steam'/></Link></li>
+            <li className='login-with-steam'><Link to={'/steam'}><img src='/img/steam/sits_01.png' alt='Login with Steam'/></Link></li>
         </ul>    
             :
         <ul className='steam'>
-            <li className='avatar'><img src={user.avatarfull} title={user.personaname} alt={user.personaname}/></li> 
-            <li>{<PlayerLink navSelected={navSelectedPage('/player/' + user.steamid)} id={user.steamid} username={user.personaname}/>}</li>
+            <li>{<PlayerLink navSelected={navSelectedPage('/player/' + user.steamid)} 
+                            id={user.steamid} username={user.personaname} steam_info={user} />}</li>
             <li>{<Link to={'/steam/logout'}>Logout</Link>}</li>
         </ul>
         
