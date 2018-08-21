@@ -50,28 +50,28 @@ header {
 
 header img {
 	display: inline-block;
+	vertical-align: middle;
 	margin: 0;
 	padding: 0;
-	vertical-align: middle;
 	max-height: 2.8em;
 }
 
 header h2 {
-	color: white;
 	display: inline-block;
-	line-height: 1em;
-	margin: 0 .4em;
-	padding: 0;
 	vertical-align: middle;
-	text-align: left;
+	color: white;
+	line-height: 1em;
+	margin: 0 .6em;
+	padding: 0;
 }
 
 .nav, .footer-links, .steam {
     display: table-cell;
-    padding: 0;
-    margin: 0;
     vertical-align: middle;
-    text-align: right;
+}
+
+.nav {
+	padding-left: 4.3em;
 }
 
 header ul, footer ul {
@@ -79,13 +79,17 @@ header ul, footer ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
-    overflow: hidden;
 }
 
 header li, footer li {
 	float: left;
 	display: table;
 	height: 35px;
+}
+
+.title {
+	display: block;
+	float: left;
 }
 
 .steam li, footer li {
@@ -100,7 +104,7 @@ header li a, footer li a {
     text-decoration: none;
 }
 
-header li a:hover, footer li a:hover, .nav-selected {
+header li a:hover, footer li a:hover, .nav-selected, .title:hover {
 	color: rgb(255, 253, 234);
 	background: #272727;
 }
