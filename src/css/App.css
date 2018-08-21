@@ -40,7 +40,6 @@ header, footer {
 	font-size: .9em;
 	z-index: 10;
     width: 800px;
-    line-height: 35px;
 }
 
 header img {
@@ -59,9 +58,14 @@ header h2 {
     display: table-cell;
 }
 
+.nav-profile {
+    line-height: 35px;
+}
+
 .nav-profile a {
     padding-right: 0;
 }
+
 
 header li, footer li {
 	float: left;
