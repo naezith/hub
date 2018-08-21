@@ -2,8 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 import { SteamLogin } from './SteamLogin'
-
-const navSelectedPage = path => path === window.location.hash.split('#')[1] ? 'nav-selected' : 'nav-not-selected' 
+import { navSelectedPage } from '../../utility/common'
 
 export const Header = ({ user }) => 
     <header>
