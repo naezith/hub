@@ -2,7 +2,7 @@ import { renameKey, fetchData, compareDesc } from '../utility/common'
 import { sortEntries, sortWRs, getMostWRs, renameProps, getLevel } from '../utility/ron-hub'
 import { appendSteamInfo } from './steamapi'
 
-export const ron_server = uri => 'http://ron.naezith.com' + uri
+export const ron_server = uri => 'https://ron.naezith.com' + uri
 
 export const fetchGameInfo = () => {
     return new Promise((resolve, reject) => {

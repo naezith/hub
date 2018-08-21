@@ -11,7 +11,7 @@ const getSteamInfo = steam_ids => {
         steam_ids.forEach(id => id_list += id + ',')
         id_list = id_list.substr(0, id_list.length - 1)
 
-        fetchDataGET('http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=' +
+        fetchDataGET('https://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=' +
                                 steam.key + '&steamids=' + id_list)().then(content => {
             if(!content.error_msg) {
                 content.response.players.forEach(p => p.country_icon = getCountryIconURL(p.loccountrycode))
