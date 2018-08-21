@@ -71,6 +71,15 @@ header h2 {
     padding-right: 0;
 }
 
+.steam {
+    width: 100px;
+    padding-right: 0;
+}
+
+.steam li:first-child a {
+    padding: 0;
+}
+
 
 header li, footer li {
 	float: left;
