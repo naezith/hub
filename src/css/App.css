@@ -43,6 +43,7 @@ header, footer {
 }
 
 header img {
+    max-height: 35px;
 	vertical-align: middle;
 }
 
@@ -57,8 +58,8 @@ header h2 {
     display: table-cell;
 }
 
-.login-with-steam a {
-    padding: 0;
+.nav-profile a {
+    padding-right: 0;
 }
 
 header li, footer li {
