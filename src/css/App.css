@@ -32,7 +32,6 @@ header {
 	font-size: 0.9em;
 	z-index: 10;
 	height: 35px;
-	line-height: 35px;
 	text-align: center;
 	text-align: -o-center;
 	text-align: -moz-center;
@@ -74,7 +73,7 @@ header ul, header li, footer ul, footer li {
 
 header li a, footer li a {
 	display: block;
-	padding: 0 1em;
+	padding: .82em 1em;
 	height: 100%;
 }
 
