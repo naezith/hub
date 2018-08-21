@@ -22,10 +22,6 @@ a {
   text-decoration: none; 
 }
 
-a:hover {
-  color: rgb(255, 253, 234);
-}
-
 header {
 	background-color: #333;
 	position: fixed;
@@ -82,6 +78,7 @@ header li a, footer li a {
 }
 
 header li a:hover, .nav-selected, footer li a:hover{
+	color: rgb(255, 253, 234);
 	background: #272727;
 }
 

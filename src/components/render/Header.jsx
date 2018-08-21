@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 import { SteamLogin } from './SteamLogin'
+
 import { navSelectedPage } from '../../utility/common'
 
 export const Header = ({ user }) => 

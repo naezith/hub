@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom'
 
 import { PlayerLink } from './PlayerLink'
 
+import { navSelectedPage } from '../../utility/common'
+
 export const SteamLogin = ({user}) => 
     user === undefined ?  
         <ul className='steam'>
@@ -11,7 +13,7 @@ export const SteamLogin = ({user}) =>
             :
         <ul className='steam'>
             <li className='avatar'><img src={user.avatarfull} title={user.personaname} alt={user.personaname}/></li> 
-            <li>{<PlayerLink id={user.steamid} username={user.personaname}/>}</li>
+            <li>{<PlayerLink navSelected={navSelectedPage('/player/' + user.steamid)} id={user.steamid} username={user.personaname}/>}</li>
             <li>{<Link to={'/steam/logout'}>Logout</Link>}</li>
         </ul>
         
