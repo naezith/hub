@@ -1,5 +1,18 @@
 import fetch from 'isomorphic-fetch'
 
+// slice(1) if querystring starts with &, this one does not
+export const querystringToJSON = query => {            
+    var pairs = query.slice().split('&');
+    
+    var result = {};
+    pairs.forEach(function(pair) {
+        pair = pair.split('=');
+        result[pair[0]] = decodeURIComponent(pair[1] || '');
+    });
+
+    return JSON.parse(JSON.stringify(result));
+}
+
 export const renameKey = (obj, oldkey, newkey) => {
     obj[newkey] = obj[oldkey]
     delete obj[oldkey]

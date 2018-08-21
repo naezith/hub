@@ -13,7 +13,7 @@ body {
     text-align: -o-center;
     text-align: -moz-center;
     text-align: -webkit-center;
-	background: url('../img/bg.png') no-repeat center center fixed; 
+	background: url('/img/bg.png') no-repeat center center fixed; 
 	background-size: cover;
 }
 
@@ -34,7 +34,7 @@ header {
 	top: 0;
 	color: white;
 	font-size: 0.9em;
-
+	z-index: 10;
 	height: 35px;
 	text-align: center;
 	text-align: -o-center;
@@ -300,11 +300,10 @@ footer {
     text-align: center;
     padding: 5px 0;
     border-radius: 6px;
- 
-    position: absolute;
-	z-index: 1;
 	
 	/* Position */
+    position: absolute;
+	z-index: 1;
     bottom: 100%;
     left: 50%; 
 	margin-left: -2.5em;

@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import { ron_server } from '../utility/api'
+import { querystringToJSON } from '../utility/common'
 
 export default class SteamLoginHandler extends Component {
     constructor(props) {
@@ -12,16 +14,18 @@ export default class SteamLoginHandler extends Component {
 
     componentWillMount() {
         let { user } = this.props.match.params
+        let uri = user === undefined || user === ''
+                     ? 'redirecting' : user === 'logout' ? 'logout' : 'return'
 
-        let uri = user === undefined ? 'redirecting' : 
-                    user === 'logout' ? 'logout' : 'return'
-        this.setState({ uri, user: JSON.parse(user) })
+        let userJSON = user === undefined ? undefined : querystringToJSON(user)
+
+        this.setState({ uri, user: userJSON })
     }
 
     componentDidMount() {
         // Log in
         if(this.state.uri === 'redirecting') {
-            window.location = 'http://localhost/auth/steam'
+            window.location = ron_server('/auth/steam')
         }
         // Log out
         else if(this.state.uri === 'logout') {

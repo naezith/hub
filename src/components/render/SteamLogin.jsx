@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom'
 
 import { PlayerLink } from './PlayerLink'
 
-export const SteamLogin = ({user}) =>
+export const SteamLogin = ({user}) => 
     user === undefined ?  
         <ul className='steam'>
-            <li className='avatar'><Link to={'/steam'}><img src={require('../../img/steam/sits_01.png')} alt='Login with Steam'/></Link></li>
+            <li className='avatar'><Link to={'/steam'}><img src='/img/steam/sits_01.png' alt='Login with Steam'/></Link></li>
         </ul>    
             :
         <ul className='steam'>
@@ -14,7 +14,7 @@ export const SteamLogin = ({user}) =>
             <li>{<PlayerLink id={user.steamid} username={user.personaname}/>}</li>
             <li>{<Link to={'/steam/logout'}>Logout</Link>}</li>
         </ul>
-
+        
 /*
 avatar:'https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/fe/fef49e7fa7e1997310d705b2a6158ff8dc1cdfeb.jpg'
 avatarfull:'https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/fe/fef49e7fa7e1997310d705b2a6158ff8dc1cdfeb_full.jpg'
