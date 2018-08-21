@@ -30,7 +30,6 @@ export default class PlayerProfilePage extends Component {
     }
 
     calculateScores = () => {
-        console.log(this.state.entries.length, ' - ', this.state.player_count)
         this.setState({
              entries: appendScores(this.state.entries, this.state.player_count)
         })

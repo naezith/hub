@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import querystring from 'query-string'
 
 export default class SteamLoginHandler extends Component {
     constructor(props) {
@@ -16,7 +15,7 @@ export default class SteamLoginHandler extends Component {
 
         let uri = user === undefined ? 'redirecting' : 
                     user === 'logout' ? 'logout' : 'return'
-        this.setState({ uri, user: querystring.parse(user) })
+        this.setState({ uri, user: JSON.parse(user) })
     }
 
     componentDidMount() {
