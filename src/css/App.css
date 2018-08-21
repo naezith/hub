@@ -40,6 +40,7 @@ header, footer {
 	font-size: .9em;
 	z-index: 10;
     width: 800px;
+    line-height: 35px;
 }
 
 header img {
@@ -65,7 +66,7 @@ header h2 {
 header li, footer li {
 	float: left;
 	display: table;
-	height: 35px;
+    height: 35px;
 }
 
 .title {
