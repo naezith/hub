@@ -38,9 +38,10 @@ header {
 	text-align: -webkit-center;
 }
 
-.header-div {
-	width: 800px;
-	text-align: left;
+.header-div, .footer-div {
+    display: table;
+    height: 100%;
+    width: 800px;
 }
 
 .avatar a {
@@ -65,29 +66,43 @@ header h2 {
 	text-align: left;
 }
 
-header ul, header li, footer ul, footer li {
-	display: inline-block;
-	margin: 0;
-	padding: 0;
+.nav, .footer-links, .steam {
+    display: table-cell;
+    padding: 0;
+    margin: 0;
+    vertical-align: middle;
+    text-align: right;
+}
+
+header ul, footer ul {
+    display: inline-block;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+header li, footer li {
+	float: left;
+	display: table;
+	height: 35px;
+}
+
+.steam li, footer li {
+	float: right;
 }
 
 header li a, footer li a {
-	display: block;
-	padding: 0.82em 1em;
-	height: 100%;
+	display: table-cell;
+    vertical-align: middle;
+    color: gold;
+    padding: 0 1em;
+    text-decoration: none;
 }
 
-header li a:hover, .nav-selected, footer li a:hover{
+header li a:hover, footer li a:hover, .nav-selected {
 	color: rgb(255, 253, 234);
 	background: #272727;
-}
-
-.nav {
-	margin-left: 6.25em;
-}
-
-.steam {
-	float: right;
 }
 
 main {    
@@ -239,12 +254,6 @@ main li {
 
 
 
-.footer-div {
-    display: table;
-    height: 100%;
-    width: 800px;
-}
-
 footer, .content:after {
 	height: 35px; 
 }
@@ -272,14 +281,6 @@ footer {
     padding: 0;
     vertical-align: middle;
     text-align: left;
-}
-
-.footer-links {
-    display: table-cell;
-    padding: 0;
-    margin: 0;
-    vertical-align: middle;
-    text-align: right;
 }
 
 
