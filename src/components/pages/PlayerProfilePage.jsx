@@ -29,11 +29,8 @@ export default class PlayerProfilePage extends Component {
         this.calculateScores = this.calculateScores.bind(this)
     }
 
-    calculateScores = () => {
-        this.setState({
-             entries: appendScores(this.state.entries, this.state.player_count)
-        })
-    }
+    calculateScores = () => 
+            this.setState({ entries: appendScores(this.state.entries, this.state.player_count) })
     
     setPlayerProfile = (player_id) => mutateState(this, this.calculateScores,
             fetchGlobalRank(player_id), fetchFinishedLevels(player_id, this.state.player_count))
