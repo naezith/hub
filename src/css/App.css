@@ -73,7 +73,7 @@ header ul, header li, footer ul, footer li {
 
 header li a, footer li a {
 	display: block;
-	padding: .82em 1em;
+	padding: 0.82em 1em;
 	height: 100%;
 }
 
@@ -84,10 +84,6 @@ header li a:hover, .nav-selected, footer li a:hover{
 
 .nav {
 	margin-left: 6.25em;
-}
-
-.nav li {
-	height: 35px;
 }
 
 .steam {
