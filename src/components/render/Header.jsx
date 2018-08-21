@@ -8,8 +8,10 @@ import { navSelectedPage } from '../../utility/common'
 export const Header = ({ user }) => 
     <header>
       <div className='header-div'>
-        <img className='header-icon' src='/img/naezith-icon.png' title={'naezith'} alt={'naezith'} />
-        <Link to='/'><h2 className='title'>hub.naezith</h2></Link>
+        <Link to='/'>
+          <img className='header-icon' src='/img/naezith-icon.png' title={'naezith'} alt={'naezith'} />
+          <h2 className='title'>hub.naezith</h2>
+        </Link>
         <ul className='nav'>
           <li><Link className={navSelectedPage('/global-rankings')} to='/global-rankings'>Global Rankings</Link></li>
           <li><Link className={navSelectedPage('/world-records')} to='/world-records'>World Records</Link></li>
