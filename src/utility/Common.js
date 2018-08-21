@@ -85,4 +85,8 @@ export const mutateState = (component, callback, ...promises) => {
 
 export const getSteamURL = (id) => 'https://steamcommunity.com/profiles/' + id
 
-export const navSelectedPage = path => path === window.location.hash.split('#')[1] ? 'nav-selected' : 'nav-not-selected'
+export const navSelectedPage = (path, is_home) => {
+    let curr = window.location.hash.split('#')[1]
+ 
+    return (is_home && curr === '/') || curr === path ? 'nav-selected' : 'nav-not-selected'
+}

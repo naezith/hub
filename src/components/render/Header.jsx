@@ -13,7 +13,7 @@ export const Header = ({ user }) =>
           <h2>hub.naezith</h2>
         </Link>
         <ul className='nav'>
-          <li><Link className={navSelectedPage('/global-rankings')} to='/global-rankings'>Global Rankings</Link></li>
+          <li><Link className={navSelectedPage('/global-rankings', true)} to='/global-rankings'>Global Rankings</Link></li>
           <li><Link className={navSelectedPage('/world-records')} to='/world-records'>World Records</Link></li>
           <li><Link className={navSelectedPage('/players')} to='/players'>Search Players</Link></li>
         </ul>
