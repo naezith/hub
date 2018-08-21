@@ -2,7 +2,7 @@
   "name": "hub",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://naezith.github.io/hub/",
+  "homepage": "https://naezith.github.io/",
   "dependencies": {
     "ajv": "^6.5.2",
     "react": "^16.4.2",
