@@ -7,7 +7,8 @@ body {
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 0.875em;
 	color: rgb(255, 253, 248);
-	background: url('/img/bg.png') no-repeat center center fixed; 
+    background: url('/img/bg.png') no-repeat center center fixed; 
+    background-color: black;
 }
 
 a {
@@ -31,11 +32,15 @@ ul {
 /* Sticky Header */
 header {
     position: fixed;
+    margin-left: calc(50% - 800px/2);
+}
+
+footer {
+	margin: 0 auto 0 auto;
 }
 
 header, footer {
     display: table;
-    margin-left: calc(50% - 800px/2);
     background-color: #333;
 	font-size: .9em;
 	z-index: 10;
@@ -125,7 +130,7 @@ table {
 	background: rgba(20, 20, 20, .8);
     text-align: center;
 	margin-top: 1em;
-	width: 100%;
+	width: 800px;
 }
 
 tbody tr:nth-child(odd) {
@@ -150,12 +155,7 @@ td img {
     max-height: 40px;
 }
 
-tr {
-	white-space: nowrap;
-}
-
 td {
-	white-space: nowrap;
 	padding: .4em .8em;
 }
 
@@ -167,19 +167,6 @@ td {
     padding-left: 0.5em;
     display: inline-block;
 }
-
-.rank-icon {
-}
-
-.steam-avatar {
-}
-
-.country-icon {
-}
-
-
-
-
 
 
 .steam-icon {
