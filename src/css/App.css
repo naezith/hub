@@ -26,7 +26,7 @@ ul {
     display: table-cell;
     vertical-align: middle;
     text-align: left;
-    padding-right: 1.2em;
+    padding-right: 2.75em;
 }
 
 
@@ -95,7 +95,7 @@ header li, footer li {
 }
 
 .footer-links .logout a {
-    padding: 0 1em; 
+    padding-right: 1em; 
 }
 
 header li a, footer li a {
