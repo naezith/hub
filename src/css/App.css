@@ -32,7 +32,7 @@ ul {
 /* Sticky Header */
 header {
     position: fixed;
-    margin-left: calc(50% - 750px/2);
+    margin-left: calc(50% - 700px/2);
 }
 
 footer {
@@ -44,7 +44,7 @@ header, footer {
     background-color: #333;
 	font-size: .9em;
 	z-index: 10;
-    width: 750px;
+    width: 700px;
 }
 
 header img {
@@ -59,25 +59,22 @@ header h2 {
 	margin: 0 .6em;
 }
 
-.nav, .footer-links, .steam {
+.nav, .footer-links, .nav-profile {
     display: table-cell;
 }
 
 .nav-profile {
+    display: table;
+    float: right;
     line-height: 35px;
 }
 
-.nav-profile a {
-    padding-right: 0;
-}
-
-.steam {
-    display: table;
+/* Avatar at right */
+.nav-profile .player-column li {
     float: right;
-    padding-right: 0;
 }
 
-.steam li:first-child a {
+.nav-profile a:first-child {
     padding: 0;
 }
 
@@ -107,7 +104,11 @@ header li a, footer li a {
     color: white;
 }
 
-header li a:hover, footer li a:hover, .nav-selected, .title:hover {
+.footer-links li:first-child {
+    padding-left: 2em;
+}
+
+header a:hover, footer a:hover, .nav-selected, .title:hover {
 	color: rgb(255, 253, 234);
 	background: #272727;
 }
@@ -119,7 +120,7 @@ main {
     min-height: -webkit-calc(100% - 2.75em - 35px);
     padding: 2.75em 0 35px 0; 
 	margin: 0 auto -35px auto;
-	width: 750px;
+	width: 700px;
     text-align: center;
     text-align: -o-center;
     text-align: -moz-center;
@@ -144,7 +145,7 @@ table {
 	background: rgba(20, 20, 20, .8);
     text-align: center;
 	margin-top: 1em;
-	width: 750px;
+	width: 700px;
 }
 
 tbody tr:nth-child(odd) {
