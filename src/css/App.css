@@ -201,6 +201,7 @@ td img {
 }
 
 .td-level-name {
+    padding-left: 0.5em;
     text-align: left;
 }
 
