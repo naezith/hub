@@ -46,7 +46,7 @@ export default class App extends Component {
                       <SteamLoginHandler {...routeProps} setUser={this.setUser} />)} />
             </main>
 
-            <Footer />
+            <Footer user={this.state.user}/>
         </div>
     </Router>
   )
