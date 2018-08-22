@@ -1,12 +1,13 @@
 import React from 'react'
 
 import { LeaderboardLine } from './LeaderboardLine'
+import { Loading } from './Loading'
 
 export const Leaderboard = ({ start_rank, lines, loading, changePage, 
             dominance_scale='global', dominance_precision=3, extra_header, extra_value_func,
             date_header='Date' }) => 
     
-    loading > 0 && lines.length === 0 ? <h1>Loading...</h1> :
+    loading > 0 && lines.length === 0 ? <Loading /> :
     
     <div>
         {changePage ? 

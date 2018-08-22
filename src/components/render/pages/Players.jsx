@@ -1,6 +1,7 @@
 import React from 'react'
 
 import { Leaderboard } from '../Leaderboard'
+import { Loading } from '../Loading'
 
 export const Players = ({ username, steam_id, players, loading, searchButton }) => {
     let in_username, in_steam_id
@@ -16,7 +17,7 @@ export const Players = ({ username, steam_id, players, loading, searchButton }) 
                 <button disabled={loading}>Search</button>
             </form>
 
-            {loading > 0 ? <h2>Loading...</h2> : 
+            {loading > 0 ? <Loading /> : 
                 <div>
                     {!username && !steam_id ? undefined : 
                         players.length === 0 ? <h2>There is no such player</h2> :

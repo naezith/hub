@@ -1,9 +1,10 @@
 import React from 'react'
 
 import { Leaderboard } from '../Leaderboard'
+import { Loading } from '../Loading'
 
 export const WorldRecords = ({ levels, most_wrs, loading }) => 
-        loading > 0 ? <h2>Loading...</h2> : 
+        loading > 0 ?  <Loading /> : 
         
         <div>
             <h2>Record Holders</h2>
