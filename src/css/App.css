@@ -162,6 +162,10 @@ tbody tr:hover {
 	background: rgba(255, 255, 255, .1)
 }
 
+tbody td:hover {
+	background: rgba(255, 255, 255, .05)
+}
+
 
 
 
