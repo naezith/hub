@@ -119,6 +119,10 @@ header a:hover, footer a:hover, .nav-selected, .title:hover {
 	background: #272727;
 }
 
+a:hover {
+	color: rgb(255, 253, 234);
+}
+
 main {    
     min-height: calc(100% - 2.75em - 35px);
     min-height: -o-calc(100% - 2.75em - 35px);
