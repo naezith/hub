@@ -256,10 +256,11 @@ td {
 /* Tooltip text */
 .tooltip .tooltip-text {
     visibility: hidden;
-    background-color: rgba(0, 0, 0, .4);
+    background-color: rgba(0, 0, 0);
     color: #fff;
     text-align: center;
     border-radius: 0.125em;
+    white-space:nowrap;
 	
 	/* Position */
     position: absolute;
@@ -268,6 +269,7 @@ td {
 	margin-bottom: 0.25em;
 	padding: 0em 0em;
     left: 50%;
+    max-width:none;
     transform: translateX(-50%);
 }
 
