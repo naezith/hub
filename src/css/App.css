@@ -169,11 +169,13 @@ tbody tr:hover {
 
 
 
-
+td {
+    padding: 0;
+}
 
 td img {
 	vertical-align: middle;
-    max-height: 40px;
+    max-height: 50px;
 }
 
 .player-column {
@@ -201,10 +203,12 @@ td img {
 }
 
 .td-level-name {
-    padding-left: 0.5em;
     text-align: left;
 }
 
+.td-level-name img {
+    margin-right: 0.3em;
+}
 
 
 
@@ -229,8 +233,6 @@ td img {
 .mastered {
     color: gold;
 }
-
-
 
 
 
