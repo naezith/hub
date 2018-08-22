@@ -41,7 +41,7 @@ export default class LevelPage extends Component {
             (tag === 'previous' ? -line_count : line_count))
     }
 
-    render = () =>  <PageLayout title={this.state.level ? this.state.level.name : undefined} error_msg={this.state.error_msg}>
+    render = () =>  <PageLayout error_msg={this.state.error_msg}>
                         <Level {...this.state} changePage={this.changePage} />
                     </PageLayout>
 }
