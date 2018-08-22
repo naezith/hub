@@ -8,8 +8,10 @@ export const LevelLink = ({id, mastered}) => {
     let level = getLevel(id)
     return ( 
         <Link className={getChapterName(level.chapter)} to={'/level/' + id}>
-            <ChapterIcon chapter_id={level.chapter} mastered={mastered}/>
-            { level.name }
+            <ul>
+                <li><ChapterIcon chapter_id={level.chapter} mastered={mastered}/></li>
+                <li>{ level.name }</li>
+            </ul>
         </Link> 
     )
 }

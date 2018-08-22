@@ -186,6 +186,20 @@ td img {
     max-height: 50px;
 }
 
+
+.td-level-name ul {
+    text-align: left;
+}
+
+.td-level-name li {
+    display: inline-block;
+}
+
+.td-level-name img {
+    margin-right: 0.6em;
+}
+
+
 .player-column {
     text-align: left;
 }
@@ -208,14 +222,6 @@ td img {
 .th-steam-icon {
 	width: 3em;
 	padding: 0;
-}
-
-.td-level-name {
-    text-align: left;
-}
-
-.td-level-name img {
-    margin-right: 0.6em;
 }
 
 
