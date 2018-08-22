@@ -85,12 +85,16 @@ header li, footer li {
     height: 35px;
 }
 
-.title {
+.title, .footer-links li {
 	float: left;
 }
 
-.steam li, footer li {
-	float: right;
+.footer-links .logout {
+    float: right;
+}
+
+.footer-links .logout a {
+    padding: 0 1em; 
 }
 
 header li a, footer li a {
@@ -100,13 +104,6 @@ header li a, footer li a {
     padding: 0 0.6em 0 0.6em;
 }
 
-.logout {
-    color: white;
-}
-
-.footer-links li:first-child {
-    padding-left: 2em;
-}
 
 header a:hover, footer a:hover, .nav-selected, .title:hover {
 	color: rgb(255, 253, 234);
