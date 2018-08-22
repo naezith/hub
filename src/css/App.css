@@ -103,6 +103,10 @@ header li a, footer li a {
     padding: 0 0.6em 0 0.6em;
 }
 
+.logout {
+    color: white;
+}
+
 header li a:hover, footer li a:hover, .nav-selected, .title:hover {
 	color: rgb(255, 253, 234);
 	background: #272727;

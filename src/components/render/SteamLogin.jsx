@@ -14,7 +14,6 @@ export const SteamLogin = ({user}) =>
         <ul className='steam'>
             <li className='nav-profile'>{<PlayerLink navSelected={navSelectedPage('/player/' + user.steamid)} 
                             id={user.steamid} username={user.personaname} steam_info={user} />}</li>
-            <li>{<Link to={'/steam/logout'}>Logout</Link>}</li>
         </ul>
         
 /*
