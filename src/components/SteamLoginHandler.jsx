@@ -16,11 +16,14 @@ export default class SteamLoginHandler extends Component {
 
     componentWillMount() {
         let { user } = this.props.match.params
-        let uri = user === undefined || user === '' ? 
-                    'redirecting' : user === 'logout' ? 
-                            'logout' : user.steamid && user.personaname ? 'success' : 'failed'
+        let uri = 'failed', userJSON
 
-        let userJSON = user === undefined ? undefined : querystringToJSON(user)
+        if(user === undefined || user === '') uri = 'redirecting'
+        else if(user === 'logout') uri = 'logout'
+        else {
+            userJSON = querystringToJSON(user)
+            if(userJSON.steamid && userJSON.personaname) uri = 'success' 
+        }
 
         this.setState({ uri, user: userJSON })
     }
