@@ -2,6 +2,10 @@ html, body, div#root, .router-div {
     height: 100%;
 }
 
+header, main, footer {
+    width: 800px;
+}
+
 body {
 	margin: 0;
 	font-family: Arial, Helvetica, sans-serif;
@@ -32,13 +36,13 @@ ul {
 
 /* Sticky Header */
 header {
-    margin: auto;
     position: absolute;
+    margin: auto;
     left: 0; right: 0;
 }
 
 footer {
-	margin: 0 auto 0 auto;
+	margin: 0 auto;
 }
 
 header, footer {
@@ -46,7 +50,6 @@ header, footer {
     background-color: #333;
 	font-size: .9em;
 	z-index: 10;
-    width: 800px;
 }
 
 header img {
@@ -119,7 +122,6 @@ main {
     min-height: -webkit-calc(100% - 2.75em - 35px);
     padding: 2.75em 0 35px 0; 
 	margin: 0 auto -35px auto;
-	width: 800px;
     text-align: center;
     text-align: -o-center;
     text-align: -moz-center;
@@ -143,8 +145,9 @@ main h2 {
 table {
 	background: rgba(20, 20, 20, .8);
     text-align: center;
-	margin-top: 1em;
-	width: 800px;
+    margin-top: 1em;
+    width: 100%;
+    overflow: hidden;
 }
 
 tbody tr:nth-child(odd) {
