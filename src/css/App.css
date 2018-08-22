@@ -32,8 +32,9 @@ ul {
 
 /* Sticky Header */
 header {
-    position: fixed;
-    margin-left: calc(50% - 800px/2);
+    margin: auto;
+    position: absolute;
+    left: 0; right: 0;
 }
 
 footer {
