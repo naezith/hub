@@ -3,6 +3,8 @@ import React from 'react'
 import { LeaderboardLine } from './LeaderboardLine'
 import { Loading } from './Loading'
 
+import { ifDefined } from '../../utility/common'
+
 export const Leaderboard = ({ start_rank, lines, loading, changePage, 
             dominance_scale='global', dominance_precision=3, extra_header, extra_value_func,
             date_header='Date' }) => 
@@ -18,26 +20,17 @@ export const Leaderboard = ({ start_rank, lines, loading, changePage,
         <table>
             <thead>
                 <tr>
-                    { lines[0].rank === undefined ? undefined : 
-                        <th>Rank</th> }
-                    { lines[0].level_id === undefined ? undefined : 
-                        <th>Level</th> }
-                    { lines[0].player_id === undefined ? undefined : 
-                        <th>Player</th> }
-                    { lines[0].score === undefined ? undefined : 
-                        <th>Dominance</th> }
-                    { lines[0].time === undefined ? undefined : 
-                        <th>Time</th> }
-                    { lines[0].official_time === undefined ? undefined : 
-                        <th>Mastery Time</th> }
-                    { lines[0].lb_rank === undefined ? undefined : 
-                        <th>Rank</th> }
-                    { lines[0].update_date === undefined ? undefined : 
-                        <th>{date_header}</th> }
-                    { extra_header === undefined ? undefined : 
-                        <th>{extra_header}</th> }
-                    { lines[0].steam_id === undefined ? undefined : 
-                        <th className='th-steam-icon'></th> }
+                    { ifDefined(lines[0].rank, <th>Rank</th>) }
+                    { ifDefined(lines[0].level_id, <th>Level</th>) }
+                    { ifDefined(lines[0].player_id, <th>Player</th>) }
+                    { ifDefined(lines[0].score, <th>Dominance</th>) }
+                    { ifDefined(lines[0].time, <th>Time</th>) }
+                    { ifDefined(lines[0].official_time, <th>Mastery Time</th>) }
+                    { ifDefined(lines[0].lb_rank, <th>Rank</th>) }
+                    { ifDefined(lines[0].update_date, <th>{date_header}</th>) }
+                    { ifDefined(extra_header, <th>{extra_header}</th>) }
+                    { ifDefined(lines[0].steam_id, <th>Rank</th>) }
+                    { ifDefined(lines[0].rank, <th className='th-steam-icon'></th>) }
                 </tr>
             </thead>
             <tbody>

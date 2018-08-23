@@ -7,6 +7,7 @@ import { LevelLink } from './LevelLink'
 
 import { formatDominance, formatTime, formatRank } from '../../utility/formatters'
 import { calcDominance } from '../../utility/calculations'
+import { ifDefined } from '../../utility/common'
 
 export const LeaderboardLine = ({ level_id, steam_id, steam_info, player_id, badge, rank, score, 
                 username, update_date, time, 
@@ -15,29 +16,17 @@ export const LeaderboardLine = ({ level_id, steam_id, steam_info, player_id, bad
         
     // Mastered if one of the variables are missing, if not, calculate
     let mastered = !(time && official_time && time > official_time)
-    
-                
+      
     return  <tr>
-                { rank === undefined ? undefined : 
-                    <td>{rank}</td> }
-                { level_id === undefined ? undefined : 
-                    <td className='td-level-name'>{<LevelLink id={level_id} mastered={mastered} />}</td> }
-                { player_id === undefined ? undefined : 
-                    <td><PlayerLink id={player_id} username={username} badge={badge} steam_info={steam_info} /></td>}
-                { score === undefined ? undefined : 
-                    <td>{formatDominance(calcDominance(score, dominance_scale), dominance_precision)}</td> }
-                { time === undefined ? undefined : 
-                    <td>{formatTime(time)}</td> }
-                { official_time === undefined ? undefined : 
-                    <td className={mastered ? 'mastered' : 'not-mastered'}>
-                        {formatTime(official_time)}</td> }
-                { lb_rank === undefined ? undefined : 
-                    <td>{formatRank(lb_rank, lb_size)}</td> }
-                { update_date === undefined ? undefined : 
-                    <td>{<DateText date={update_date}/>}</td> }
-                { extra_value_func === undefined ? undefined : 
-                    <td>{ extra_value_func(obj) }</td> }
-                { steam_id === undefined ? undefined : 
-                    <td className='td-steam-icon'><SteamProfile id={steam_id} /></td> }
+                { ifDefined(rank, <td>{rank}</td>) } 
+                { ifDefined(level_id, <td className='td-level-name'>{<LevelLink id={level_id} mastered={mastered} />}</td>) } 
+                { ifDefined(player_id, <td><PlayerLink id={player_id} username={username} badge={badge} steam_info={steam_info} /></td>) } 
+                { ifDefined(score, <td>{formatDominance(calcDominance(score, dominance_scale), dominance_precision)}</td>) } 
+                { ifDefined(time, <td>{formatTime(time)}</td>) } 
+                { ifDefined(official_time,<td className={mastered ? 'mastered' : 'not-mastered'}>{formatTime(official_time)}</td>) } 
+                { ifDefined(lb_rank, <td>{formatRank(lb_rank, lb_size)}</td>) } 
+                { ifDefined(update_date, <td>{<DateText date={update_date}/>}</td>) } 
+                { extra_value_func === undefined ? undefined : <td>{ extra_value_func(obj) }</td> }
+                { ifDefined(steam_id, <td className='td-steam-icon'><SteamProfile id={steam_id} /></td>) } 
             </tr>
 }
