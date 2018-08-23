@@ -155,7 +155,6 @@ table {
     text-align: center;
     margin-top: 1em;
     width: 100%;
-    overflow: hidden;
 }
 
 tbody tr:nth-child(odd) {
