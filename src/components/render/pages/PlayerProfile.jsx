@@ -17,7 +17,7 @@ export const PlayerProfile = ({ player_id, username, badge, rank, player_count, 
                          date_header='Register Date'/>
 
             <Leaderboard lines={entries} 
-                            loading={loading} 
-                            dominance_scale='level'
-                            dominance_precision={2} />
+                         loading={loading} 
+                         dominance_scale='level'
+                         dominance_precision={2} />
         </div>

@@ -6,8 +6,8 @@ export const GlobalRankings = ({ player_count, start_rank, lines, changePage, lo
     <div>
         {player_count ? <h2>Players: {player_count}</h2> : undefined}
 
-        <Leaderboard    start_rank={start_rank} 
-                        lines={lines} 
-                        loading={loading} 
-                        changePage={changePage} />
+        <Leaderboard  start_rank={start_rank} 
+                     lines={lines} 
+                     loading={loading} 
+                     changePage={changePage} />
     </div>
