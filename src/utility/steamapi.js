@@ -2,8 +2,7 @@ import { steam } from '../secrets'
 import { fetchDataGET } from './common'
 
 const getCountryIconURL = code =>
-    code ?
-    'https://steamcommunity-a.akamaihd.net/public/images/countryflags/'+(code).toLowerCase()+'.gif' : undefined
+    code ? 'https://steamcommunity-a.akamaihd.net/public/images/countryflags/' + (code).toLowerCase() + '.gif' : undefined
 
 const getSteamInfo = steam_ids => { 
     return new Promise((resolve, reject) => {
