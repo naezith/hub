@@ -17,26 +17,15 @@ export const LeaderboardLine = ({ level_id, steam_id, steam_info, player_id, bad
     let mastered = !(time && official_time && time > official_time)
        
     return  <tr>
-                { rank === undefined ? undefined : 
-                    <td>{rank}</td> }
-                { level_id === undefined ? undefined : 
-                    <td className='td-level-name'>{<LevelLink id={level_id} mastered={mastered} />}</td> }
-                { player_id === undefined ? undefined : 
-                    <td><PlayerLink id={player_id} username={username} badge={badge} steam_info={steam_info} /></td>}
-                { score === undefined ? undefined : 
-                    <td>{formatDominance(calcDominance(score, dominance_scale), dominance_precision)}</td> }
-                { time === undefined ? undefined : 
-                    <td>{formatTime(time)}</td> }
-                { official_time === undefined ? undefined : 
-                    <td className={mastered ? 'mastered' : 'not-mastered'}>
-                        {formatTime(official_time)}</td> }
-                { lb_rank === undefined ? undefined : 
-                    <td>{formatRank(lb_rank, lb_size)}</td> }
-                { update_date === undefined ? undefined : 
-                    <td>{<DateText date={update_date}/>}</td> }
-                { extra_value_func === undefined ? undefined : 
-                    <td>{ extra_value_func(obj) }</td> }
-                { steam_id === undefined ? undefined : 
-                    <td className='td-steam-icon'><SteamProfile id={steam_id} /></td> }
+    { rank &&               <td>{rank}</td> }
+    { level_id &&           <td className='td-level-name'>{<LevelLink id={level_id} mastered={mastered} />}</td> }
+    { player_id &&          <td><PlayerLink id={player_id} username={username} badge={badge} steam_info={steam_info} /></td>}
+    { score !== undefined ? <td>{formatDominance(calcDominance(score, dominance_scale), dominance_precision)}</td> : undefined}
+    { time &&               <td>{formatTime(time)}</td> }
+    { official_time &&      <td className={mastered ? 'mastered' : 'not-mastered'}>{formatTime(official_time)}</td> }
+    { lb_rank &&            <td>{formatRank(lb_rank, lb_size)}</td> }
+    { update_date &&        <td>{<DateText date={update_date}/>}</td> }
+    { extra_value_func &&   <td>{ extra_value_func(obj) }</td> }
+    { steam_id &&           <td className='td-steam-icon'><SteamProfile id={steam_id} /></td> }
             </tr>
 }
