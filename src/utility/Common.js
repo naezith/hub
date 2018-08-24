@@ -1,7 +1,5 @@
 import fetch from 'isomorphic-fetch'
 
-export const ifDefined = (check, result) => check === undefined ? undefined : result
-
 // slice(1) if querystring starts with &, this one does not
 export const querystringToJSON = query => {            
     var pairs = query.slice().split('&');
