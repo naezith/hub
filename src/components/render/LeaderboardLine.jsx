@@ -15,8 +15,7 @@ export const LeaderboardLine = ({ level_id, steam_id, steam_info, player_id, bad
         
     // Mastered if one of the variables are missing, if not, calculate
     let mastered = !(time && official_time && time > official_time)
-    
-                
+       
     return  <tr>
                 { rank === undefined ? undefined : 
                     <td>{rank}</td> }
