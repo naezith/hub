@@ -12,7 +12,7 @@ export default class GlobalRankingsPage extends Component {
     constructor() {
         super()
         this.state = {
-            player_count: 0,
+            player_count: undefined,
             valid_player_count: 0,
 
             start_rank: 0,
