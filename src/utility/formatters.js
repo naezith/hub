@@ -11,7 +11,8 @@ export const prettifyDate = date => {
 export const formatDate = date => {
     let str, days = daysSince(date) 
 
-    if(days >= 365) {
+    if(days === 0) return 'Today'
+    else if(days >= 365) {
         var years = Math.floor(days/365)
         str = years + (years === 1 ? ' year' : ' years')
     }
