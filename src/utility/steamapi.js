@@ -1,7 +1,7 @@
 import { steam } from '../secrets'
 import { fetchDataGET } from './common'
 
-const proxyUrl = 'https://crossorigin.me/'
+const proxyUrl = 'https://thingproxy.freeboard.io/fetch/'
 
 const getCountryIconURL = code =>
     code && ('https://steamcommunity-a.akamaihd.net/public/images/countryflags/' + (code).toLowerCase() + '.gif')
