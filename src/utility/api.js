@@ -117,7 +117,7 @@ export const fetchLeaderboard = (level_id, start_rank, line_count=10) => {
 export const fetchFinishedLevels = (player_id) => {
     return new Promise((resolve, reject) => {
         fetchData(ron_server('/fetchFinishedLevels'), { player_id })().then((content) => {
-            if(content.data) {
+            if(content.data && content.data.length) {
                 renameKey(content, 'data', 'entries')
                 sortEntries(content.entries)
                 content.player_id = player_id
