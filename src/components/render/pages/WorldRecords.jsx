@@ -4,13 +4,14 @@ import { Leaderboard } from '../Leaderboard'
 import { Loading } from '../Loading'
 
 export const WorldRecords = ({ levels, most_wrs, loading }) => {
+    const shuffleSeed = require('shuffle-seed');
+    
     const now = new Date();
-    const start = new Date(now.getFullYear(), 0, 0);
-    const diff = now - start;
-    const oneDay = 1000 * 60 * 60 * 24;
-    const day = Math.floor(diff / oneDay);
-
-    const level_of_the_day = levels[day % levels.length]
+    const daysSinceEpoch = Math.floor(now / (1000 * 60 * 60 * 24));
+    
+    const seed = Math.floor(daysSinceEpoch / levels.length);
+    const shuffledLevels = shuffleSeed.shuffle(levels, seed);
+    const level_of_the_day = shuffledLevels[daysSinceEpoch % levels.length];
 
     return (
         loading > 0 ?  <Loading /> : 

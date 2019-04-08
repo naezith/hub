@@ -7,7 +7,8 @@
     "ajv": "^6.5.2",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
-    "react-scripts": "1.1.4"
+    "react-scripts": "1.1.4",
+    "shuffle-seed": "^1.1.6"
   },
   "scripts": {
     "start": "react-scripts start",
