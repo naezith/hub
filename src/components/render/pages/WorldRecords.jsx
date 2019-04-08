@@ -2,16 +2,19 @@ import React from 'react'
 
 import { Leaderboard } from '../Leaderboard'
 import { Loading } from '../Loading'
+import shuffleSeed from 'shuffle-seed'
 
 export const WorldRecords = ({ levels, most_wrs, loading }) => {
-    const shuffleSeed = require('shuffle-seed');
+    // Filter out the secret levels
+    const non_secret_levels = levels.filter(level => !level.is_secret)
+
+    // Make a seed which relies on the day
+    const now = new Date()
+    const daysSinceEpoch = Math.floor(now / (1000 * 60 * 60 * 24))
+    const seed = Math.floor(daysSinceEpoch / non_secret_levels.length)
     
-    const now = new Date();
-    const daysSinceEpoch = Math.floor(now / (1000 * 60 * 60 * 24));
-    
-    const seed = Math.floor(daysSinceEpoch / levels.length);
-    const shuffledLevels = shuffleSeed.shuffle(levels, seed);
-    const level_of_the_day = shuffledLevels[daysSinceEpoch % levels.length];
+    // Shuffle levels and pick the level of the day
+    const level_of_the_day = shuffleSeed.shuffle(non_secret_levels, seed)[daysSinceEpoch % non_secret_levels.length]
 
     return (
         loading > 0 ?  <Loading /> : 
