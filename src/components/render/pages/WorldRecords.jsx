@@ -28,7 +28,9 @@ export const WorldRecords = ({ levels, most_wrs, loading }) => {
             <Leaderboard lines={levels} 
                          loading={loading} />
 
-           <h4>Level of the Day: {levels.name}</h4> 
+            <h1>Level of the Day</h1>
+            <Leaderboard lines={ [level_of_the_day] } 
+                         loading={loading} />
         </div>
     )
 }
