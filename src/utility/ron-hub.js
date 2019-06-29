@@ -10,8 +10,8 @@ export const renameProps = (arr, old, now) => arr.map(l => renameKey(l, old, now
 export const sortEntries = (entries, player_count) => entries
     .sort((a, b) => combineCompares(
                         compareAsc(getLevel(a.level_id).is_secret, getLevel(b.level_id).is_secret),
-                        compareAsc(getLevel(a.level_id).chapter, getLevel(b.level_id).chapter),
                         compareDesc(calcScore(a.lb_rank, player_count), calcScore(b.lb_rank, player_count)),
+                        compareAsc(getLevel(a.level_id).chapter, getLevel(b.level_id).chapter),
                         compareDesc(a.update_date, b.update_date),
                     ))
 
