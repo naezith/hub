@@ -1,5 +1,5 @@
 import { renameKey, fetchData, compareDesc } from '../utility/common'
-import { sortEntries, sortWRs, getMostWRs, renameProps, getLevel } from '../utility/ron-hub'
+import { sortWRs, getMostWRs, renameProps, getLevel } from '../utility/ron-hub'
 import { appendSteamInfo } from './steamapi'
 
 export const ron_server = uri => 'https://ron.naezith.com' + uri
@@ -114,12 +114,11 @@ export const fetchLeaderboard = (level_id, start_rank, line_count=10) => {
     })
 }
 
-export const fetchFinishedLevels = (player_id) => {
+export const fetchFinishedLevels = (player_id, player_count) => {
     return new Promise((resolve, reject) => {
         fetchData(ron_server('/fetchFinishedLevels'), { player_id })().then((content) => {
             if(content.data && content.data.length) {
                 renameKey(content, 'data', 'entries')
-                sortEntries(content.entries)
                 content.player_id = player_id
                 renameProps(content.entries, 'eq_rank', 'lb_rank')
                 renameProps(content.entries, 'id', 'level_id')

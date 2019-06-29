@@ -7,12 +7,12 @@ export const getChapterName = chapter => chapters[chapter]
 
 export const renameProps = (arr, old, now) => arr.map(l => renameKey(l, old, now))
 
-export const sortEntries = entries => entries
+export const sortEntries = (entries, player_count) => entries
     .sort((a, b) => combineCompares(
-                        compareAsc(getLevel(a.id).is_secret, getLevel(b.id).is_secret),
-                        compareAsc(getLevel(a.id).chapter, getLevel(b.id).chapter),
-                        compareDesc(calcScore(a.rank, a.lb_size), calcScore(b.rank, b.lb_size)),
-                        compareAsc(getLevel(a.id).name, getLevel(b.id).name),
+                        compareAsc(getLevel(a.level_id).is_secret, getLevel(b.level_id).is_secret),
+                        compareAsc(getLevel(a.level_id).chapter, getLevel(b.level_id).chapter),
+                        compareDesc(calcScore(a.lb_rank, player_count), calcScore(b.lb_rank, player_count)),
+                        compareDesc(a.update_date, b.update_date),
                     ))
 
 
@@ -64,5 +64,5 @@ export const appendScores = (entries, player_count) => {
     
     entries.map(e => newEntries.push({...e, score: calcScore(e.lb_rank, player_count)}))
 
-    return newEntries
+    return sortEntries(newEntries, player_count)
 }
