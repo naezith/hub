@@ -33,7 +33,7 @@ export default class PlayerProfilePage extends Component {
             this.setState({ entries: appendScores(this.state.entries, this.state.player_count) })
     
     setPlayerProfile = (player_id) => mutateState(this, this.calculateScores,
-            fetchGlobalRank(player_id), fetchFinishedLevels(player_id, this.state.player_count))
+            fetchGlobalRank(player_id), fetchFinishedLevels(player_id))
 
     componentWillMount() {
         let { player_id } = this.props.match.params
