@@ -2,9 +2,10 @@ import React from 'react'
 
 import { Leaderboard } from '../Leaderboard'
 import { Loading } from '../Loading'
+import { getChapterName } from '../../../utility/ron-hub';
 import shuffleSeed from 'shuffle-seed'
 
-export const WorldRecords = ({ levels, most_wrs, loading }) => {
+export const WorldRecords = ({ levels, speedruns, most_wrs, loading }) => {
     // Filter out the secret levels
     const non_secret_levels = levels.filter(level => !level.is_secret)
 
@@ -31,6 +32,14 @@ export const WorldRecords = ({ levels, most_wrs, loading }) => {
             <h2>Levels</h2>
             <Leaderboard lines={levels} 
                          loading={loading} />
+
+            <h2>Speedruns</h2>
+            <Leaderboard lines={speedruns}
+                         loading={loading}
+                         extra_header={'Chapter'}
+                         extra_value_func={(obj) =>
+                                getChapterName(obj.chapter)
+                         } />
 
             <h1>Level of the Day</h1>
             <Leaderboard lines={ [level_of_the_day] } 
