@@ -26,8 +26,7 @@ const getSteamInfo = steam_ids => {
 
 export const appendSteamInfo = (lines) => {
     return new Promise((resolve, reject) => {
-        let steam_ids = []
-        lines.forEach(l => steam_ids.push(l.steam_id))
+        const steam_ids = lines.map(l => l.steam_id)
         
         getSteamInfo(steam_ids).then(steam_info => {
             if(!steam_info.error_msg)

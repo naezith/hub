@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import { WorldRecords } from '../render/pages/WorldRecords'
 import { PageLayout } from '../render/PageLayout'
 
-import { fetchWRs } from '../../utility/api'
+import { fetchWRs, fetchSpeedrunLB } from '../../utility/api'
 import { mutateState } from '../../utility/common'
 
 export default class WorldRecordsPage extends Component {
@@ -11,13 +11,14 @@ export default class WorldRecordsPage extends Component {
         super()
         this.state = {
             levels: [],
+            speedruns: [],
             most_wrs: [], 
             loading: 0,
             error_msg: undefined
         }
     }
 
-    setWorldRecords = () => mutateState(this, undefined, fetchWRs())
+    setWorldRecords = () => mutateState(this, undefined, fetchWRs(), fetchSpeedrunLB())
 
     componentWillMount = () => this.setWorldRecords()
     

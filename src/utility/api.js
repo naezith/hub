@@ -95,6 +95,33 @@ export const fetchWRs = () => {
     })
 }
 
+export const fetchSpeedrunLB = () => {
+    return new Promise((resolve, reject) => {
+        const fail = () => reject({ error_msg: 'Failed to fetch speedruns' })
+        const start_rank = 0
+        Promise.all(
+            [1,2,3,4,5]
+            .map( type => fetchData(ron_server('/fetchSpeedrunLB'), { start_rank, type })() )
+        ).then( (content) => {
+            const LB = content
+                .map( (row, i) => Object({...row,...{chapter: i+1}}))
+                .filter( row => row.lb_data && row.lb_data.length )
+                .map( row => {
+                    delete row.lb_data[0].rank
+                    return {...row.lb_data[0],...{
+                         time: row.lb_data[0].total_time
+                        ,player_id: row.lb_data[0].id
+                        ,chapter: row.chapter
+                    } }
+                } )
+            if(!LB.length)
+                return fail()
+            appendSteamInfo(LB).then(() =>
+                resolve({speedruns: LB}))
+       }).catch( fail )
+    })
+}
+
 export const fetchLeaderboard = (level_id, start_rank, line_count=10) => {
     return new Promise((resolve, reject) => {
         fetchData(ron_server('/fetchLeaderboard'), { level_id, start_rank, line_count })().then((content) => {
