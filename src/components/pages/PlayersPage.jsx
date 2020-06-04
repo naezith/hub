@@ -21,9 +21,16 @@ export default class PlayersPage extends Component {
   }
 
   setPlayers = (username, steam_id) => {
+    const min_username_chars = 3
     if((!username || username === '') &&
         (!steam_id || steam_id === '')) {
         this.setState({ error_msg: 'Both fields are empty.'})
+    }
+    else if(username && username.length > 0 && username.length < min_username_chars) {
+        this.setState({ error_msg: 'Please enter at least ' + min_username_chars + ' characters.'})
+    }
+    else if(steam_id && steam_id.length > 0 && steam_id.length < 10) {
+        this.setState({ error_msg: 'Please enter a valid SteamID64, or clear the field.'})
     }
     else mutateState(this, undefined, fetchPlayers(username, steam_id))
   }
