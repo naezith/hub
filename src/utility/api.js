@@ -56,6 +56,21 @@ export const fetchGlobalRankings = (start_rank, line_count=10) => {
     })
 }
 
+export const fetchPersonalBests = (customlevels=0) => {
+    return new Promise((resolve, reject) => {
+        fetchData(ron_server('/fetchRecentScores'), {custom: customlevels})().then((content) => {
+            if(content.data) {
+                renameKey(content, 'data', 'lines')
+                renameProps(content.lines, 'global_score', 'score')
+                resolve(content)
+
+                //appendSteamInfo(content.lines).then(() => resolve(content))
+            }
+            else reject({ error_msg: 'Failed to fetch Recent scores' })
+        })
+    })
+}
+
 export const fetchPlayers = (username, steam_id) => {
     return new Promise((resolve, reject) => {
         fetchData(ron_server('/fetchPlayers'), { username, steam_id })().then((content) => {

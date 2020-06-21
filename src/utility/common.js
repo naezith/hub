@@ -21,6 +21,9 @@ export const renameKey = (obj, oldkey, newkey) => {
 export const daysSince = (date) => 
     Math.round(Math.abs(((new Date(date)).getTime() - (new Date()).getTime())/(24*60*60*1000)));
 
+export const secondsSince = (date) =>
+    Math.round(Math.abs(((new Date(date)).getTime() - (new Date()).getTime())/(1000)));
+
 export const compareAsc = (a, b) => a > b ? 1 : a < b ? -1 : 0
 export const compareDesc = (a, b) => a < b ? 1 : a > b ? -1 : 0
 export const combineCompares = (...compares) => {

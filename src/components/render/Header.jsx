@@ -14,6 +14,7 @@ export const Header = ({ user }) =>
       <ul>
         <li><Link className={navSelectedPage('/global-rankings', true)} to='/global-rankings'>Global Rankings</Link></li>
         <li><Link className={navSelectedPage('/world-records')} to='/world-records'>World Records</Link></li>
+        <li><Link className={navSelectedPage('/personal-bests')} to='/personal-bests'>Personal Bests</Link></li>
         <li><Link className={navSelectedPage('/players')} to='/players'>Search Players</Link></li>
       </ul>
       <SteamLogin user={user}/>

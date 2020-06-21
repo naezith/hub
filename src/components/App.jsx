@@ -5,6 +5,7 @@ import { HashRouter as Router, Route } from 'react-router-dom'
 import { Header } from './render/Header'
 import { Footer } from './render/Footer'
 import GlobalRankingsPage from './pages/GlobalRankingsPage'
+import PersonalBestsPage from './pages/PersonalBestsPage'
 import PlayerProfilePage from './pages/PlayerProfilePage'
 import PlayersPage from './pages/PlayersPage'
 import LevelPage from './pages/LevelPage'
@@ -37,6 +38,7 @@ export default class App extends Component {
               <Route exact path='/' component={GlobalRankingsPage}/>
               <Route path='/global-rankings' component={GlobalRankingsPage}/>
               <Route path='/world-records' component={WorldRecordsPage}/>
+              <Route path='/personal-bests' component={PersonalBestsPage}/>
               <Route path='/players' component={PlayersPage}/>
               <Route path='/level/:level_id' component={LevelPage}/>
               <Route path='/player/:player_id' component={PlayerProfilePage}/>
