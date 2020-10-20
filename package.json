@@ -4,10 +4,10 @@
   "private": true,
   "homepage": "https://naezith.github.io/",
   "dependencies": {
-    "ajv": "^6.5.2",
+    "ajv": "^6.12.6",
     "isomorphic-fetch": "^3.0.0",
-    "react": "^16.4.2",
-    "react-dom": "^16.4.2",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0",
     "react-scripts": "1.1.4",
     "shuffle-seed": "^1.1.6"
   },
