@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React, { useState } from 'react'
 
 import { HashRouter as Router, Route } from 'react-router-dom'
 
@@ -14,42 +14,45 @@ import SteamLoginHandler from './SteamLoginHandler'
 
 import '../css/App.css'
 
-export default class App extends Component {
-  constructor() {
-    super()
+const App = () => {
+  var cachedUser = JSON.parse(localStorage.getItem('user'))
 
-    var cachedUser = JSON.parse(localStorage.getItem('user'))
-    this.state = { user: cachedUser === null ? undefined : cachedUser } 
+  const [state, setState] = useState({
+    user: cachedUser === null ? undefined : cachedUser
+  })
 
-    this.setUser = this.setUser.bind(this)
-  }
-
-  setUser = user => {
-    this.setState({user})
+  const setUser = (user) => {
+    setState({ user })
     localStorage.setItem('user', JSON.stringify(user))
   }
-  
-  render = () => (
+
+  return (
     <Router>
-        <div className='router-div'>
-            <Header user={this.state.user}/>
+      <div className='router-div'>
+        <Header user={state.user} />
 
-            <main>
-              <Route exact path='/' component={GlobalRankingsPage}/>
-              <Route path='/global-rankings' component={GlobalRankingsPage}/>
-              <Route path='/world-records' component={WorldRecordsPage}/>
-              <Route path='/personal-bests' component={PersonalBestsPage}/>
-              <Route path='/players' component={PlayersPage}/>
-              <Route path='/level/:level_id' component={LevelPage}/>
-              <Route path='/player/:player_id' component={PlayerProfilePage}/>
-              
-              <Route exact path='/steam' component={SteamLoginHandler}/>
-              <Route path='/steam/:user' render={(routeProps) => (
-                      <SteamLoginHandler {...routeProps} setUser={this.setUser} />)} />
-            </main>
+        <main>
+          <Route exact path='/' component={GlobalRankingsPage} />
+          <Route path='/global-rankings' component={GlobalRankingsPage} />
+          <Route path='/world-records' component={WorldRecordsPage} />
+          <Route path='/personal-bests' component={PersonalBestsPage} />
+          <Route path='/players' component={PlayersPage} />
+          <Route path='/level/:level_id' component={LevelPage} />
+          <Route path='/player/:player_id' component={PlayerProfilePage} />
 
-            <Footer user={this.state.user}/>
-        </div>
+          <Route exact path='/steam' component={SteamLoginHandler} />
+          <Route
+            path='/steam/:user'
+            render={(routeProps) => (
+              <SteamLoginHandler {...routeProps} setUser={setUser} />
+            )}
+          />
+        </main>
+
+        <Footer user={state.user} />
+      </div>
     </Router>
   )
 }
+
+export default App
