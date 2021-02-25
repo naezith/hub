@@ -20,7 +20,7 @@ export const WorldRecords = ({ levels, speedruns, most_wrs, loading }) => {
     
     // Sum of WRs
     let sum_of_wrs = 0
-    levels.map(l => sum_of_wrs += l.time)
+    non_secret_levels.map(l => sum_of_wrs += l.time)
 
     return (
         loading > 0 ?  <Loading /> : 
