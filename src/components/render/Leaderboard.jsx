@@ -18,7 +18,7 @@ export const Leaderboard = ({ start_rank, lines, loading, changePage,
         <table>
             <thead>
                 <tr>
-                    { lines[0].eq_rank &&                  <th>Rank</th> }
+                    { lines[0].rank &&                  <th>Rank</th> }
                     { lines[0].level_id &&              <th>Level</th> }
                     { lines[0].player_id &&             <th>Player</th> }
                     { lines[0].score !== undefined ?    <th>Dominance</th> : undefined}
