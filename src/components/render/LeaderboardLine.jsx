@@ -8,7 +8,7 @@ import { LevelLink } from './LevelLink'
 import { formatDominance, formatTime, formatRank } from '../../utility/formatters'
 import { calcDominance } from '../../utility/calculations'
 
-export const LeaderboardLine = ({ level_id, steam_id, steam_info, player_id, badge, rank, score, 
+export const LeaderboardLine = ({ level_id, steam_id, steam_info, player_id, badge, eq_rank, score, 
                 username, update_date, time, 
                 official_time, lb_rank, lb_size, dominance_scale='global', dominance_precision=3, // Player profile stuff
                 extra_value_func, obj }) => {
@@ -17,7 +17,7 @@ export const LeaderboardLine = ({ level_id, steam_id, steam_info, player_id, bad
     let mastered = !(time && official_time && time > official_time)
        
     return  <tr>
-    { rank &&               <td>{rank}</td> }
+    { eq_rank &&            <td>{eq_rank}</td> }
     { level_id &&           <td className='td-level-name'>{<LevelLink id={level_id} mastered={mastered} />}</td> }
     { player_id &&          <td><PlayerLink id={player_id} username={username} badge={badge} steam_info={steam_info} /></td>}
     { score !== undefined ? <td>{formatDominance(calcDominance(score, dominance_scale), dominance_precision)}</td> : undefined}
