@@ -142,7 +142,6 @@ export const fetchLeaderboard = (level_id, start_rank, line_count=10) => {
         fetchData(ron_server('/fetchLeaderboard'), { level_id, start_rank, line_count })().then((content) => {
             if(content.lb_data) {
                 renameKey(content, 'lb_data', 'lines')
-                renameProps(content.lines, 'eq_rank', 'rank')
                 renameProps(content.lines, 'global_score', 'score')
                 
                 content.level = getLevel(level_id)
