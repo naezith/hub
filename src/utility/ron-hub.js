@@ -49,7 +49,8 @@ export const getMostWRs = wrs => {
 
     // Sort by count
     players.sort((a, b) => combineCompares(compareDesc(a.count, b.count),
-                                           compareDesc(a.secrets_count, b.secrets_count)
+                                           compareDesc(a.secrets_count, b.secrets_count),
+                                           compareDesc(a.score, b.score)
                                            ))
 
     // Assign ranks
