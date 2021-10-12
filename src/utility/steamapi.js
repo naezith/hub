@@ -1,8 +1,6 @@
 import { steam } from '../secrets'
 import { fetchDataGET } from './common'
 
-const proxyUrl = 'https://cors.bridged.cc/'
-
 const getCountryIconURL = code =>
     code && ('https://steamcommunity-a.akamaihd.net/public/images/countryflags/' + (code).toLowerCase() + '.gif')
 
@@ -12,7 +10,7 @@ const getSteamInfo = steam_ids => {
         steam_ids.forEach(id => id_list += id + ',')
         id_list = id_list.substr(0, id_list.length - 1)
 
-        fetchDataGET(proxyUrl + 'https://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?steamids=' + id_list + '&key=' + steam.key)().then(content => {
+        fetchDataGET('https://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?steamids=' + id_list + '&key=' + steam.key, true)().then(content => {
             if(!content.error_msg) {
                 content.response.players.forEach(p => p.country_icon = getCountryIconURL(p.loccountrycode))
 

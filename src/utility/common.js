@@ -1,4 +1,7 @@
 import fetch from 'isomorphic-fetch'
+import { cors } from '../secrets'
+
+const proxyURL = 'https://cors.bridged.cc/'
 
 // slice(1) if querystring starts with &, this one does not
 export const querystringToJSON = query => {            
@@ -54,9 +57,12 @@ export const fetchData = (query, data) =>
     }
 
 
-    export const fetchDataGET = (query) => 
+    export const fetchDataGET = (query, use_cors) => 
     async () => {
-        const rawResponse = await fetch(query)
+        const rawResponse = await fetch((use_cors ? proxyURL : '') + query,
+        {
+            headers: { 'x-cors-grida-api-key': cors.key }
+        })
 
         const content = await rawResponse.json().catch((e) => { 
             console.log(e)
