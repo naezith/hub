@@ -16,6 +16,8 @@ import '../css/App.css'
 import { isRon } from '../utility/common'
 
 const App = () => {
+  document.title = (isRon ? 'hub' : 'ds') + '.naezith'
+
   var cachedUser = JSON.parse(localStorage.getItem('user'))
 
   const [state, setState] = useState({
