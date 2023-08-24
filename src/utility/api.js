@@ -2,11 +2,11 @@ import { renameKey, fetchData, compareDesc } from '../utility/common'
 import { sortWRs, getMostWRs, renameProps, getLevel } from '../utility/ron-hub'
 import { appendSteamInfo } from './steamapi'
 
-export const ron_server = uri => 'https://api.naezith.com' + uri
+export const ron_server = uri => 'https://api.naezith.com' + uri + '/'
 
 export const fetchGameInfo = () => {
     return new Promise((resolve, reject) => {
-        fetchData(ron_server('/fetchGameInfo'), { })().then((content) => {
+        fetchData(ron_server('fetchGameInfo'), { })().then((content) => {
             if(content.data) {
                 content = content.data[0]
                 
@@ -21,7 +21,7 @@ export const fetchGameInfo = () => {
 
 export const fetchGlobalRank = (player_id) => { 
     return new Promise((resolve, reject) => {
-        fetchData(ron_server('/getGlobalRank'), { player_id })().then((content) => {
+        fetchData(ron_server('getGlobalRank'), { player_id })().then((content) => {
             if(content.lb_data) {
                 content = content.lb_data[0]
                 renameKey(content, 'eq_rank', 'rank')
@@ -42,7 +42,7 @@ export const fetchGlobalRank = (player_id) => {
 
 export const fetchGlobalRankings = (start_rank, line_count=10) => {
     return new Promise((resolve, reject) => {
-        fetchData(ron_server('/fetchGlobalRankings'), { start_rank, line_count })().then((content) => {
+        fetchData(ron_server('fetchGlobalRankings'), { start_rank, line_count })().then((content) => {
             if(content.lb_data) {
                 renameKey(content, 'lb_data', 'lines')
                 content.start_rank = start_rank
@@ -58,7 +58,7 @@ export const fetchGlobalRankings = (start_rank, line_count=10) => {
 
 export const fetchPersonalBests = (customlevels=0) => {
     return new Promise((resolve, reject) => {
-        fetchData(ron_server('/fetchRecentScores'), {custom: customlevels})().then((content) => {
+        fetchData(ron_server('fetchRecentScores'), {custom: customlevels})().then((content) => {
             if(content.data) {
                 renameKey(content, 'data', 'lines')
                 renameProps(content.lines, 'global_score', 'score')
@@ -73,7 +73,7 @@ export const fetchPersonalBests = (customlevels=0) => {
 
 export const fetchPlayers = (username, steam_id) => {
     return new Promise((resolve, reject) => {
-        fetchData(ron_server('/fetchPlayers'), { username, steam_id })().then((content) => {
+        fetchData(ron_server('fetchPlayers'), { username, steam_id })().then((content) => {
             if(content.data) {
                 renameKey(content, 'data', 'players')
                 renameProps(content.players, 'global_score', 'score')
@@ -94,7 +94,7 @@ export const fetchPlayers = (username, steam_id) => {
 
 export const fetchWRs = () => {
     return new Promise((resolve, reject) => {
-        fetchData(ron_server('/fetchWRs'), { })().then((content) => {
+        fetchData(ron_server('fetchWRs'), { })().then((content) => {
             if(content.levels) {
                 sortWRs(content.levels)
                 renameProps(content.levels, 'global_score', 'score')
@@ -116,7 +116,7 @@ export const fetchSpeedrunLB = () => {
         const start_rank = 0
         Promise.all(
             [1,2,3,4,5]
-            .map( type => fetchData(ron_server('/fetchSpeedrunLB'), { start_rank, type })() )
+            .map( type => fetchData(ron_server('fetchSpeedrunLB'), { start_rank, type })() )
         ).then( (content) => {
             const LB = content
                 .map( (row, i) => Object({...row,...{chapter: i+1}}))
@@ -139,7 +139,7 @@ export const fetchSpeedrunLB = () => {
 
 export const fetchLeaderboard = (level_id, start_rank, line_count=10) => {
     return new Promise((resolve, reject) => {
-        fetchData(ron_server('/fetchLeaderboard'), { level_id, start_rank, line_count })().then((content) => {
+        fetchData(ron_server('fetchLeaderboard'), { level_id, start_rank, line_count })().then((content) => {
             if(content.lb_data) {
                 renameKey(content, 'lb_data', 'lines')
                 renameProps(content.lines, 'global_score', 'score')
@@ -157,7 +157,7 @@ export const fetchLeaderboard = (level_id, start_rank, line_count=10) => {
 
 export const fetchFinishedLevels = (player_id, player_count) => {
     return new Promise((resolve, reject) => {
-        fetchData(ron_server('/fetchFinishedLevels'), { player_id })().then((content) => {
+        fetchData(ron_server('fetchFinishedLevels'), { player_id })().then((content) => {
             if(content.data && content.data.length) {
                 renameKey(content, 'data', 'entries')
                 content.player_id = player_id

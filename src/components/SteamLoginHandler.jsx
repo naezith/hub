@@ -33,7 +33,7 @@ export default class SteamLoginHandler extends Component {
 
         // Log in
         if(this.state.uri === 'redirecting') {
-            window.location = ron_server('/auth/steam')
+            window.location = ron_server('auth/steam')
         }
         // Success
         else if(this.state.uri === 'success'){
