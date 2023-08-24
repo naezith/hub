@@ -2,6 +2,7 @@ import React from 'react'
 
 import { Leaderboard } from '../Leaderboard'
 import { Loading } from '../Loading'
+import { isRon } from '../../../utility/common'
 
 export const PlayerProfile = ({ player_id, username, badge, rank, player_count, score, 
                     steam_id, steam_info, update_date, entries, loading }) => 
@@ -11,7 +12,7 @@ export const PlayerProfile = ({ player_id, username, badge, rank, player_count, 
         
         <div>
             <Leaderboard lines={ [{ player_id, username, badge, 
-                                    lb_rank: rank, lb_size: player_count, 
+                                    lb_rank: isRon ? rank : undefined, lb_size: player_count, 
                                     score, steam_id, steam_info, update_date }]} 
                          loading={loading} 
                          date_header='Register Date'/>
