@@ -18,11 +18,11 @@
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
-    "ds-clean": "rimraf ../ds/*",
+    "ds-clean": "find ../ds/* -type f -not -name '.git*' -exec rimraf {} + && find ../ds/* -type d -not -name '.git*' -exec rimraf {} +",
     "ds-copy": "cp -R build/* ../ds/",
     "copy-public_ds": "cp -R public_ds/* build/",
     "ds-commit-push": "cd ../ds && git add . && git commit -m 'Update from hub' && git push",
-    "ds-deploy": "npm run build && npm run copy-public_ds && npm run ds-clean && npm run ds-copy && npm run ds-commit-push"
+    "ds-deploy": "npm run build && npm run copy-public_ds && npm run ds-clean && npm run ds-copy"
   },
   "devDependencies": {
     "gh-pages": "^1.2.0",
