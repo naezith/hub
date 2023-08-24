@@ -1,7 +1,7 @@
 import fetch from 'isomorphic-fetch'
 import { cors } from '../secrets'
 
-export const game = "ds"
+export const game = "ron"
 export const isRon = game === "ron"
 
 const proxyURL = 'https://cors.bridged.cc/'
