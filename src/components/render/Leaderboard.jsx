@@ -2,6 +2,7 @@ import React from 'react'
 
 import { LeaderboardLine } from './LeaderboardLine'
 import { Loading } from './Loading'
+import { isRon } from '../../utility/common'
 
 export const Leaderboard = ({ start_rank, lines, loading, changePage, 
             dominance_scale='global', dominance_precision=3, extra_header, extra_value_func,
@@ -22,9 +23,9 @@ export const Leaderboard = ({ start_rank, lines, loading, changePage,
                     { lines[0].level_id &&              <th>Level</th> }
                     { lines[0].player_id &&             <th>Player</th> }
                     { lines[0].orbs !== undefined ?    <th>Orbs</th> : undefined}
-                    { lines[0].score !== undefined ?    <th>Dominance</th> : undefined}
+                    { isRon && lines[0].score !== undefined ?    <th>Dominance</th> : undefined}
                     { lines[0].time &&                  <th>Time</th> }
-                    { lines[0].official_time &&         <th>Mastery Time</th> }
+                    { isRon && lines[0].official_time &&<th>Mastery Time</th> }
                     { lines[0].lb_rank &&               <th>Rank</th> }
                     { lines[0].update_date &&           <th>{date_header}</th> }
                     { extra_header &&                   <th>{extra_header}</th> }

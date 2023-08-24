@@ -36,7 +36,7 @@ export const WorldRecords = ({ levels, speedruns, most_wrs, loading }) => {
             <h2>Record Holders</h2>
             <Leaderboard lines={most_wrs} 
                          loading={loading} 
-                         extra_header={'WR +Secrets'}
+                         extra_header={isRon ? 'WR +Secrets' : 'Records'}
                          extra_value_func={(obj) => 
                             obj.count + 
                             (obj.secrets_count ? (' (+' + obj.secrets_count + ')') : '')} />

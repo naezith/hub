@@ -7,6 +7,7 @@ import { LevelLink } from './LevelLink'
 
 import { formatDominance, formatTime, formatRank } from '../../utility/formatters'
 import { calcDominance } from '../../utility/calculations'
+import { isRon } from '../../utility/common'
 
 export const LeaderboardLine = ({ level_id, steam_id, steam_info, player_id, badge, rank, score, 
                 username, update_date, orbs, has_replay, time, stats, seed, 
@@ -21,9 +22,9 @@ export const LeaderboardLine = ({ level_id, steam_id, steam_info, player_id, bad
     { level_id &&           <td className='td-level-name'>{<LevelLink id={level_id} mastered={mastered} />}</td> }
     { player_id &&          <td><PlayerLink id={player_id} username={username} badge={badge} steam_info={steam_info} /></td>}
     { orbs !== undefined ?  <td>{orbs}</td> : undefined}
-    { score !== undefined ? <td>{formatDominance(calcDominance(score, dominance_scale), dominance_precision)}</td> : undefined}
+    { isRon && score !== undefined ? <td>{formatDominance(calcDominance(score, dominance_scale), dominance_precision)}</td> : undefined}
     { time &&               <td>{formatTime(time)}</td> }
-    { official_time &&      <td className={mastered ? 'mastered' : 'not-mastered'}>{formatTime(official_time)}</td> }
+    { isRon && official_time &&<td className={mastered ? 'mastered' : 'not-mastered'}>{formatTime(official_time)}</td> }
     { lb_rank &&            <td>{formatRank(lb_rank, lb_size)}</td> }
     { update_date &&        <td>{<DateText date={update_date}/>}</td> }
     { extra_value_func &&   <td>{ extra_value_func(obj) }</td> }
