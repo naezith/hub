@@ -1,6 +1,9 @@
 import fetch from 'isomorphic-fetch'
 import { cors } from '../secrets'
 
+export const game = "ds"
+export const isRon = game === "ron"
+
 const proxyURL = 'https://cors.bridged.cc/'
 
 // slice(1) if querystring starts with &, this one does not

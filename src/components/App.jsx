@@ -13,6 +13,7 @@ import WorldRecordsPage from './pages/WorldRecordsPage'
 import SteamLoginHandler from './SteamLoginHandler'
 
 import '../css/App.css'
+import { isRon } from '../utility/common'
 
 const App = () => {
   var cachedUser = JSON.parse(localStorage.getItem('user'))
@@ -32,8 +33,8 @@ const App = () => {
         <Header user={state.user} />
 
         <main>
-          <Route exact path='/' component={GlobalRankingsPage} />
-          <Route path='/global-rankings' component={GlobalRankingsPage} />
+          <Route exact path='/' component={isRon ? GlobalRankingsPage : WorldRecordsPage} />
+          {isRon && <Route path='/global-rankings' component={GlobalRankingsPage} />}
           <Route path='/world-records' component={WorldRecordsPage} />
           <Route path='/personal-bests' component={PersonalBestsPage} />
           <Route path='/players' component={PlayersPage} />

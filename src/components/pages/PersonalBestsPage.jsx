@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import { PersonalBests } from '../render/pages/PersonalBests'
 import { PageLayout } from '../render/PageLayout'
 
-import { mutateState } from '../../utility/common'
+import { isRon, mutateState } from '../../utility/common'
 import { fetchPersonalBests } from '../../utility/api'
 
 export default class PersonalBestsPage extends Component {
@@ -31,10 +31,10 @@ export default class PersonalBestsPage extends Component {
         }, this.componentWillMount)
       return (
         <PageLayout title='Personal Bests' error_msg={this.state.error_msg}>
-            <div>
+            {isRon && <div>
               <button onClick={ switch_display(0) }>Official levels</button>
               <button onClick={ switch_display(1) }>Custom levels</button>
-            </div>
+            </div>}
             <PersonalBests {...this.state}/>
         </PageLayout>
       )

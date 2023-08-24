@@ -5,6 +5,7 @@ import { Loading } from '../Loading'
 import { getChapterName } from '../../../utility/ron-hub';
 import shuffleSeed from 'shuffle-seed'
 import { formatTime } from '../../../utility/formatters'
+import { isRon } from '../../../utility/common';
 
 export const WorldRecords = ({ levels, speedruns, most_wrs, loading }) => {
     // Filter out the secret levels
@@ -26,9 +27,12 @@ export const WorldRecords = ({ levels, speedruns, most_wrs, loading }) => {
         loading > 0 ?  <Loading /> : 
 
         <div>
-            <hr/>
-            <h2>Sum of WRs {formatTime(sum_of_wrs)}</h2>
-            <hr/>
+            {isRon &&
+            <div>
+                <hr/>
+                <h2>Sum of WRs {formatTime(sum_of_wrs)}</h2>
+                <hr/>
+            </div>}
             <h2>Record Holders</h2>
             <Leaderboard lines={most_wrs} 
                          loading={loading} 
@@ -41,6 +45,8 @@ export const WorldRecords = ({ levels, speedruns, most_wrs, loading }) => {
             <Leaderboard lines={levels} 
                          loading={loading} />
 
+            {isRon &&
+            <div>
             <h2>Speedruns</h2>
             <Leaderboard lines={speedruns}
                          loading={loading}
@@ -48,10 +54,14 @@ export const WorldRecords = ({ levels, speedruns, most_wrs, loading }) => {
                          extra_value_func={(obj) =>
                                 getChapterName(obj.chapter)
                          } />
+            </div>}
 
+            {isRon &&
+            <div>
             <h1>Level of the Day</h1>
             <Leaderboard lines={ [level_of_the_day] } 
                          loading={loading} />
+            </div>}
         </div>
     )
 }

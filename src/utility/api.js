@@ -1,8 +1,18 @@
-import { renameKey, fetchData, compareDesc } from '../utility/common'
+import { renameKey, fetchData, compareDesc, isRon, game } from '../utility/common'
 import { sortWRs, getMostWRs, renameProps, getLevel } from '../utility/ron-hub'
 import { appendSteamInfo } from './steamapi'
 
-export const ron_server = uri => 'https://api.naezith.com' + uri + '/'
+export const ron_server = (uri, gameDependant = true) => {
+    let url = 'https://api.naezith.com/';
+
+    if (gameDependant && !isRon) {
+        url += game + '_';
+    }
+
+    url += uri;
+
+    return url;
+}
 
 export const fetchGameInfo = () => {
     return new Promise((resolve, reject) => {
@@ -25,7 +35,7 @@ export const fetchGlobalRank = (player_id) => {
             if(content.lb_data) {
                 content = content.lb_data[0]
                 renameKey(content, 'eq_rank', 'rank')
-                renameKey(content, 'global_score', 'score')
+                if(isRon) renameKey(content, 'global_score', 'score')
                 renameKey(content, 'register_date', 'update_date')
                 content.player_id = player_id
                 
@@ -47,7 +57,7 @@ export const fetchGlobalRankings = (start_rank, line_count=10) => {
                 renameKey(content, 'lb_data', 'lines')
                 content.start_rank = start_rank
                 renameProps(content.lines, 'id', 'player_id')
-                renameProps(content.lines, 'global_score', 'score')
+                if(isRon) renameProps(content.lines, 'global_score', 'score')
                 
                 appendSteamInfo(content.lines).then(() => resolve(content))
             }
@@ -61,7 +71,7 @@ export const fetchPersonalBests = (customlevels=0) => {
         fetchData(ron_server('fetchRecentScores'), {custom: customlevels})().then((content) => {
             if(content.data) {
                 renameKey(content, 'data', 'lines')
-                renameProps(content.lines, 'global_score', 'score')
+                if(isRon) renameProps(content.lines, 'global_score', 'score')
                 resolve(content)
 
                 //appendSteamInfo(content.lines).then(() => resolve(content))
@@ -76,11 +86,11 @@ export const fetchPlayers = (username, steam_id) => {
         fetchData(ron_server('fetchPlayers'), { username, steam_id })().then((content) => {
             if(content.data) {
                 renameKey(content, 'data', 'players')
-                renameProps(content.players, 'global_score', 'score')
+                if(isRon) renameProps(content.players, 'global_score', 'score')
                 renameProps(content.players, 'register_date', 'update_date')
                 renameProps(content.players, 'id', 'player_id')
 
-                content.players.sort((a, b) => compareDesc(a.score, b.score))
+                if(isRon) content.players.sort((a, b) => compareDesc(a.score, b.score))
 
                 content.username = username
                 content.steam_id = steam_id
@@ -97,7 +107,7 @@ export const fetchWRs = () => {
         fetchData(ron_server('fetchWRs'), { })().then((content) => {
             if(content.levels) {
                 sortWRs(content.levels)
-                renameProps(content.levels, 'global_score', 'score')
+                if(isRon) renameProps(content.levels, 'global_score', 'score')
 
                 appendSteamInfo(content.levels).then(() => { 
                     content.most_wrs = getMostWRs(content.levels)
@@ -112,6 +122,11 @@ export const fetchWRs = () => {
 
 export const fetchSpeedrunLB = () => {
     return new Promise((resolve, reject) => {
+        if(!isRon) {
+            resolve({ speedruns: [] })
+            return;
+        }
+
         const fail = () => reject({ error_msg: 'Failed to fetch speedruns' })
         const start_rank = 0
         Promise.all(
@@ -142,7 +157,7 @@ export const fetchLeaderboard = (level_id, start_rank, line_count=10) => {
         fetchData(ron_server('fetchLeaderboard'), { level_id, start_rank, line_count })().then((content) => {
             if(content.lb_data) {
                 renameKey(content, 'lb_data', 'lines')
-                renameProps(content.lines, 'global_score', 'score')
+                if(isRon) renameProps(content.lines, 'global_score', 'score')
                 
                 content.level = getLevel(level_id)
                 content.level_id = level_id

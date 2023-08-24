@@ -21,6 +21,7 @@ export const Leaderboard = ({ start_rank, lines, loading, changePage,
                     { lines[0].rank &&                  <th>Rank</th> }
                     { lines[0].level_id &&              <th>Level</th> }
                     { lines[0].player_id &&             <th>Player</th> }
+                    { lines[0].orbs !== undefined ?    <th>Orbs</th> : undefined}
                     { lines[0].score !== undefined ?    <th>Dominance</th> : undefined}
                     { lines[0].time &&                  <th>Time</th> }
                     { lines[0].official_time &&         <th>Mastery Time</th> }

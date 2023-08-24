@@ -6,11 +6,12 @@ import { CountryIcon } from './CountryIcon'
 import { SteamAvatar } from './SteamAvatar'
 
 import { ranks } from '../../data/naezith'
+import { isRon } from '../../utility/common'
 
 export const PlayerLink = ({id, username, badge, steam_info, navSelected}) => 
     <Link className={navSelected} to={'/player/' + id}>
         <ul className='player-column'>
-            { badge === undefined ? undefined : <li><RankIcon name={ranks[badge]} /></li> }
+            { !isRon || badge === undefined ? undefined : <li><RankIcon name={ranks[badge]} /></li> }
             
             { steam_info && <li><SteamAvatar name={username} url={steam_info.avatarfull} /></li> }
             

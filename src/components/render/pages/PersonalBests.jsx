@@ -6,12 +6,13 @@ import { LevelLink } from './../LevelLink'
 import { Tooltip } from './../Tooltip'
 import { ChapterIcon } from '../ChapterIcon'
 import { getChapterName } from '../../../utility/ron-hub'
+import { isRon } from '../../../utility/common'
 
 export const PersonalBests = ({lines, customlevels}) => {
     if(!lines.length)
       return <div></div>
 
-    const make_line_info = ({level_id, player_id, username, badge, steam_info, name, official_time, old_time, new_time, update_date, type}) => ({
+    const make_line_info = ({level_id, player_id, username, badge, steam_info, name, official_time, old_orbs, new_orbs, old_time, new_time, update_date, type}) => ({
        'Level': i => {
           const mastered = !(new_time && official_time && new_time > official_time)
           const is_chapter = type > 0
@@ -29,7 +30,10 @@ export const PersonalBests = ({lines, customlevels}) => {
       ,'Player': i => <td key={i}><PlayerLink id={player_id} username={username} badge={badge} steam_info={steam_info} /></td>
       ,'Time saved': i => (
         <td key={i} className={new_time <= official_time ? 'mastered' : ''}>
-          <Tooltip inside={formatTimeSavings(old_time - new_time)} popup={ `${formatTime(old_time)} -> ${formatTime(new_time)}` } />
+          {isRon ? 
+          <Tooltip inside={formatTimeSavings(old_time - new_time)} popup={ `${formatTime(old_time)} -> ${formatTime(new_time)}` } /> : 
+          <Tooltip inside={`${old_orbs} -> ${new_orbs}`} popup={ `${formatTime(old_time)} -> ${formatTime(new_time)}` } />
+          }
         </td>
         )
       ,'When': i => <td key={i}><Tooltip inside={formatDateRecent(update_date)} popup={update_date} /></td>

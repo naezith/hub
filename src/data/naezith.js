@@ -1,3 +1,5 @@
+import { isRon } from "../utility/common"
+
 export const max_scores = {
 	'level': 100,
 	'chapter': 250,
@@ -5,9 +7,14 @@ export const max_scores = {
 	'global': 10000
 }
 
-export const chapters = ['',
+export const ron_chapters = ['',
 	'Jade', 'Sand', 'Metal', 'Crystal', 'All Chapters'
 ]
+export const ds_chapters = ['',
+	'', 'Classic', 'Chaos', '', ''
+]
+
+export const chapters = isRon ? ron_chapters : ds_chapters
 
 export const ranks = [
     'Novice',
@@ -21,7 +28,7 @@ export const ranks = [
     'Descendant'
 ]
 
-export const levels = [
+export const ron_levels = [
 	{
 		id: 647,
 		name: 'Ruins',
@@ -639,3 +646,50 @@ export const levels = [
 		has_secret: 0
 	}
 ]
+
+export const ds_levels = [
+	{
+		id: 1,
+		name: 'Classic Original',
+		chapter: 2,
+		is_secret: 0,
+		has_secret: 0
+	},
+	{
+		id: 2,
+		name: 'Classic Random',
+		chapter: 2,
+		is_secret: 0,
+		has_secret: 0
+	},
+	{
+		id: 3,
+		name: 'Classic Weekly',
+		chapter: 2,
+		is_secret: 0,
+		has_secret: 0
+	},
+	{
+		id: 4,
+		name: 'Chaos Original',
+		chapter: 3,
+		is_secret: 0,
+		has_secret: 0
+	},
+	{
+		id: 5,
+		name: 'Chaos Random',
+		chapter: 3,
+		is_secret: 0,
+		has_secret: 0
+	},
+	{
+		id: 6,
+		name: 'Chaos Weekly',
+		chapter: 3,
+		is_secret: 0,
+		has_secret: 0
+	},
+]
+
+export const levels = isRon ? ron_levels : ds_levels
