@@ -35,6 +35,7 @@ export const getMostWRs = wrs => {
                 secrets_count: 0
             }
             
+            delete player.orbs
             delete player.level_id
             delete player.time
             delete player.update_date

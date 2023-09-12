@@ -17,6 +17,6 @@ export const Header = ({ user }) =>
         <li><Link className={navSelectedPage('/personal-bests')} to='/personal-bests'>Personal Bests</Link></li>
         <li><Link className={navSelectedPage('/players')} to='/players'>Search Players</Link></li>
       </ul>
-      <SteamLogin user={user}/>
+      { isRon && <SteamLogin user={user}/> }
     </header>
     
