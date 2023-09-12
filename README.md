@@ -18,5 +18,3 @@ It fetches data from **Remnants of Naezith Server**.
 * Player - General information about the player, and a list of all levels he completed.
 
 All these lists have high detail information.
-
-**You need to have a secret.js file which includes a Steam Web API key**
