@@ -1,3 +1,1 @@
-export const steam = {
-    key: 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
-}
+// No frontend secrets are required.

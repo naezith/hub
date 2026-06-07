@@ -1,23 +1,32 @@
-import { steam } from '../secrets'
-import { fetchDataGET } from './common'
-
 const getCountryIconURL = code =>
     code && ('https://steamcommunity-a.akamaihd.net/public/images/countryflags/' + (code).toLowerCase() + '.gif')
 
+async function getSteamPlayerSummaries(steamIds) {
+    const STEAM_PROXY_BASE = "https://steam-proxy.naezith.workers.dev";
+
+    const url =
+        `${STEAM_PROXY_BASE}/player-summaries?steamids=` +
+        encodeURIComponent(steamIds.join(","));
+
+    const response = await fetch(url);
+
+    if (!response.ok) {
+        throw new Error(`Steam proxy failed: ${response.status}`);
+    }
+
+    return response.json();
+}
+
 const getSteamInfo = steam_ids => { 
     return new Promise((resolve, reject) => {
-        let id_list = ''
-        steam_ids.forEach(id => id_list += id + ',')
-        id_list = id_list.substr(0, id_list.length - 1)
-
-        fetchDataGET('https://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?steamids=' + id_list + '&key=' + steam.key, true)().then(content => {
+        getSteamPlayerSummaries(steam_ids).then(content => {
             if(!content.error_msg) {
                 content.response.players.forEach(p => p.country_icon = getCountryIconURL(p.loccountrycode))
 
                 resolve(content)
             }
             else reject({ error_msg: 'Failed to fetch Steam Info' })
-        })
+        }).catch(reject)
     })
 }
 

@@ -1,10 +1,7 @@
 import fetch from 'isomorphic-fetch'
-import { cors } from '../secrets'
 
 export const game = "ron"
 export const isRon = game === "ron"
-
-const proxyURL = 'https://cors.bridged.cc/'
 
 // slice(1) if querystring starts with &, this one does not
 export const querystringToJSON = query => {            
@@ -59,21 +56,6 @@ export const fetchData = (query, data) =>
         return { ...content, error_msg: undefined }
     }
 
-
-    export const fetchDataGET = (query, use_cors) => 
-    async () => {
-        const rawResponse = await fetch((use_cors ? proxyURL : '') + query,
-        {
-            headers: { 'x-cors-grida-api-key': cors.key }
-        })
-
-        const content = await rawResponse.json().catch((e) => { 
-            console.log(e)
-            return { error_msg: 'The server is down' }
-        })
-
-        return { ...content, error_msg: undefined }
-    }
 
 export const startLoading = (component, count = 1) => component.setState({ loading: component.state.loading + count }) 
 
