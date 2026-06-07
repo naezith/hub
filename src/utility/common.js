@@ -1,6 +1,6 @@
 import fetch from 'isomorphic-fetch'
 
-export const game = "ron"
+export const game = 'ron'
 export const isRon = game === 'ron'
 
 // slice(1) if querystring starts with &, this one does not
