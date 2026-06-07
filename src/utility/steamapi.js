@@ -40,7 +40,9 @@ export const appendSteamInfo = (lines) => {
                     l.steam_info = steam_info.response.players.find(p => p.steamid === l.steam_id))
             lines.forEach(l => {
                 if(!l.steam_info) l.steam_info = {};
-                l.steam_info.country_icon = getCountryIconURL(l.country)
+                const country = l.country || l.steam_info.loccountrycode
+                l.steam_info.country_icon = getCountryIconURL(country)
+                if(!l.steam_info.loccountrycode) l.steam_info.loccountrycode = country
             })
             resolve()
         })
