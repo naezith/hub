@@ -6,7 +6,7 @@ async function getSteamPlayerSummaries(steamIds) {
 
     const url =
         `${STEAM_PROXY_BASE}/player-summaries?steamids=` +
-        encodeURIComponent(steamIds.join(","));
+        steamIds.map(encodeURIComponent).join(",");
 
     const response = await fetch(url);
 
